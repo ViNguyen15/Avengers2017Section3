@@ -51,14 +51,7 @@ if ($_SESSION['loggedin']!=true){
     <form action="function/logout.php" method="post"><input type="submit" value="Logout"></form>
     <br>
     <?php
-        $inventory = $_SESSION['inventory'];
-
-        echo "Inventory:<br>";
-        foreach ($inventory as $item){
-            if ($item->amount >= 0){
-                echo "- $item->name ( $item->amount ) <br>";
-            }
-        }
+        include("function/display_inv.php");
     ?>
     <!-- Navigation / Inventory ends -->
   </div>
