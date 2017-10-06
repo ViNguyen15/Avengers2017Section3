@@ -1,0 +1,6 @@
+# This is the gitignore file. 
+# The purpose of this file is to ignore certain folders/files from being tracked.
+
+# Saves will be ignored as they are only used for testing purposes
+/saves/
+
