@@ -5,7 +5,7 @@ class Item{
     public $name;
     public $description;
     public $sellValue;
-    public $buyValue
+    public $buyValue;
     public $type;
     public $stackable;
     public $amount;
@@ -18,7 +18,7 @@ class Item{
         $this->type=$type;
         $this->stackable=$stackable;
         $this->amount = 0;
-		$this->buyValue = $buyValue;
+		    $this->buyValue = $buyValue;
     }
 /*
     public function __clone() {
