@@ -1,19 +1,35 @@
 <?php
 
-include('../classes/Planet.php');
-include('../classes/Room.php');
-include('../classes/Item.php');
+foreach (glob("../classes/*.php") as $class) {
+    include("$class");
+}
 
 session_start();
+
 
 $value = $_GET['item'];
 $values = explode(",", $value);
 
+
+
 foreach ($_SESSION['inventory'] as $item){
-    if ($item->name == $values[0]){
+    if ($item->id == $values[0]){
         $item->changeAmt((int)$values[1]);
     }
 }
+
+foreach ($_SESSION['game'] as $planet) {
+    foreach ($planet->rooms as $room){
+        if ($room->id==$_SESSION['location']) {
+            foreach ($room->items as $i => $item){
+                if ($item->dropid == $values[2]){
+                    unset($room->items[$i]);
+                }
+            }
+        }
+    }
+}
+
 header('location: ../');
 
 
