@@ -6,22 +6,16 @@ class Room{
     // define properties
     public $id;
     public $name;
-    public $items;
-    public $monsters;
+    public $items=array();
+    public $monsters=array();
 
     // constructor
-    public function __construct() {
-        //$this->name = "hi";
+    public function __construct($id, $name) {
+        $this->id=$id;
+        $this->name=$name;
     }
 
     // define methods
 
-    public function createRoom($id, $name) {
-        $this->id=$id;
-        $this->name=$name;
-    }
-    public function addItem($item) {
-        $this->items[]=$item;
-    }
 }
 ?>
