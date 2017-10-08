@@ -1,8 +1,9 @@
 <?php
-include('../classes/Planet.php');
-include('../classes/Room.php');
-include('../classes/Item.php');
-include('../database/item.php');
+
+foreach (glob("classes/*.php") as $class) {
+    include("$class");
+}
+//Include all of the classes
 
 session_start();
 
