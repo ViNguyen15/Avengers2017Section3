@@ -8,6 +8,16 @@ foreach (glob("classes/*.php") as $class) {
 session_start();
 //Starts the session
 
+//remove later
+if(!isset($_SESSION['game'])){
+    include('database/rooms.php');
+    $_SESSION['game'] = $planets;
+}
+if(!isset($_SESSION['location'])){
+    $_SESSION['location'] = 1;
+}
+//remove above
+
 
 if ($_SESSION['loggedin']!=true){
     header('Location: register.php');
@@ -29,14 +39,18 @@ if ($_SESSION['loggedin']!=true){
 <div id="header"><h1>Text-Based Game</h1></div>
   <div id="wrapper">
     <div id="content">
-    <!-- Main content starts -->
+    <!-- Main content starts
       <p><strong>
       <form action="function/get_item.php">
-        <button type="submit" name="item" value="Gold,10">Get 10 Gold</button>
+        <button type="submit" name="item" value="0,10">Get 10 Gold</button>
       </form>
       </strong></p>
+      <br>
+      -->
+      <?php
+      include("function/display_room.php");
+      ?>
     
-    <!-- Main content ends -->
       </div>
   </div>
   <div id="navigation">
