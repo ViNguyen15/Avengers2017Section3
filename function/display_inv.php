@@ -10,7 +10,7 @@ foreach ($inventory as $item){
 //For each item in the inventory array
     //if ($item->amount > 0){ 
     //Remove the comments before if-statement to only show items the player has
-        echo "<div class='item'> <img src='./images/$item->name.png' height='32' width='32'> $item->name x $item->amount  </div>";
+        echo "<div class='item'> <img src='./images/items/$item->id.png' height='32' width='32'> $item->name x $item->amount  </div>";
     //}
 }
 
