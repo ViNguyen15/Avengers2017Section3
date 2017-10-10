@@ -1,4 +1,8 @@
 <?php 
+/**
+rooms.php
+display_room.php
+*/
 class Room{
 
 	//Software Dev Team Avengers 

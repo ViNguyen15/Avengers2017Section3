@@ -1,5 +1,7 @@
 <?php
-
+/**
+index.php
+ */
 $game = $_SESSION['game'];
 $location = $_SESSION['location'];
 //Creates an array variable with all the inventory data from the session
