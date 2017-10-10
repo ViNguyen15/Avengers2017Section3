@@ -15,5 +15,5 @@ $inventory[] = new Item(1,"Medicine","Sophisticated medicine capable of healing 
 $inventory[] = new Item(2,"Elixir","Very advanced medicine capable of healing all of the body’s wounds.","health",0,100,50);
 $inventory[] = new Item(3,"Mineral","Resource found mainly on mining colonies. Used to make materials.","raw",0,500,250);
 $inventory[] = new Item(4,"Rare Mineral","Rare resource found mainly on mining colonies. Used to make higher end materials.","raw",0,1000,500);
-// try to index
+
 ?>
