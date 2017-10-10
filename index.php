@@ -8,7 +8,7 @@ foreach (glob("classes/*.php") as $class) {
 session_start();
 //Starts the session
 
-//remove later
+// Temporary Code: Creates game map. Sets Game map to the session
 if(!isset($_SESSION['game'])){
     include('database/rooms.php');
     $_SESSION['game'] = $planets;
@@ -16,7 +16,7 @@ if(!isset($_SESSION['game'])){
 if(!isset($_SESSION['location'])){
     $_SESSION['location'] = 1;
 }
-//remove above
+//Temporary Code End
 
 
 if ($_SESSION['loggedin']!=true){
@@ -28,63 +28,52 @@ if ($_SESSION['loggedin']!=true){
 
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
 <head>
 <title>Text-Based Game</title>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
 <link rel="stylesheet" type="text/css" href="styles.css?v=<?php echo time();?>" />
 </head>
+
 <body>
-<div id="container">
-<div id="header"><h1>Text-Based Game</h1></div>
-  <div id="wrapper">
-    <div id="content">
-    <!-- Main content starts
-      <p><strong>
-      <form action="function/get_item.php">
-        <button type="submit" name="item" value="0,10">Get 10 Gold</button>
-      </form>
-      </strong></p>
-      <br>
-      -->
-      <?php
-      include("function/display_room.php");
-      ?>
-    
-      </div>
-  </div>
-  <div id="navigation">
-  <!-- Navigation / Inventory starts -->
-    <p><strong></strong></p>
-    <?php 
-        echo "Username: ".$_SESSION['username'];
-    ?>
-    <br>
-    <form action="function/save.php" method="post"><input type="submit" value="Save Game"></form>
-    <br>
+<header>
+    <h1>< GAME TITLE ></h1>
+
     <form action="function/logout.php" method="post"><input type="submit" value="Logout"></form>
-    <br>
+    <form action="function/save.php" method="post"><input type="submit" value="Save Game"></form>
+
+</header>
+
+<div id="main">
+
+<article>
+    
     <?php
-        include("function/display_inv.php");
+    include("function/display_room.php");
     ?>
-    <!-- Navigation / Inventory ends -->
-  </div>
-  <div id="footer">
-  <!-- Footer starts -->
-    <p>
-        <center>
-        <table bgcolor="white"><tr>
-            <td>
-            
-            </td>
-        </tr></table>
-        </center>
-    </p>
-    <!-- Footer ends -->
-  </div>
+
+</article>
+
+<nav>
+    <?php 
+    echo "Username: ".$_SESSION['username'];
+    ?>
+
+    <br>
+
+    <?php
+    include("function/display_inv.php");
+    ?>
+</nav>
+
+<map>
+    Map
+</map>
+
 </div>
-</body>
-</html>
+
+<footer>Footer</footer>
+
+</body> 
 <?php
 if (isset($_GET["save"])&&$_GET["save"]==1){
     echo "<div id=\"savegame\"><br><font color=green>Game Saved!</font></div>";  
