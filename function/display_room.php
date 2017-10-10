@@ -9,6 +9,7 @@ $current_room = findRoom($game,$location);
 
 echo '<h2>Planet '.$current_planet->name.'</h2>';
 echo '<h3>'.$current_room->name.'</h3>';
+echo '<p1>'.$current_room->description.'</>';
 
 foreach ($current_room->items as $item){
     echo "

@@ -22,22 +22,22 @@ foreach (glob("../classes/*.php") as $class) {
 
 $Mercury = new Planet(1,"Mercury");
 
-$Me_R1 = new Room(1,"Outside Power Plant");
+$Me_R1 = new Room(1,"Outside Power Plant", "You stand outside of what appears to be a large white building that is gated off. While it is not clear what exactly it is used for, at first glance it appears to be a power plant of some sort.");
 $Mercury->rooms[] = $Me_R1;
 
 $Me_R1->items[] = Item::itemDrop(0,15,1001);
 $Me_R1->items[] = Item::itemDrop(2,2,1002);
 
-$Me_R2 = new Room(2,"Generator Room");
-$Mercury->rooms[] = $Me_R2;
+ $Me_R2 = new Room(2,"Generator Room", "The center of the power plant appears to be a power plant. While it is still able to function, there is very clearly visible damage to the inside of the room, and a few parts appear to be missing.");
+ $Mercury->rooms[] = $Me_R2;
 
-$Me_R3 = new Room(3,"Destroyed Wing");
-$Mercury->rooms[] = $Me_R3;
-$Me_R3->items[] = Item::itemDrop(0,50,1003);
-$Me_R3->items[] = Item::itemDrop(1,2,1004);
+ $Me_R3 = new Room(3,"Destroyed Wing", "The west side of the plant is destroyed beyond repair. The back wall is non-existent, the only evidence that it even existed at any point is a pile of rubble surrounding the hole.");
+ $Mercury->rooms[] = $Me_R3;
+ $Me_R3->items[] = Item::itemDrop(0,50,1003);
+ $Me_R3->items[] = Item::itemDrop(1,2,1004);
 
-$Me_R4 = new Room(4,"Manager's Room");
-$Mercury->rooms[] = $Me_R4;
+ $Me_R4 = new Room(4,"Manager's Room", "You enter what appears to be an office. A man sits behind a desk and stares at you, wondering what you are doing in here. While he does not seem dangerous, he is wary of your presence.");
+ $Mercury->rooms[] = $Me_R4;
 
 
 
