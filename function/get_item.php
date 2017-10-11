@@ -9,6 +9,7 @@ session_start();
 
 $value = $_GET['item'];
 $values = explode(",", $value);
+$location = explode(":",$_SESSION['location']);
 
 
 
@@ -20,7 +21,7 @@ foreach ($_SESSION['inventory'] as $item){
 
 foreach ($_SESSION['game'] as $planet) {
     foreach ($planet->rooms as $room){
-        if ($room->id==$_SESSION['location']) {
+        if ($room->id==$location[1]) {
             foreach ($room->items as $i => $item){
                 if ($item->dropid == $values[2]){
                     unset($room->items[$i]);
