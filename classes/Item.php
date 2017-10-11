@@ -13,7 +13,7 @@ class Item{
     public function __construct() {
 
     }
-    
+
     public $dropid;
     public static function itemDrop( $id , $amount , $dropid ) {
         $instance = new self();
@@ -49,6 +49,6 @@ class Item{
 class Weapon extends item {
     public $power;
     public $level;
-
+    public $upgradeValue;
 }
 ?>
