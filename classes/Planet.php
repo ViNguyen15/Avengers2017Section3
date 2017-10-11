@@ -10,6 +10,10 @@ class Planet{
         $this->id=$id;
         $this->name=$name;
     }
-
+    
+    public function addRoom($room){
+        $this->rooms[] = $room;
+    }
 }
+
 ?>

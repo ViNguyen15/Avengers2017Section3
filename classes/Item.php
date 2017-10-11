@@ -46,7 +46,7 @@ class Item{
     }
 
 }
-class Weapon extends item {
+class Weapon extends Item {
     public $power;
     public $level;
     public $upgradeValue;

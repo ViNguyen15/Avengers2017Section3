@@ -1,7 +1,8 @@
 <?php 
 /**
-rooms.php
-display_room.php
+    Class Script
+    Accesses:   classes/Item.php
+                classes/Monster.php 
 */
 class Room{
 
@@ -19,6 +20,14 @@ class Room{
         $this->id=$id;
         $this->name=$name;
         $this->description=$description;
+    }
+
+    public function addItem($item){
+        $this->items[] = $item;
+    }
+
+    public function addMonster($monster){
+        $this->monsters[] = $monster;
     }
 
     // define methods
