@@ -13,9 +13,7 @@ if(!isset($_SESSION['game'])){
     include('database/rooms.php');
     $_SESSION['game'] = $planets;
 }
-if(!isset($_SESSION['location'])){
-    $_SESSION['location'] = 1;
-}
+ //$_SESSION['location'] = $_SESSION['game'][0];
 //Temporary Code End
 
 
