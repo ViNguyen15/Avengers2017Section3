@@ -76,6 +76,8 @@ $V_R4 = new Room(8, "Field", "ALERT!! There is a gigantic terrific creature on a
 // "treasure box"?
 // elixir
 
+$Venus->setRooms(array($V_R1,$V_R2,$V_R3,$V_R4));
+
 #  ______           _   _     
 # |  ____|         | | | |    
 # | |__   __ _ _ __| |_| |__  
