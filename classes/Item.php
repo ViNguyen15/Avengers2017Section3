@@ -33,6 +33,12 @@ class Item{
         $instance->sellValue=$sellValue;
         return $instance;
     }
+    public static function playerItem ($id, $amount) {
+        $instance = new self();
+        $instance->id=$id;
+        $instance->amount=$amount;
+    }
+
 /*
     public function __clone() {
 
