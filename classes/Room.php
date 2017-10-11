@@ -14,6 +14,7 @@ class Room{
     public $description;
     public $items=array();
     public $monsters=array();
+    public $portals=array();
 
     // constructor
     public function __construct($id, $name, $description) {
@@ -30,10 +31,19 @@ class Room{
         $this->monsters[] = $monster;
     }
 
+    public function addConnection($portal,$coord_x,$coord_y,$img){
+        $this->portals[] = array(
+            "id" => $portal,
+            "x" => $coord_x,
+            "y" => $coord_y,
+            "img" => $img);
+    }
+
     public function display(){
         echo "<h3>$this->name</h3>";
-        echo "$this->description";
+        echo "$this->description<br><br>";
 
+        echo "Items:";
         foreach ($this->items as $item){
             echo "
             <form action='function/get_item.php'>
@@ -42,11 +52,16 @@ class Room{
             ";
         }
 
-        echo "
-            <form action='function/goto_planet.php'>
-            <button type='submit' name='room' value='$this->id'>Back to Planet</button>
+        echo "<br><br>Connections:";
+        foreach ($this->portals as $index => $portal){
+            echo "
+            <form action='function/goto_room.php'>
+                <button type='submit' name='room' value='$portal[id]'>
+                    <img height=32px width=32px src='images/decoration/$portal[img].png' />
+                </button>
             </form>
             ";
+        }
     }
     // define methods
 
