@@ -15,6 +15,20 @@ index.php
 # | |    | | (_| | | | |  __/ |_\__ \
 # |_|    |_|\__,_|_| |_|\___|\__|___/
 
+/* 
+ ---------  TEMPLATE  -----------
+$PLANET_NAME = new Planet(ID,"NAME");       //Creates a planet
+
+$ROOM_1 = new Room(ID,"NAME","DESCRIPTION");    //Creates a room
+$ROOM_1->addConnection(ROOM_ID, x_coordinate, y_coordinate, IMAGE_NAME);          //adds a portal in Room 1 to teleport to room 2
+$ROOM_2 = new Room(ID,"NAME","DESCRIPTION");
+$ROOM_3 = new Room(ID,"NAME","DESCRIPTION");
+
+
+$PLANET_NAME->setRooms(array( $ROOM_1 , $ROOM_2 , $ROOM_3 ));       //Adds the rooms to the planet
+
+ */
+
 
 #  __  __                                
 # |  \/  |                               
@@ -26,11 +40,10 @@ index.php
 #                                  |___/ 
 
 $Mercury = new Planet(1,"Mercury");
-// items monsters
 
 $Me_R1 = new Room(1,"Outside Power Plant", "You stand outside of what appears to be a large white building that is gated off. While it is not clear what exactly it is used for, at first glance it appears to be a power plant of some sort.");
-$Mercury->rooms[] = $Me_R1;
-
+$Me_R1->addConnection(2,10,10,"buidling");
+$Me_R1->addConnection(3,10,10,"portal");
 $Me_R1->addItem( Item::itemDrop(0,15,1001) );
 $Me_R1->addItem( Item::itemDrop(2,2,1002) );
 // space pirate
@@ -39,17 +52,16 @@ $Me_R1->addItem( Item::itemDrop(2,2,1002) );
  $Me_R2 = new Room(2,"Generator Room", "The center of the power plant appears to be a power plant. While it is still able to function, there is very clearly visible damage to the inside of the room, and a few parts appear to be missing.");
  // ruffian
  // medicine
- $Mercury->rooms[] = $Me_R2;
 
  $Me_R3 = new Room(3,"Destroyed Wing", "The west side of the plant is destroyed beyond repair. The back wall is non-existent, the only evidence that it even existed at any point is a pile of rubble surrounding the hole.");
  //elixir
- $Mercury->rooms[] = $Me_R3;
  $Me_R3->addItem( Item::itemDrop(0,50,1003) );
  $Me_R3->addItem( Item::itemDrop(1,2,1004) );
 
  $Me_R4 = new Room(4,"Manager's Room", "You enter what appears to be an office. A man sits behind a desk and stares at you, wondering what you are doing in here. While he does not seem dangerous, he is wary of your presence.");
  // treasure chest? 100 gold
- $Mercury->rooms[] = $Me_R4;
+ 
+$Mercury->setRooms(array($Me_R1,$Me_R2,$Me_R3,$Me_R4));
 
 
 
@@ -87,14 +99,22 @@ $Venus->setRooms(array($V_R1,$V_R2,$V_R3,$V_R4));
 
 $Earth = new Planet(3,"Earth");
 $E_R1 = new Room(9, "Crash Site", "You wake up in a forest, dazed but uninjured. You stand up and look at your ship, which is missing many of it’s vital piec-es from your encounter with a band of space pirates. There is no way that the ship can fly in it’s current condition, so you must find another way to get off this planet. To the north, there appears to be a building, so maybe it would be best to investi-gate.");
+$E_R1->addConnection(10,10,10,"Building");
 // 100 gold
 // worn out robot
 $E_R2 = new Room(10, "Lab entrance", "The remains of the destroyed robot lay on the floor. The fight with the robot destroyed all machinery in the room, meaning that getting information from the room is no longer an option. Behind you is the exit of the lab, and forward, there is a door to another room.");
+$E_R2->addConnection(9,10,10,"Building");
+$E_R2->addConnection(11,10,10,"Building");
 // medicine
 $E_R3 = new Room(11, "Portal room", "You enter a room with a single portal, which is currently turned on and active.");
-$E_M1 = new Room(12, "Home Base",  "Upon exiting the portal, you enter a base located on the moon. The room is filled with 4 portals labelled Mercury, Venus, Earth, and Mars. There is also a shop keeper there, who looks at you, hoping that you came to buy something.");
-// shop
+$E_R3->addConnection(9,10,10,"Building");
+$E_R3->addConnection(10,10,10,"Building");
+$E_R3->addConnection(12,10,10,"Portal");
 
+$E_M1 = new Room(12, "Home Base",  "Upon exiting the portal, you enter a base located on the moon. The room is filled with 4 portals labelled Mercury, Venus, Earth, and Mars. There is also a shop keeper there, who looks at you, hoping that you came to buy something.");
+$E_M1->addConnection(11,10,10,"portal");
+// shop
+$Earth->setRooms(array($E_R1,$E_R2,$E_R3,$E_M1));
 
 
 #  __  __                
@@ -114,7 +134,7 @@ $Mar_M1 = new Room(15, "Phobos", "You walk into most disastrous room on the plan
 // elixir
 // 100 gold
 // laser rifle
-$Mar_m2 = new Room(16, "Deimos", "Human civilization was crucial to colonize on one of these moons as human population was growing, so this moon was filled with plenty of hidden medication under the sand dunes.");
+$Mar_M2 = new Room(16, "Deimos", "Human civilization was crucial to colonize on one of these moons as human population was growing, so this moon was filled with plenty of hidden medication under the sand dunes.");
 // "monster"
 // "items" they couldnt even bother to list what items
 
