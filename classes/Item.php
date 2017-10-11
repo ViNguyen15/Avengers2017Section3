@@ -4,29 +4,33 @@ class Item{
     public $id;
     public $name;
     public $description;
+    public $type;
+    public $amount;
     public $sellValue;
     public $buyValue;
-    public $type;
-    public $stackable;
-    public $amount;
 
-    // Jarrod is awesome
-    public function __construct($id, $name, $description, $type, $stackable, $buyValue, $sellValue) {
-        $this->id=$id;
-        $this->name=$name;
-        $this->description=$description;
-        $this->type=$type;
-        $this->stackable=$stackable;
-        $this->amount=0;
-		$this->buyValue=$buyValue;
-        $this->sellValue=$sellValue;
+
+    public function __construct() {
+
     }
+    
     public $dropid;
     public static function itemDrop( $id , $amount , $dropid ) {
-        $instance = new self($id, "", "", "", 0, "","");
+        $instance = new self();
         $instance->id = $id;
         $instance->amount = $amount;
         $instance->dropid = $dropid;
+        return $instance;
+    }
+    public static function inventoryItem( $id, $name, $description, $type, $buyValue, $sellValue ) {
+        $instance = new self();
+        $instance->id=$id;
+        $instance->name=$name;
+        $instance->description=$description;
+        $instance->type=$type;
+        $instance->amount=0;
+		$instance->buyValue=$buyValue;
+        $instance->sellValue=$sellValue;
         return $instance;
     }
 /*
@@ -34,11 +38,17 @@ class Item{
 
     }
 */
+    
 
     // define methods
     public function changeAmt($value){
         $this->amount += $value;
     }
+
+}
+class Weapon extends item {
+    public $power;
+    public $level;
 
 }
 ?>
