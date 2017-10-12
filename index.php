@@ -27,9 +27,14 @@ if ($_SESSION['loggedin']!=true){
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <head>
-<title>Text-Based Game</title>
-<meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
-<link rel="stylesheet" type="text/css" href="styles.css?v=<?php echo time();?>" />
+    <title>Text-Based Game</title>
+    <meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+    <link rel="stylesheet" type="text/css" href="styles.css?v=<?php echo time();?>" />
+    <audio autoplay loop preload="auto" style=" width:0px;">
+    <source src="starWars.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+    </audio><br/>
+    
 </head>
 
 <body>
