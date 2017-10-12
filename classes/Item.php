@@ -15,13 +15,7 @@ class Item{
     }
 
     public $dropid;
-    public static function itemDrop( $id , $amount , $dropid ) {
-        $instance = new self();
-        $instance->id = $id;
-        $instance->amount = $amount;
-        $instance->dropid = $dropid;
-        return $instance;
-    }
+
     public static function inventoryItem( $id, $name, $description, $type, $buyValue, $sellValue ) {
         $instance = new self();
         $instance->id=$id;
@@ -51,6 +45,22 @@ class Item{
         $this->amount += $value;
     }
 
+}
+class MapItem extends Item {
+    public $xcoord;
+    public $ycoord;
+    public $img;
+    public static function create( $id , $amount , $dropid , $coordinate , $img) {
+        $instance = new self();
+        $instance->id = $id;
+        $instance->amount = $amount;
+        $instance->dropid = $dropid;
+        $coords = explode(",", $coordinate);
+        $instance->xcoord = $coords[0];
+        $instance->ycoord = $coords[1];
+        $instance->img = $img;
+        return $instance;
+    }
 }
 class Weapon extends Item {
     public $power;
