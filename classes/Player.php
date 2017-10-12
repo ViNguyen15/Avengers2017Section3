@@ -8,6 +8,8 @@ class Player{
 	public $inventory = array();
 	public $location;
 	public $game;
+	public $equippedWeapon;
+	public $equippedArmor;
 
 	public function __construct(){
 
@@ -31,6 +33,18 @@ class Player{
 		$this->location = $location;
 	}
 
+	public function heal($amount){
+		if ($this->healthPoints + $amount > $this->healthMax){
+			$this->healthPoints = $this->healthMax;
+		}
+		else {
+			$this->healthPoints += $amount;
+		}
+	}
+
+	// public function removeItem($index){ // index of item in inventory array
+		
+	// }
 
 }
 
