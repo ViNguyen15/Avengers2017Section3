@@ -74,7 +74,7 @@ if ($_SESSION['loggedin']!=true){
 </body> 
 <?php
 if (isset($_GET["save"])&&$_GET["save"]==1){
-    echo "<div id=\"savegame\"><br><font color=green>Game Saved!</font></div>";  
-    echo "<script type=\"text/javascript\">setTimeout(function() { var element = document.getElementById(\"savegame\"); element.outerHTML =    \"\"; delete element; }, 3000);</script>";
+    echo "<style id=\"savegame\">body, input, img {cursor:progress !important;}</style>";  
+    echo "<script type=\"text/javascript\">setTimeout(function() { var element = document.getElementById(\"savegame\"); element.outerHTML =    \"\"; delete element; }, 1500);</script>";
 }
 ?>
