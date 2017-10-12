@@ -5,8 +5,6 @@
                 classes/Monster.php 
 */
 class Room{
-
-	//Software Dev Team Avengers 
 	
     // define properties
     public $id;
@@ -49,7 +47,7 @@ class Room{
         echo "<h3>$this->name</h3>";
         echo "$this->description<br><br>";
         
-        echo "<room>";
+        echo "<center><room>";
         foreach ($this->items as $item){
             $x = $item->xcoord;
             $y = $item->ycoord;
@@ -72,7 +70,7 @@ class Room{
             ";
         }
 
-        echo "</room>";
+        echo "</room></center>";
     }
     // define methods
 

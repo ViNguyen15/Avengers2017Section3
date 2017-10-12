@@ -32,12 +32,6 @@ class Item{
         $instance->id=$id;
         $instance->amount=$amount;
     }
-
-/*
-    public function __clone() {
-
-    }
-*/
     
 
     // define methods
@@ -46,6 +40,11 @@ class Item{
     }
 
 }
+/**
+    MapItem class
+    Used in: database/rooms.php
+ */
+
 class MapItem extends Item {
     public $xcoord;
     public $ycoord;
@@ -66,7 +65,6 @@ class MapItem extends Item {
 /**
     Weapon class
     Used in: database/item.php
-    Accesses: Item class - classes/item.php
  */
 
 class Weapon extends Item {

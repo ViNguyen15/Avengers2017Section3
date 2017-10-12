@@ -50,7 +50,7 @@ class Player{
 
 	public function equipWeapon($id){
 		$this->unequipWeapon();
-		$this->equippedWeapon = // get weapon from database or inventory
+		//$this->equippedWeapon = // get weapon from database or inventory
 
 	}
 
@@ -61,7 +61,7 @@ class Player{
 
 	public function equipArmor($id){
 		$this->unequipArmor();
-		$this->equippedArmor = // get armor from database or inventory;
+		//$this->equippedArmor = // get armor from database or inventory;
 	}
 
 	public function unequipArmor(){
