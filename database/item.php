@@ -32,4 +32,11 @@ $weaponList[] = Weapon::createWeapon(2, "Plasma Pistol", "Inexpensive gun used b
 $weaponList[] = Weapon::createWeapon(3, "Laser Rifle", "Military grade weaponry used by colony militia’s. Expensive.", "weapon", 600, 300, 7, 5);
 $weaponList[] = Weapon::createWeapon(4, "Rocket Launcher", "Very powerful weapon only used by highly trained soldiers. The limited availability of this weapon makes it expensive in shops.", "weapon", 1000, 750, 9, 8);
 
+$armorList = array();
+
+//$armorList[] = Armor::createArmor( $id, $name, $description, $type, $buyValue, $sellValue, $defence);
+$armorList[] = Armor::createArmor( 0, "Pilot suit", "Standard leather clothing all pilots use. It’s not very protective", "armor", 50, 25, 1);
+$armorList[] = Armor::createArmor( 1, "Law Enforcement Gear", "Protective gear worn by colony law enforcement, it offers decent protection", "armor", 150, 75, 3);
+$armorList[] = Armor::createArmor( 2, "Military gear", "Protective gear worn by colony law military officers, it offers good protection", "armor", 350, 175, 5);
+
 ?>

@@ -59,6 +59,7 @@ class Item{
     Accesses: Item class - classes/item.php
  */
 class Weapon extends Item {
+
     private $power; // int damage of weapon
     private $level; // int upgrade level. starts at 0, +1 for each upgrade
     private $upgradeValue; // int amount that weapon increases by for every upgrade
@@ -103,5 +104,26 @@ class Weapon extends Item {
         return $this->upgradeCost;
     }
 
+}
+
+public class Armor extends Item{
+
+    private $defence; // int defensive points of armor
+
+    public static function createArmor( $id, $name, $description, $type, $buyValue, $sellValue, $defence) {
+        $instance = new self();
+        $instance->id=$id;
+        $instance->name=$name;
+        $instance->description=$description;
+        $instance->type=$type;
+        $instance->amount=0;
+        $instance->buyValue=$buyValue;
+        $instance->sellValue=$sellValue;
+        return $instance;
+}
+
+    public function getArmor(){
+        return $this->defence;
+    }
 }
 ?>
