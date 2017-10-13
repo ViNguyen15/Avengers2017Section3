@@ -4,4 +4,4 @@
 # Saves will be ignored as they are only used for testing purposes
 saves/
 
-/nbproject/private/
+nbproject/

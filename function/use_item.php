@@ -4,9 +4,8 @@ Function to ues useable items, so far this is limited to healing items
 Used in: N/A
 Accesses: database/item.php, classes/Player.php
 */
-include "../database/item.php"
 // ID of item, Player
-public function useItem($id, $player){
+function useItem($id, $player){
 
 
 	if ($id == 1){

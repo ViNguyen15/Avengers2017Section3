@@ -1,12 +1,13 @@
 <?php
+
 /**
 Used to equip weapons and armor to player
 Used in: N/A
 Accesses: database/item.php
 */
-include "../database/item.php"
 
-public function equip_gear($id, $player){
+
+function equip_gear($id, $player){
 	switch ($id){
 		case 5:
 			$player->equipWeapon($id);
