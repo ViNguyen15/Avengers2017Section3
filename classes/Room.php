@@ -4,7 +4,7 @@
     Accesses:   classes/Item.php
                 classes/Monster.php 
 */
-class Room{
+class Room implements display{
 	
     // define properties
     public $id;
