@@ -4,7 +4,7 @@
     Accesses:   classes/Item.php
                 classes/Monster.php 
 */
-include "interface/display.php";
+include_once "interface/display.php";
 
 class Room implements display{
 	
