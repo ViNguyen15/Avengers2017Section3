@@ -10,3 +10,4 @@
 interface display {
     function display();
 }
+?>
