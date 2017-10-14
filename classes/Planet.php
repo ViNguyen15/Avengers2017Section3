@@ -1,6 +1,6 @@
 <?php 
 
-include_once "interface/display.php";
+
 class Planet implements display{
     // define properties
     public $id;
