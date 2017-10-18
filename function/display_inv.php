@@ -7,8 +7,7 @@ Inventory:<br>
 */
 
 //Creates an array variable with all the inventory data from the session
-//include('/database/item.php');
- $inventoryDisplay = $_SESSION['inventory'];
+$inventoryDisplay = $_SESSION['inventory'];
 
 foreach ($inventoryDisplay as $index => $item){
 //For each item in the inventory array
