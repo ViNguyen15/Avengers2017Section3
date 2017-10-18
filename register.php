@@ -10,11 +10,11 @@
     </audio><br/>-->
 </head>
 
-<body>
-<header>Header</header>
-<div id="main">
+<body style=" background: url('images/tiles/space.jpg');">
 
-<article>
+
+<div class="col-1" style="background-color:white; padding:20px" >
+
     <h2>New User Login</h2>
     <form action="function/create_user.php" method="post">
         Username: <input type="text" name="username"><br>
@@ -23,9 +23,9 @@
         <input type="submit" value="register">
     </form>
 
-</article>
+</div>
+<div class="col-2" style="color:white; padding:20px">
 
-<nav>
     <h2> Existing user login: </h2>
     <form action="function/login.php" method="post">
         Username: <input type="text" name="username"><br>
@@ -52,13 +52,8 @@
     }
     ?>
     
-</nav>
-
-<aside>Aside</aside>
-
 </div>
 
-<footer>Footer</footer>
 
 </body> 
 

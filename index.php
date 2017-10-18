@@ -36,25 +36,8 @@ if ($_SESSION['loggedin']!=true){
 </head>
 
 <body>
-<header>
-    <h1>< GAME TITLE ></h1>
 
-    <form action="function/logout.php" method="post"><input type="submit" value="Logout"></form>
-    <form action="function/save.php" method="post"><input type="submit" value="Save Game"></form>
-
-</header>
-
-<div id="main">
-
-<article>
-    
-    <?php
-    include("function/display_room.php");
-    ?>
-
-</article>
-
-<nav>
+<nav class="col-1">
     <?php 
     echo "Username: ".$_SESSION['username'];
     ?>
@@ -66,13 +49,28 @@ if ($_SESSION['loggedin']!=true){
     ?>
 </nav>
 
-<map>
-    Map
-</map>
+<div class="col-2">
+<header>
+    <h1>< GAME TITLE ></h1>
 
+    <form action="function/logout.php" method="post"><input type="submit" value="Logout"></form>
+    <form action="function/save.php" method="post"><input type="submit" value="Save Game"></form>
+
+</header>
+<article>
+    
+    <?php
+    include("function/display_room.php");
+    ?>
+
+</article>
+
+<footer>
+    Software Developement Project © TeamAvengers 2017 
+</footer>
 </div>
 
-<footer>Footer</footer>
+
 
 </body> 
 <?php

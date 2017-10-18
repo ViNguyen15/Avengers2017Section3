@@ -1,19 +1,31 @@
+
 * {
   box-sizing: border-box;
 }
-body{
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: row;
   margin: 0;
 }
+.col-1 {
+  flex: 1;
+}
+.col-2 {
+  display: flex;
+  flex-direction: column;
+  flex: 5;
+  position:relative
+}
+
 #main {
   display: flex;min-height: calc(120vh - 40vh);
 }
 #main > article {
   flex: 1;
 }
-#main > nav, #main > aside, #main > map {
-  flex: 0 0 20vw;
+nav, #main > aside, #main > map {
   background: url('images/tiles/space.jpg');
-  background-position-y: -15vw;
   color:white
 }
 #main > nav {
@@ -21,18 +33,28 @@ body{
 }
 header h1 {
   color: white;
-  font-size: 4em;
+  font-size: 3.5em;
   line-height: 0px;
   display: inline-block
 }
 header form {
   float: right;
 }
+footer {
+  color: white;
+  font-size: .8em;
+  line-height: 0px;
+  display: inline-block;
+  position:absolute;
+  bottom:0px;
+  width:100%;
+}
 header, footer, article, nav, aside, map {
   padding: 1em;
 }
 header, footer {
   background-image: url('images/tiles/space.jpg');
+  color:white;
 }
 div #savegame {
   position:absolute;
