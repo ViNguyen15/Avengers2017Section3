@@ -1,6 +1,20 @@
 <?php
+/**
+    ~~~~~~~~~~~~~~~ Item Class ~~~~~~~~~~~~~~~
+    
+    Description:
+    *This class is used for all of the types of items.
+
+    Helpful Information:
+    *Items can be placed in the items array of a room.
+    *Items can be placed in the drops array of a monster.
+    *Items can be placed in the rewards array of a puzzle.
+    *List of all ingame items is in the /database/items.php file
+
+*/
 class Item{
-    // define properties
+   
+    // ~~~~~~~~~~~~~~~ Properties ~~~~~~~~~~~~~~~ 
     public $id;
     public $name;
     public $description;
@@ -9,14 +23,14 @@ class Item{
     public $sellValue;
     public $buyValue;
 
-
+    // ~~~~~~~~~~~~~~~ Constructor ~~~~~~~~~~~~~~~ 
     public function __construct() {
 
     }
 
-    public $dropid;
 
-    public static function inventoryItem( $id, $name, $description, $type, $buyValue, $sellValue ) {
+    // ~~~~~~~~~~~~~~~ Create Item Method ~~~~~~~~~~~~~~~
+    public static function createItem( $id, $name, $description, $type, $buyValue, $sellValue ) {
         $instance = new self();
         $instance->id=$id;
         $instance->name=$name;
@@ -27,28 +41,39 @@ class Item{
         $instance->sellValue=$sellValue;
         return $instance;
     }
-    public static function playerItem ($id, $amount) {
-        $instance = new self();
-        $instance->id=$id;
-        $instance->amount=$amount;
-    }
     
-
-    // define methods
+    // ~~~~~~~~~~~~~~~ Methods ~~~~~~~~~~~~~~~
     public function changeAmt($value){
         $this->amount += $value;
+        //Logic for increasing (or decreasing) the amount of an item.
     }
 
 }
-/**
-    MapItem class
-    Used in: database/rooms.php
- */
 
-class MapItem extends Item {
+
+/**
+
+    ~~~~~~~~~~~~~~~ MapItem Class ~~~~~~~~~~~~~~~
+    
+    Description:
+    *This type of item is for being displayed on the map.
+
+    Helpful Information:
+    *The $dropid is a UNIQUE id used to track the item so that the item can be deleted after the player grabs it.
+    *This type of item is added to the rooms array of a room.
+    *This type of item should only be used in the /database/rooms.php file.
+
+*/
+
+class MapItem extends Item implements display{
+
+    // ~~~~~~~~~~~~~~~ Properties ~~~~~~~~~~~~~~~
+    public $dropid;
     public $xcoord;
     public $ycoord;
     public $img;
+
+    // ~~~~~~~~~~~~~~~ Create Item Method ~~~~~~~~~~~~~~~
     public static function create( $id , $amount , $dropid , $coordinate , $img) {
         $instance = new self();
         $instance->id = $id;
@@ -60,10 +85,23 @@ class MapItem extends Item {
         $instance->img = $img;
         return $instance;
     }
+
+    //~~~~~~~~~~~~~~~ Display Interface ~~~~~~~~~~~~~~~
+    public function display(){
+            $x = $this->xcoord;
+            $y = $this->ycoord;
+            echo "
+            <form class='object' style='left:${x}px;top:${y}px' action='function/get_item.php'>
+                <button type='submit' name='item' value='$this->id,$this->amount,$this->dropid '>
+                <img height=32px width=32px src='images/decoration/$this->img.png' />
+                </button>
+            </form>
+            ";
+    }
 }
 
 /**
-    Weapon class
+    ~~~~~~~~~~~~~~~ Weapon class ~~~~~~~~~~~~~~~
     Used in: database/item.php
  */
 
