@@ -1,13 +1,14 @@
 <?php
 class Player{
-
-	public $healthMax;
-	public $healthPoints;
-	public $strength;
+	
 	public $name;
 	public $inventory = array();
 	public $location;
 	public $game;
+
+	public $healthMax;
+	public $healthPoints;
+	public $strength;
 	public $equippedWeapon; // Weapon 
 	public $equippedArmor; // Armor
 
