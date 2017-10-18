@@ -2,44 +2,54 @@
 
 foreach (glob("../classes/*.php") as $class) {
     include("$class");
+    //Adds classes to database file.
 }
 
+
 /**
-display_room.php
-index.php
+~~~~~~~~~~~~~~~ Planets Database ~~~~~~~~~~~~~~~
+    
+    Description:
+    *This is a database of planets that are in the game. 
+
+    Helpful Information:
+    *Each planet and room should have a different ID.
+	*ID's should not change.
+	*Planet information isn't used anywhere as of now.
+
+
+~~~~~~~~~~~~~~~ Template ~~~~~~~~~~~~~~~
+
+    *Create a Planet
+    $PLANET_NAME = new Planet(ID,"NAME");
+
+    *Create a room
+    $ROOM_1 = new Room(ID,"NAME","DESCRIPTION");
+    $ROOM_2 = new Room(ID,"NAME","DESCRIPTION");
+
+    *Add one item to the room
+    $ROOM_1->addItem(  MapItem::create(ITEM_ID,ITEM_AMOUNT,UNIQUE_DROP_ID,"COORDINATES","IMAGE_NAME")  );
+
+    *Add multiple items to the room
+    $ROOM_1->addItems( array(
+        MapItem::create(ITEM_ID,ITEM_AMOUNT,UNIQUE_DROP_ID,"COORDINATES","IMAGE_NAME"),
+        MapItem::create(ITEM_ID,ITEM_AMOUNT,UNIQUE_DROP_ID,"COORDINATES","IMAGE_NAME"),
+        MapItem::create(ITEM_ID,ITEM_AMOUNT,UNIQUE_DROP_ID,"COORDINATES","IMAGE_NAME")
+    ) );
+
+    *Add a connection between two rooms (You only need to do this once per connection)
+    addConnection($ROOM_1, $ROOM_2,"COORDINATES","IMAGE_NAME");
+
+    *Add rooms to a planet.
+    $PLANET_NAME->setRooms(array( $ROOM_1 , $ROOM_2 ));
 */
-#  _____  _                  _       
-# |  __ \| |                | |      
-# | |__) | | __ _ _ __   ___| |_ ___ 
-# |  ___/| |/ _` | '_ \ / _ \ __/ __|
-# | |    | | (_| | | | |  __/ |_\__ \
-# |_|    |_|\__,_|_| |_|\___|\__|___/
 
-/* 
- ---------  TEMPLATE  -----------
-$PLANET_NAME = new Planet(ID,"NAME");       //Creates a planet
-
-$ROOM_1 = new Room(ID,"NAME","DESCRIPTION");    //Creates a room
-$ROOM_1->addConnection(ROOM_ID, x_coordinate, y_coordinate, IMAGE_NAME);          //adds a portal in Room 1 to teleport to room 2
-$ROOM_2 = new Room(ID,"NAME","DESCRIPTION");
-$ROOM_3 = new Room(ID,"NAME","DESCRIPTION");
-
-
-$PLANET_NAME->setRooms(array( $ROOM_1 , $ROOM_2 , $ROOM_3 ));       //Adds the rooms to the planet
-
- */
-
-
-#  __  __                                
-# |  \/  |                               
-# | \  / | ___ _ __ ___ _   _ _ __ _   _ 
-# | |\/| |/ _ \ '__/ __| | | | '__| | | |
-# | |  | |  __/ | | (__| |_| | |  | |_| |
-# |_|  |_|\___|_|  \___|\__,_|_|   \__, |
-#                                   __/ |
-#                                  |___/ 
+/**
+~~~~~~~~~~~~~~~ Mercury ~~~~~~~~~~~~~~~
+*/
 
 $Mercury = new Planet(1,"Mercury");
+
 
 $Me_R1 = new Room(1,"Outside Power Plant", "You stand outside of what appears to be a large white building that is gated off. While it is not clear what exactly it is used for, at first glance it appears to be a power plant of some sort.");
 // space pirate
@@ -59,13 +69,9 @@ $Mercury->setRooms(array($Me_R1,$Me_R2,$Me_R3,$Me_R4));
 
 
 
-# __      __                  
-# \ \    / /                  
-#  \ \  / /__ _ __  _   _ ___ 
-#   \ \/ / _ \ '_ \| | | / __|
-#    \  /  __/ | | | |_| \__ \
-#     \/ \___|_| |_|\__,_|___/
-
+/**
+~~~~~~~~~~~~~~~ Venus ~~~~~~~~~~~~~~~
+*/
 $Venus = new Planet(2,"Venus");
 $V_R1 = new Room(5, "Lake", "The city is covered with a lake on the left side with a yacht on the corner to get to the white house for surprises. On the left side, we have the rock covered tomb. Be adventurous to find hidden stuff!!");
 // laser rifle
@@ -84,16 +90,12 @@ $V_R4 = new Room(8, "Field", "ALERT!! There is a gigantic terrific creature on a
 
 $Venus->setRooms(array($V_R1,$V_R2,$V_R3,$V_R4));
 
-#  ______           _   _     
-# |  ____|         | | | |    
-# | |__   __ _ _ __| |_| |__  
-# |  __| / _` | '__| __| '_ \ 
-# | |___| (_| | |  | |_| | | |
-# |______\__,_|_|   \__|_| |_|
+/**
+~~~~~~~~~~~~~~~ Earth ~~~~~~~~~~~~~~~
+*/
 
 $Earth = new Planet(3,"Earth");
 $E_R1 = new Room(9, "Crash Site", "You wake up in a forest, dazed but uninjured. You stand up and look at your ship, which is missing many of it’s vital piec-es from your encounter with a band of space pirates. There is no way that the ship can fly in it’s current condition, so you must find another way to get off this planet. To the north, there appears to be a building, so maybe it would be best to investi-gate.");
-$E_R1->addConnection(400,400,10,"Building");
 $E_R1->addItems( array(
     MapItem::create(1,2,1001,"20,320","rock"),
     MapItem::create(0,100,1002,"100,350","rock"),
@@ -103,25 +105,27 @@ $E_R1->addItems( array(
 // 100 gold
 // worn out robot
 $E_R2 = new Room(10, "Lab entrance", "The remains of the destroyed robot lay on the floor. The fight with the robot destroyed all machinery in the room, meaning that getting information from the room is no longer an option. Behind you is the exit of the lab, and forward, there is a door to another room.");
-$E_R2->addConnection(9,400,400,"building");
-$E_R2->addConnection(11,200,210,"building");
 // medicine
 $E_R3 = new Room(11, "Portal room", "You enter a room with a single portal, which is currently turned on and active.");
-$E_R3->addConnection(10,200,210,"building");
-$E_R3->addConnection(12,100,100,"portal");
+
 
 $E_M1 = new Room(12, "Home Base",  "Upon exiting the portal, you enter a base located on the moon. The room is filled with 4 portals labelled Mercury, Venus, Earth, and Mars. There is also a shop keeper there, who looks at you, hoping that you came to buy something.");
-$E_M1->addConnection(11,100,100,"portal");
+
 // shop
+
+addConnection($E_R1, $E_R2,"200,210","building");
+addConnection($E_R2, $E_R3,"140,20","building");
+addConnection($E_R3, $E_M1,"170,300","portal");
+
 $Earth->setRooms(array($E_R1,$E_R2,$E_R3,$E_M1));
 
-
-#  __  __                
-# |  \/  |               
-# | \  / | __ _ _ __ ___ 
-# | |\/| |/ _` | '__/ __|
-# | |  | | (_| | |  \__ \
-# |_|  |_|\__,_|_|  |___/
+function addConnection($room1, $room2, $coordinates, $image){
+    $room1->addConnection($room2->id,$coordinates,$image);
+    $room2->addConnection($room1->id,$coordinates,$image);
+}
+/**
+~~~~~~~~~~~~~~~ Mars ~~~~~~~~~~~~~~~
+*/
 
 $Mars = new Planet(4,"Mars");
 $Mar_R1 = new Room(13, "Trap Room", "When you enter the room ,you see a trap holes in front of you as well as across the room and the room is filled with bunch of furniture and hidden treasure  box for the rewards.");
@@ -137,14 +141,9 @@ $Mar_M2 = new Room(16, "Deimos", "Human civilization was crucial to colonize on 
 // "monster"
 // "items" they couldnt even bother to list what items
 
-#         _             _ _            
-#        | |           (_) |           
-#        | |_   _ _ __  _| |_ ___ _ __ 
-#    _   | | | | | '_ \| | __/ _ \ '__|
-#   | |__| | |_| | |_) | | ||  __/ |   
-#    \____/ \__,_| .__/|_|\__\___|_|   
-#                | |                   
-#                |_|                   
+/**
+~~~~~~~~~~~~~~~ Jupiter ~~~~~~~~~~~~~~~
+*/
 
 $Jupiter = new Planet(5,"Jupiter");
 $J_M1 = new Room(17, "Europa", "This is a big moon of Jupiter and has subsurface oceans. Human colonist set up civilizations in these subsurface oceans that also contain life native to the moon.");
@@ -156,12 +155,9 @@ $J_M3 = new Room(19,"Io", "This moon has over 400 active volcanoes. Scientist at
 $J_M4 = new Room(20,"Calisto", "Calisto is one of the oldest moons in the solar system. Its surface is filled with ice and craters making it a very hostile environment to live in.");
 $J_M5 = new Room(21, "Amalthea", "This moon has an amazing view of Jupiter. Because of its great view a religious cult was set up on the moon to worship Jupiter's big red spot.");
 
-#     _____       _                    
-#    / ____|     | |                   
-#   | (___   __ _| |_ _   _ _ __ _ __  
-#    \___ \ / _` | __| | | | '__| '_ \ 
-#    ____) | (_| | |_| |_| | |  | | | |
-#   |_____/ \__,_|\__|\__,_|_|  |_| |_|
+/**
+~~~~~~~~~~~~~~~ Saturn ~~~~~~~~~~~~~~~
+*/
 
 $Saturn = new Planet(6,"Saturn");
 $Sa_M1 = new Room(22, "Titan", "This large moon is a barren orange color due to its atmosphere.  The Surface of Titan is flat as it lacks huge craters and towering mountains. Tall dunes stretch across the surface far and wide. Abandoned settlements stretch across the surface.");
@@ -182,12 +178,9 @@ $Sa_M4 = new Room(25, "Pandora", "Pandora is an extremely small heavily cratered
 $Sa_M5 = new Room(26, "Atlas", "Atlas is an extremely small disk-shaped moon that orbits closely around Saturn's rings. Future nations agreed to make this moon neutral to all governments and the moon became a hotbed for tourism to view Saturn’s incredible rings. Abandoned hotels and attractions sprawl across the surface of Atlas.");
 // gold 200 x 3
 
-#    _    _                           
-#   | |  | |                          
-#   | |  | |_ __ __ _ _ __  _   _ ___ 
-#   | |  | | '__/ _` | '_ \| | | / __|
-#   | |__| | | | (_| | | | | |_| \__ \
-#    \____/|_|  \__,_|_| |_|\__,_|___/ 
+/**
+~~~~~~~~~~~~~~~ Uranus ~~~~~~~~~~~~~~~
+*/
 //hahaha your anus
 
 $Uranus = new Planet(7,"Uranus");
@@ -204,15 +197,9 @@ $U_M3 = new Room(29, "Ariel", "Ariel has vast wide-open plains that humans once 
 $U_M4 = new Room(30, "Oberon", "This large, heavily cratered moon has been set up as a research station by humans, now abandoned, the research station gives rise to many secrets...");
 // mad scientist
 
-#    _   _            _                    
-#   | \ | |          | |                   
-#   |  \| | ___ _ __ | |_ _   _ _ __   ___ 
-#   | . ` |/ _ \ '_ \| __| | | | '_ \ / _ \
-#   | |\  |  __/ |_) | |_| |_| | | | |  __/
-#   |_| \_|\___| .__/ \__|\__,_|_| |_|\___|
-#              | |                         
-#              |_|                         
-
+/**
+~~~~~~~~~~~~~~~ Neptune ~~~~~~~~~~~~~~~
+*/
 $Neptune = new Planet(8,"Neptune");
 $N_M1 = new Room(31,"Triton", "Triton is an extremely large moon. Its surface is completely covered by a mostly frozen nitrogen water-ice crust. Since the moon is cold and barren humans avoided colonizing it.");
 $N_M2 = new Room(32, "Nereid", "This is the third largest moon of Neptune and contained valuable resources sought after by humans. They eventually mined the moon hollow and left only equipment behind.");
@@ -221,6 +208,8 @@ $N_M4 = new Room(34, "Naiad", "This moon is the closest satellite to Neptune and
 $N_M5 = new Room(35, "Thalassa", "Thalassa is a small bare moon. It's only purpose for human colonist was to use it for sightseeing. Some people may have left some valuable things behind.");
 // space pirates
 // apparently there is only one thing on this entire planet system. 
+
+
 
 $planets = array();
 $planets[] = $Mercury;
