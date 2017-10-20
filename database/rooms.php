@@ -1,10 +1,5 @@
 <?php
 
-foreach (glob("../classes/*.php") as $class) {
-    include("$class");
-    //Adds classes to database file.
-}
-
 
 /**
 ~~~~~~~~~~~~~~~ Planets Database ~~~~~~~~~~~~~~~
@@ -208,8 +203,6 @@ $N_M4 = new Room(34, "Naiad", "This moon is the closest satellite to Neptune and
 $N_M5 = new Room(35, "Thalassa", "Thalassa is a small bare moon. It's only purpose for human colonist was to use it for sightseeing. Some people may have left some valuable things behind.");
 // space pirates
 // apparently there is only one thing on this entire planet system. 
-
-
 
 $planets = array();
 $planets[] = $Mercury;
