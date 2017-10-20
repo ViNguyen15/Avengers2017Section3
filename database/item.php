@@ -37,4 +37,21 @@ $armorList[] = Armor::createArmor( 10, "Pilot suit", "Standard leather clothing 
 $armorList[] = Armor::createArmor( 11, "Law Enforcement Gear", "Protective gear worn by colony law enforcement, it offers decent protection", "armor", 150, 75, 3);
 $armorList[] = Armor::createArmor( 12, "Military gear", "Protective gear worn by colony law military officers, it offers good protection", "armor", 350, 175, 5);
 
+
+/**
+    ~~~~~~~~~~~~~~~ Default Inventory ~~~~~~~~~~~~~~~
+    Description:
+    *Below is the inventory the player will spawn with.
+
+    Helpful Information:
+    *Used in the create_user function.
+
+*/
+$allitems = array_merge( $itemList , $weaponList , $armorList );
+
+$default_inv = $allitems;
+$default_inv[0]->changeAmt(50);
+
+
+
 ?>
