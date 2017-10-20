@@ -1,10 +1,21 @@
 <?php
+
+/**
+~~~~~~~~~~~~~~~ Planets Database ~~~~~~~~~~~~~~~
+    
+    Description:
+    *This class holds all of the information that will be saved and used by the player.
+
+    Helpful Information:
+
+*/
+
 class Player{
 	
-	public $name;
-	public $inventory = array();
-	public $location;
-	public $game;
+	private $name;
+	private $inventory = array();
+	private $location;
+	private $game;
 
 	public $healthMax;
 	public $healthPoints;
@@ -16,9 +27,29 @@ class Player{
 
 	}
 
-	public function receiveDamage($amount){
-		$this->healthPoints -= $amount;
-		// logic for when health reaches 0,
+	public function setName($name){
+		$this->name->$name;
+	}
+	public function getName(){
+		return $this->name;
+	}
+	public function setGame($game){
+		$this->game->$game;
+	}
+	public function getGame(){
+		return $this->game;
+	}
+	public function setLocation($location){
+		$this->location = $location;
+	}
+	public function getLocation(){
+		return $this->location;
+	}
+	public function setInventory($inventory){
+		$this->inventory = $inventory;
+	}
+	public function getInventory(){
+		return $this->inventory;
 	}
 
 	public function addItem($addedItem){
@@ -30,10 +61,11 @@ class Player{
 		}
 	}
 
-	public function setLocation($location){
-		$this->location = $location;
+	
+	public function receiveDamage($amount){
+		$this->healthPoints -= $amount;
+		// logic for when health reaches 0,
 	}
-
 
 	// idk how you want to handle this stuff, these are just ideas
 	public function heal($amount){
@@ -69,6 +101,7 @@ class Player{
 		// stays in inventory
 		$this->equippedArmor = NULL;
 	}
+
 }
 
 ?>
