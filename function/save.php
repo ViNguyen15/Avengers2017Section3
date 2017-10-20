@@ -27,6 +27,7 @@ foreach ($inventory as $item){
 }
 
 file_put_contents("../saves/$u/inventory",serialize($_SESSION['inventory']));
+file_put_contents("../saves/$u/game",serialize($_SESSION['game']));
 
 header('Location: ../index.php?save=1');
 

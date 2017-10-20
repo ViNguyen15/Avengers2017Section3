@@ -27,6 +27,8 @@ if (count($a) != 0){
             }
         }
         
+        $_SESSION['game'] = unserialize(file_get_contents("../saves/$u/inventory"));
+        
     } else {
         header('Location: ../index.php?error=2');   //wrong password
     }
