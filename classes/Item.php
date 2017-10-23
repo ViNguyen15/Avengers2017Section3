@@ -92,7 +92,7 @@ class MapItem extends Item implements display{
             $y = $this->ycoord;
             echo "
             <form class='object' style='left:${x}px;top:${y}px' action='function/get_item.php'>
-                <button type='submit' name='item' value='$this->id,$this->amount,$this->dropid '>
+                <button type='submit' name='item' value='$this->dropid'>
                 <img height=32px width=32px src='images/decoration/$this->img.png' />
                 </button>
             </form>
