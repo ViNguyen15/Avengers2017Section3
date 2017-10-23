@@ -11,14 +11,6 @@ foreach (glob("classes/*.php") as $class) {
 session_start();
 //Starts the session
 
-// Temporary Code: Creates game map. Sets Game map to the session
-if(!isset($_SESSION['game'])){
-    include('database/rooms.php');
-    $_SESSION['game'] = $planets;
-}
- //$_SESSION['location'] = $_SESSION['game'][0];
-//Temporary Code End
-
 
 if ($_SESSION['loggedin']!=true){
     header('Location: register.php');
@@ -39,7 +31,7 @@ if ($_SESSION['loggedin']!=true){
 
 <nav class="col-1">
     <?php 
-    echo "Username: ".$_SESSION['username'];
+    echo "Username: ".$_SESSION['player']->name;
     ?>
 
     <br>
