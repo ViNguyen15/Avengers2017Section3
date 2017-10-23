@@ -89,7 +89,7 @@ class Room implements display{
             echo "
             <form class='object' style='left:$connection[x]px;top:$connection[y]px' action='function/goto_room.php'>
                 <button type='submit' name='room' value='$connection[id]'>
-                    <img height=32px width=32px src='images/decoration/$connection[img].png' />
+                    <img src='images/decoration/$connection[img].png' />
                 </button>
             </form>
             ";
