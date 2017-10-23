@@ -12,8 +12,8 @@
 
 class Player{
 	
-	public $test = "TEST TEXT";
 	public $name;
+	public $password; 				//This is hashed so no passwords can be leaked.
 	public $inventory = array();
 	public $location;
 	public $game;
@@ -45,6 +45,16 @@ class Player{
 						unset($room->items[$i]);
 						break 3;
 					}
+				}
+			}
+		}
+	}
+	public function gotoRoom($roomid){
+		foreach ($this->game as $planet){
+			foreach ($planet->rooms as $room){
+				if ($room->id == $roomid){
+					$this->location = $room;
+					break 2;
 				}
 			}
 		}
