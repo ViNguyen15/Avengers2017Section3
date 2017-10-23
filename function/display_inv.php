@@ -6,21 +6,7 @@ Inventory:<br>
     Accesses:   classes/item.php
 */
 
-//Creates an array variable with all the inventory data from the session
-$inventoryDisplay = $_SESSION['inventory'];
-
-foreach ($inventoryDisplay as $index => $item){
-//For each item in the inventory array
-    if ($item->amount > 0 || $item->id==0){  
-    //Remove any items that are at 0 value
-    echo "<item onmouseover='displayDescription(this)' onmouseout='removeDescription(this)'> 
-        <img src='./images/items/$item->id.png' height='32' width='32'>
-        <description><b><u>$item->name</u></b> <br> $item->description</description>
-        <amount>x$item->amount</amount>
-        </item>";
-    }
-    
-    }
+$_SESSION['player']->displayInventory();
 
 ?>
 <description id="desc">

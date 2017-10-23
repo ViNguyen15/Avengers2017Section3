@@ -32,14 +32,16 @@ if(($p==$p2)&&($p!="")){
     session_start();
 
     $player = new Player;
-    $player->setName($u);
-    $player->setGame($planets);
-    $player->setLocation($E_R1);
-    $player->setInventory($default_inv);
+    $player->name = $u;
+    $player->game = $planets;
+    $player->location = $E_R1;
+    $player->inventory = $default_inv;
 
     $_SESSION['player'] = $player;
 
     $_SESSION['inventory'] = $itemList;
+
+    file_put_contents("../saves/$u/player",serialize($player));
 
     file_put_contents("../saves/$u/inventory",serialize($_SESSION['inventory']));
 

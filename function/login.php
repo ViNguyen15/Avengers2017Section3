@@ -20,14 +20,15 @@ if (count($a) != 0){
         $_SESSION['username'] = $_POST["username"];
         $_SESSION['password'] = $hashed_password;
 
+        /*
         $_SESSION['inventory'] = unserialize(file_get_contents("../saves/$u/inventory"));
         foreach ($inventory as $item){
             if (!existsInArray($item, $_SESSION['inventory'])){
                 $_SESSION['inventory'][] = $item;
             }
         }
-        
-        $_SESSION['game'] = unserialize(file_get_contents("../saves/$u/inventory"));
+        */
+        $_SESSION['player'] = unserialize(file_get_contents("../saves/$u/player"));
         
     } else {
         header('Location: ../index.php?error=2');   //wrong password

@@ -8,7 +8,8 @@ foreach (glob("../classes/*.php") as $class) {
 
 session_start();
 
-$_SESSION['location'] = findroom($_SESSION['game'],$_GET['room']);
+$game = $_SESSION['player']->game;
+$_SESSION['location'] = findroom($game,$_GET['room']);
 
 
 function findRoom($planets,$id){

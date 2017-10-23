@@ -20,14 +20,15 @@ $txt = '<?php
 fwrite($myfile, $txt);
 fclose($myfile);
 
+/*
 foreach ($inventory as $item){
     if (!existsInArray($item, $_SESSION['inventory'])){
         $_SESSION['inventory'][] = $item;
     }
 }
+*/
 
-file_put_contents("../saves/$u/inventory",serialize($_SESSION['inventory']));
-file_put_contents("../saves/$u/game",serialize($_SESSION['game']));
+file_put_contents("../saves/$u/player",serialize($_SESSION['player']));
 
 header('Location: ../index.php?save=1');
 
