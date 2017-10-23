@@ -12,10 +12,11 @@
 
 class Player{
 	
-	private $name;
-	private $inventory = array();
-	private $location;
-	private $game;
+	public $test = "TEST TEXT";
+	public $name;
+	public $inventory = array();
+	public $location;
+	public $game;
 
 	public $healthMax;
 	public $healthPoints;
@@ -27,36 +28,24 @@ class Player{
 
 	}
 
-	public function setName($name){
-		$this->name->$name;
-	}
-	public function getName(){
-		return $this->name;
-	}
-	public function setGame($game){
-		$this->game->$game;
-	}
-	public function getGame(){
-		return $this->game;
-	}
-	public function setLocation($location){
-		$this->location = $location;
-	}
-	public function getLocation(){
-		return $this->location;
-	}
-	public function setInventory($inventory){
-		$this->inventory = $inventory;
-	}
-	public function getInventory(){
-		return $this->inventory;
-	}
-
-	public function addItem($addedItem){
+	public function addItemToInventory($addedItem){
 		foreach ($this->inventory as $item) {
 			if ($addedItem->id == $item->id){
-				$item->amount += $addedItem;
+				$item->amount += $addedItem->amount;
 				break;
+			}
+		}
+	}
+	public function deleteItemFromMap($dropid){  
+		foreach ($this->game as $planet){
+			foreach ($planet->rooms as $room){
+				foreach ($room->items as $i => $item){
+					if ($item->dropid == $dropid){
+						$this->addItemToInventory($item);
+						unset($room->items[$i]);
+						break 3;
+					}
+				}
 			}
 		}
 	}
@@ -77,9 +66,7 @@ class Player{
 		}
 	}
 
-	 public function removeItem($index){  
-		// remove from inventory array
-	 }
+
 
 	public function equipWeapon($id){
 		$this->unequipWeapon();
@@ -102,6 +89,19 @@ class Player{
 		$this->equippedArmor = NULL;
 	}
 
+	public function displayInventory(){
+		foreach ($this->inventory as $item){
+
+			if ($item->amount > 0 || $item->id==0){  
+			//Remove any items that are at 0 value
+			echo "<item onmouseover='displayDescription(this)' onmouseout='removeDescription(this)'> 
+				<img src='./images/items/$item->id.png' height='32' width='32'>
+				<description><b><u>$item->name</u></b> <br> $item->description</description>
+				<amount>x$item->amount</amount>
+				</item>";
+			}
+		}
+	}
 }
 
 ?>
