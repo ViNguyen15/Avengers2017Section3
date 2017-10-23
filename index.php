@@ -18,6 +18,49 @@ if ($_SESSION['loggedin']!=true){
 //if user is not logged in, redirect to Register.php
 
 ?>
+<script>
+	function go(val) {
+        var xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                 draw();
+            }
+        };
+        xmlhttp.open("GET", "function/go.php?direction="+val, true);
+        xmlhttp.send();
+    }
+	function draw(){
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                 document.getElementById("draw").setAttribute("style",this.responseText);
+            }
+        };
+        xmlhttp.open("GET", "function/draw.php?direction=1", true);
+        xmlhttp.send();
+	}
+	document.onkeydown = function myFunction() {
+		switch (event.keyCode) {
+		case 38:
+			console.log("Up key is pressed");
+			go(1)
+			break;
+		case 40:
+			console.log("Down key is pressed");
+			go(3)
+			break;
+		case 39:
+			console.log("Right key is pressed");
+			go(2)
+			break;
+		case 37:
+			console.log("left key is pressed");
+			go(4)
+			break;
+		}
+	}
+        
+</script>
 
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
@@ -30,6 +73,9 @@ if ($_SESSION['loggedin']!=true){
 <body>
 
 <nav class="col-1">
+
+    <img src="images/directions.png" alt="" usemap="#Map" />
+
     <?php 
     echo "Username: ".$_SESSION['player']->name;
     ?>
@@ -39,6 +85,14 @@ if ($_SESSION['loggedin']!=true){
     <?php
     include("function/display_inv.php");
     ?>
+
+    
+    <map name="Map" id="Map">
+        <area alt="" title="" onclick="go(1)" href="#" shape="poly" coords="101,85,135,56,134,2,68,1,66,56" />
+        <area alt="" title="" onclick="go(2)" href="#" shape="poly" coords="117,99,146,134,196,133,198,67,144,67" />
+        <area alt="" title="" onclick="go(3)" href="#" shape="poly" coords="99,113,134,142,134,196,69,198,67,144" />
+        <area alt="" title="" onclick="go(4)" href="#" shape="poly" coords="85,99,56,66,1,67,0,133,56,133" />
+    </map>
 </nav>
 
 <div class="col-2">
@@ -49,13 +103,14 @@ if ($_SESSION['loggedin']!=true){
     <form action="function/save.php" method="post"><input type="submit" value="Save Game"></form>
 
 </header>
-<article>
-    
+<game>
     <?php
     include("function/display_room.php");
     ?>
-
-</article>
+    <user id="draw" style="<?php echo 'left:'.($_SESSION['player']->x * 32 ).'; top:'.($_SESSION['player']->y * 32 )?>">
+        <img src='images/player.png' height=64px width=32px />
+    </user>
+</game>
 
 <footer>
     Software Developement Project © TeamAvengers 2017 
