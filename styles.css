@@ -123,3 +123,12 @@ room {
 .object {
   position:absolute;
 }
+.object button {
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+}
+.object img {
+  height:50px;
+  width:50px;
+}
