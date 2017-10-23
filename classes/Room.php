@@ -60,13 +60,14 @@ class Room implements display{
     //~~~~~~~~~~~~~~~ Display Interface ~~~~~~~~~~~~~~~
     // Displays the room to the page. 
     public function display(){
-        echo "<h3>$this->name</h3>";
-        echo "$this->description<br><br>";
         
-        echo "<center><room>";
+        echo "<room style='background-image:url(\"images/rooms/$this->id.png\")'>";
         $this->displayItems();
         $this->displayConnections();
-        echo "</room></center>";
+        echo "</room>";
+        
+        echo "<h3>$this->name</h3>";
+        echo "$this->description<br><br>";
         
     }
 
