@@ -16,6 +16,8 @@ class Player{
 	public $password; 				//This is hashed so no passwords can be leaked.
 	public $inventory = array();
 	public $location;
+	public $x;
+	public $y;
 	public $game;
 
 	public $healthMax;
@@ -28,6 +30,17 @@ class Player{
 
 	}
 
+	//Movement code
+	public function move_y($val){
+		$this->y -= $val;
+		$this->y = max(1,min($this->y,14));
+	}
+	public function move_x($val){
+		$this->x += $val;
+		$this->x = max(0,min($this->x,14));
+	}
+	//End movement code
+	
 	public function addItemToInventory($addedItem){
 		foreach ($this->inventory as $item) {
 			if ($addedItem->id == $item->id){
