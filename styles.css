@@ -7,9 +7,12 @@ body {
   min-height: 100vh;
   flex-direction: row;
   margin: 0;
+  width:700px;
+  background: url('images/tiles/space.jpg');
 }
 .col-1 {
   flex: 1;
+  width:300px
 }
 .col-2 {
   display: flex;
@@ -21,15 +24,10 @@ body {
 #main {
   display: flex;min-height: calc(120vh - 40vh);
 }
-#main > article {
-  flex: 1;
-}
 nav, #main > aside, #main > map {
-  background: url('images/tiles/space.jpg');
-  color:white
-}
-#main > nav {
-  order: -1;
+  color:white;
+  
+  margin-top:150px;
 }
 header h1 {
   color: white;
@@ -49,11 +47,10 @@ footer {
   bottom:0px;
   width:100%;
 }
-header, footer, article, nav, aside, map {
+header, footer, game, nav, aside, map {
   padding: 1em;
 }
 header, footer {
-  background-image: url('images/tiles/space.jpg');
   color:white;
 }
 div #savegame {
@@ -115,10 +112,9 @@ inventory > description {
 }
 room {
   position:relative;
-  background-image: url('images/tiles/moon.jpg');
   display: block;
-  width:500px;
-  height:500px;
+  width:480px;
+  height:480px;
 }
 .object {
   position:absolute;
@@ -129,6 +125,29 @@ room {
   border: none;
 }
 .object img {
-  height:50px;
-  width:50px;
+  height:32px;
+  width:32px;
+}
+
+game {
+	position:relative;
+	width:480px;
+	height:480px;
+	display:block;
+  flex: 1;
+  margin:0px;
+  padding:0px;
+  background-color:white;
+  
+}
+user {
+	position:absolute;
+	width:32px;
+	height:32px;
+	display:block;
+}
+user img {
+	position:absolute;
+	bottom:0px;
+
 }
