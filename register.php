@@ -47,7 +47,13 @@
             echo "<font color=red>Passwords did not match.</font>";
             break;
         case 3:
-            echo "i equals 2";
+            echo "<font color=red>Usernames cannot contain special characters.</font>";
+            break;
+        case 4:
+            echo "<font color=red>Username does not exist!</font>";
+            break;
+        case 5:
+            echo "<font color=red>Incorrect password.</font>";
             break;
     }
     ?>
