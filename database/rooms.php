@@ -91,26 +91,39 @@ $Venus->setRooms(array($V_R1,$V_R2,$V_R3,$V_R4));
 
 $Earth = new Planet(3,"Earth");
 $E_R1 = new Room(9, "Crash Site", "You wake up in a forest, dazed but uninjured. You stand up and look at your ship, which is missing many of it’s vital piec-es from your encounter with a band of space pirates. There is no way that the ship can fly in it’s current condition, so you must find another way to get off this planet. To the north, there appears to be a building, so maybe it would be best to investi-gate.");
-$E_R1->addItems( array(
-    MapItem::create(1,2,1001,"20,320","rock"),
-    MapItem::create(0,100,1002,"100,350","rock"),
-    MapItem::create(3,1,1003,"400,430","rock")
+$E_R2 = new Room(10, "Lab entrance", "The remains of the destroyed robot lay on the floor. The fight with the robot destroyed all machinery in the room, meaning that getting information from the room is no longer an option. Behind you is the exit of the lab, and forward, there is a door to another room.");
+$E_R3 = new Room(11, "Portal room", "You enter a room with a single portal, which is currently turned on and active.");
+$E_M1 = new Room(12, "Home Base",  "Upon exiting the portal, you enter a base located on the moon. The room is filled with 4 portals labelled Mercury, Venus, Earth, and Mars. There is also a shop keeper there, who looks at you, hoping that you came to buy something.");
+
+
+$E_R1->addEntities( array(
+    MapItem::create(1,2,"2,3","rock"),
+    MapItem::create(0,10,"4,2","rock"),
+    MapItem::create(3,1,"10,11","rock"),
+    MapDoor::create($E_R2->id,"5,5","building")
 )
 );
 // 100 gold
 // worn out robot
-$E_R2 = new Room(10, "Lab entrance", "The remains of the destroyed robot lay on the floor. The fight with the robot destroyed all machinery in the room, meaning that getting information from the room is no longer an option. Behind you is the exit of the lab, and forward, there is a door to another room.");
+
+$E_R2->addEntities( array(
+    MapItem::create(1,2,"2,13","rock"),
+    MapItem::create(0,10,"8,5","rock"),
+    MapDoor::create($E_R1->id,"5,5","building"),
+    MapDoor::create($E_R3->id,"13,1","building")
+)
+);
 // medicine
-$E_R3 = new Room(11, "Portal room", "You enter a room with a single portal, which is currently turned on and active.");
+$E_R3->addEntities( array(
+    MapDoor::create($E_R2->id,"13,1","building"),
+    MapDoor::create($E_M1->id,"2,5","building")
+)
+);
 
-
-$E_M1 = new Room(12, "Home Base",  "Upon exiting the portal, you enter a base located on the moon. The room is filled with 4 portals labelled Mercury, Venus, Earth, and Mars. There is also a shop keeper there, who looks at you, hoping that you came to buy something.");
-
-// shop
-
-addConnection($E_R1, $E_R2,"200,210","building");
-addConnection($E_R2, $E_R3,"140,20","building");
-addConnection($E_R3, $E_M1,"170,300","portal");
+$E_M1->addEntities( array(
+    MapDoor::create($E_R3->id,"2,5","building")
+)
+);
 
 $Earth->setRooms(array($E_R1,$E_R2,$E_R3,$E_M1));
 
@@ -214,17 +227,5 @@ $planets[] = $Saturn;
 $planets[] = $Uranus;
 $planets[] = $Neptune;
 
-/*
-foreach ($planets as $planet) { 
-    echo "Planet $planet->name <br>";
-    foreach ($planet->rooms as $room){
-        echo "-> Room Name: $room->name<br>";
-        foreach ($room->items as $item){
-            echo "- -> Item: $item->id  Amount: $item->amount  <br>";
-        }
-    }
-//echo 'Planet name: ' . $planet->rooms[0]->name . ' Planet ID:' . $planet->rooms[0]->id . "\n";
-}
-*/
 
 ?>
