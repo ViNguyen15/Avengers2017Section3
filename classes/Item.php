@@ -64,7 +64,7 @@ class Item{
     *This type of item should only be used in the /database/rooms.php file.
 
 */
-
+/*
 class MapItem extends Item implements display{
 
     // ~~~~~~~~~~~~~~~ Properties ~~~~~~~~~~~~~~~
@@ -88,8 +88,8 @@ class MapItem extends Item implements display{
 
     //~~~~~~~~~~~~~~~ Display Interface ~~~~~~~~~~~~~~~
     public function display(){
-            $x = $this->xcoord;
-            $y = $this->ycoord;
+            $x = $this->xcoord*32;
+            $y = $this->ycoord*32;
             echo "
             <form class='object' style='left:${x}px;top:${y}px' action='function/get_item.php'>
                 <button type='submit' name='item' value='$this->dropid'>
@@ -99,7 +99,7 @@ class MapItem extends Item implements display{
             ";
     }
 }
-
+*/
 /**
     ~~~~~~~~~~~~~~~ Weapon class ~~~~~~~~~~~~~~~
     Used in: database/item.php
