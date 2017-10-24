@@ -140,12 +140,14 @@ game {
   background-color:white;
   
 }
-user {
+user, item, door {
 	position:absolute;
 	width:32px;
 	height:32px;
 	display:block;
+  cursor:pointer;
 }
+
 user img {
 	position:absolute;
 	bottom:0px;
