@@ -19,27 +19,67 @@ if ($_SESSION['loggedin']!=true){
 
 ?>
 <script>
+    window.onload = function() {
+        Refresh();
+    }
 	function go(val) {
         var xmlhttp = new XMLHttpRequest();
 		xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                 draw();
+                 RefreshPlayer();
             }
         };
         xmlhttp.open("GET", "function/go.php?direction="+val, true);
         xmlhttp.send();
     }
-	function draw(){
+    function Controller(func,id){
 		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                 Refresh();
+            }
+        };
+        xmlhttp.open("GET", "function/Controller.php?func="+func+"&id="+id, true);
+        xmlhttp.send();
+	}
+    function RefreshPlayer(){
+        var xmlhttp = new XMLHttpRequest();
 		xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                  document.getElementById("draw").setAttribute("style",this.responseText);
             }
         };
-        xmlhttp.open("GET", "function/draw.php?direction=1", true);
+        xmlhttp.open("GET", "function/draw.php", true);
         xmlhttp.send();
-	}
+    }
+    function RefreshInventory(){
+        var xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                 document.getElementById("inv").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET", "function/Controller.php?func=displayInventory", true);
+        xmlhttp.send();
+    }
+    function RefreshRoom(){
+        var xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                 document.getElementById("room").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET", "function/Controller.php?func=displayRoom", true);
+        xmlhttp.send();
+    }
+    function Refresh(){
+        RefreshRoom();
+        RefreshInventory();
+        RefreshPlayer();
+    }
+
 	document.onkeydown = function myFunction() {
+        event.preventDefault();
 		switch (event.keyCode) {
 		case 38:
 			console.log("Up key is pressed");
@@ -81,10 +121,22 @@ if ($_SESSION['loggedin']!=true){
     ?>
 
     <br>
+    <div id="inv">
 
-    <?php
-    include("function/display_inv.php");
-    ?>
+    </div>
+    <script>
+    /*
+    * This script makes a description appear and disappear when you hover over the image of the item. 
+    */
+    var description = document.getElementById("desc").innerHTML;
+    function displayDescription(x) {
+        document.getElementById("desc").innerHTML = x.getElementsByTagName("description")[0].innerHTML; 
+    }
+
+    function removeDescription(x) {
+        document.getElementById("desc").innerHTML = " "; 
+    }
+    </script>
 
     
     <map name="Map" id="Map">
@@ -104,19 +156,18 @@ if ($_SESSION['loggedin']!=true){
 
 </header>
 <game>
-    <?php
-    include("function/display_room.php");
-    ?>
+    <div id="room">
+
+    </div>
     <user id="draw" style="<?php echo 'left:'.($_SESSION['player']->x * 32 ).'; top:'.($_SESSION['player']->y * 32 )?>">
         <img src='images/player.png' height=64px width=32px />
     </user>
+    <button onclick="refresh()">Refresh</button>
 </game>
 
-<footer>
-    Software Developement Project © TeamAvengers 2017 
-</footer>
-</div>
+</br></br>
 
+</div>
 
 
 </body> 
