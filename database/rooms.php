@@ -116,12 +116,12 @@ $E_R2->addEntities( array(
 // medicine
 $E_R3->addEntities( array(
     MapDoor::create($E_R2->id,"13,1","building"),
-    MapDoor::create($E_M1->id,"2,5","building")
+    MapDoor::create($E_M1->id,"2,5","portal")
 )
 );
 
 $E_M1->addEntities( array(
-    MapDoor::create($E_R3->id,"2,5","building")
+    MapDoor::create($E_R3->id,"2,5","portal")
 )
 );
 
