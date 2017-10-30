@@ -1,7 +1,7 @@
 <?php
 
 /**
-~~~~~~~~~~~~~~~ Planets Database ~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~ Player Class ~~~~~~~~~~~~~~~
     
     Description:
     *This class holds all of the information that will be saved and used by the player.
@@ -40,6 +40,9 @@ class Player{
 		$this->x = max(0,min($this->x,14));
 	}
 	//End movement code
+	public function test($hi){
+		echo "$hi";
+	}
 	
 	public function addItemToInventory($addedItem){
 		foreach ($this->inventory as $item) {
@@ -49,20 +52,15 @@ class Player{
 			}
 		}
 	}
-	public function deleteItemFromMap($dropid){  
-		foreach ($this->game as $planet){
-			foreach ($planet->rooms as $room){
-				foreach ($room->items as $i => $item){
-					if ($item->dropid == $dropid){
-						$this->addItemToInventory($item);
-						unset($room->items[$i]);
-						break 3;
-					}
-				}
-			}
-		}
+	public function getItem($id){
+		$loc = $this->location;
+		$this->addItemToInventory($loc->entities[$id]);
+
+		unset($loc->entities[$id]);
+		//removes from map
 	}
-	public function gotoRoom($roomid){
+
+	public function enterDoor($roomid){
 		foreach ($this->game as $planet){
 			foreach ($planet->rooms as $room){
 				if ($room->id == $roomid){
@@ -113,6 +111,9 @@ class Player{
 	}
 
 	public function displayInventory(){
+
+		echo "<inventory>Inventory:<br>";
+
 		foreach ($this->inventory as $item){
 
 			if ($item->amount > 0 || $item->id==0){  
@@ -124,6 +125,13 @@ class Player{
 				</item>";
 			}
 		}
+
+		echo "<description id=\"desc\"></description> </inventory>";
+	}
+
+	public function displayRoom(){
+		$loc = $this->location;
+		$loc->display();
 	}
 }
 

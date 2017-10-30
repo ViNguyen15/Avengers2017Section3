@@ -50,7 +50,7 @@ class MapItem extends MapEntity{
         $x = $this->x*32;
         $y = $this->y*32;
         echo "
-        <item id='$index' style='left:${x}px;top:${y}px' onclick='getItem()'>
+        <item style='left:${x}px;top:${y}px' onclick='Controller(\"getItem\",$index)'>
             <img height=32px width=32px src='images/decoration/$this->image.png' />
         </item>
         ";
@@ -77,7 +77,7 @@ class MapDoor extends MapEntity{
         $x = $this->x*32;
         $y = $this->y*32;
         echo "
-        <door id='$index' style='left:${x}px;top:${y}px' onclick='enterDoor()'>
+        <door style='left:${x}px;top:${y}px' onclick='Controller(\"enterDoor\",$this->id)'>
             <img height=32px width=32px src='images/decoration/$this->image.png' />
         </door>
         ";
