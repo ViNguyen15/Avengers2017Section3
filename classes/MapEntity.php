@@ -16,6 +16,7 @@ class MapEntity{
     public $y;
     public $id;
     public $image;
+    public $type;
 
 
     // ~~~~~~~~~~~~~~~ Constructor ~~~~~~~~~~~~~~~ 
@@ -42,6 +43,7 @@ class MapItem extends MapEntity{
         $instance->x = $coords[0];
         $instance->y = $coords[1];
         $instance->image = $image;
+        $instance->type = "item";
         return $instance;
     }
 
@@ -69,6 +71,7 @@ class MapDoor extends MapEntity{
         $instance->x = $coords[0];
         $instance->y = $coords[1];
         $instance->image = $image;
+        $instance->type = "door";
         return $instance;
     }
 
