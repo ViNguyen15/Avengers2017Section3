@@ -18,96 +18,14 @@ if ($_SESSION['loggedin']!=true){
 //if user is not logged in, redirect to Register.php
 
 ?>
-<script>
-    window.onload = function() {
-        Refresh();
-    }
-	function go(val) {
-        var xmlhttp = new XMLHttpRequest();
-		xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                 RefreshPlayer();
-            }
-        };
-        xmlhttp.open("GET", "function/go.php?direction="+val, true);
-        xmlhttp.send();
-    }
-    function Controller(func,id){
-		var xmlhttp = new XMLHttpRequest();
-		xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                 Refresh();
-            }
-        };
-        xmlhttp.open("GET", "function/Controller.php?func="+func+"&id="+id, true);
-        xmlhttp.send();
-	}
-    function RefreshPlayer(){
-        var xmlhttp = new XMLHttpRequest();
-		xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                 document.getElementById("draw").setAttribute("style",this.responseText);
-            }
-        };
-        xmlhttp.open("GET", "function/draw.php", true);
-        xmlhttp.send();
-    }
-    function RefreshInventory(){
-        var xmlhttp = new XMLHttpRequest();
-		xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                 document.getElementById("inv").innerHTML = this.responseText;
-            }
-        };
-        xmlhttp.open("GET", "function/Controller.php?func=displayInventory", true);
-        xmlhttp.send();
-    }
-    function RefreshRoom(){
-        var xmlhttp = new XMLHttpRequest();
-		xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                 document.getElementById("room").innerHTML = this.responseText;
-            }
-        };
-        xmlhttp.open("GET", "function/Controller.php?func=displayRoom", true);
-        xmlhttp.send();
-    }
-    function Refresh(){
-        RefreshRoom();
-        RefreshInventory();
-        RefreshPlayer();
-    }
-
-	document.onkeydown = function myFunction() {
-        event.preventDefault();
-		switch (event.keyCode) {
-		case 38:
-			console.log("Up key is pressed");
-			go(1)
-			break;
-		case 40:
-			console.log("Down key is pressed");
-			go(3)
-			break;
-		case 39:
-			console.log("Right key is pressed");
-			go(2)
-			break;
-		case 37:
-			console.log("left key is pressed");
-			go(4)
-			break;
-		}
-	}
-        
-</script>
-
+<script src="runtime.js?v=<?php echo time();?>" type="text/javascript"></script>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <head>
     <title>Text-Based Game</title>
     <meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
     <link rel="stylesheet" type="text/css" href="styles.css?v=<?php echo time();?>" />
+    
 </head>
 
 <body>
@@ -124,19 +42,6 @@ if ($_SESSION['loggedin']!=true){
     <div id="inv">
 
     </div>
-    <script>
-    /*
-    * This script makes a description appear and disappear when you hover over the image of the item. 
-    */
-    var description = document.getElementById("desc").innerHTML;
-    function displayDescription(x) {
-        document.getElementById("desc").innerHTML = x.getElementsByTagName("description")[0].innerHTML; 
-    }
-
-    function removeDescription(x) {
-        document.getElementById("desc").innerHTML = " "; 
-    }
-    </script>
 
     
     <map name="Map" id="Map">
@@ -162,18 +67,10 @@ if ($_SESSION['loggedin']!=true){
     <user id="draw" style="<?php echo 'left:'.($_SESSION['player']->x * 32 ).'; top:'.($_SESSION['player']->y * 32 )?>">
         <img src='images/player.png' height=64px width=32px />
     </user>
-    <button onclick="refresh()">Refresh</button>
 </game>
-
 </br></br>
 
 </div>
 
 
-</body> 
-<?php
-if (isset($_GET["save"])&&$_GET["save"]==1){
-    echo "<style id=\"savegame\">body, input, img {cursor:progress !important;}</style>";  
-    echo "<script type=\"text/javascript\">setTimeout(function() { var element = document.getElementById(\"savegame\"); element.outerHTML =    \"\"; delete element; }, 1500);</script>";
-}
-?>
+</body>
