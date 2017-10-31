@@ -26,7 +26,6 @@ window.onload = function() {
 		xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                  Refresh();
-                 document.getElementById("test").innerHTML = this.responseText;
             }
         };
         xmlhttp.open("GET", "function/Controller.php?func="+direction+"&id="+value, true);
@@ -56,10 +55,10 @@ window.onload = function() {
         var xmlhttp = new XMLHttpRequest();
 		xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                 document.getElementById("inv").innerHTML = this.responseText;
+                 document.getElementById("playerinfo").innerHTML = this.responseText;
             }
         };
-        xmlhttp.open("GET", "function/Controller.php?func=displayInventory", true);
+        xmlhttp.open("GET", "function/Controller.php?func=displayPlayerInfo", true);
         xmlhttp.send();
     }
     function RefreshRoom(){
