@@ -1,10 +1,5 @@
 <?php
-foreach (glob("../interface/*.php") as $interface) {
-    include("$interface");
-}
-foreach (glob("../classes/*.php") as $class) {
-    include("$class");
-}
+include('load_classes.php');
 session_start();
 
 $func = $_GET['func'];
