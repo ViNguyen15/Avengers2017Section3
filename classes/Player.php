@@ -27,7 +27,8 @@ class Player{
 	public $equippedArmor; // Armor
 
 	public function __construct(){
-
+		$this->healthMax = 100;
+		$this->healthPoints = 100;
 	}
 
 	//Movement code
@@ -72,6 +73,24 @@ class Player{
 		unset($loc->entities[$id]);
 		//removes from map
 	}
+	public function useItem($id){
+		
+		if ($id==1) { //medicine
+			$this->heal(15);
+		} elseif ($id==2) { //elixer
+			$this->heal(50);
+		}
+
+		$count = 0;
+		while(true){
+		if ($id==$this->inventory[$count]->id){
+			$this->inventory[$count]->amount--;
+			break;
+		}
+		$count++;
+		} 
+
+	}
 
 	public function enterDoor($roomid){
 		foreach ($this->game as $planet){
@@ -85,19 +104,15 @@ class Player{
 	}
 
 	
-	public function receiveDamage($amount){
+	public function takeDamage($amount){
 		$this->healthPoints -= $amount;
 		// logic for when health reaches 0,
 	}
 
 	// idk how you want to handle this stuff, these are just ideas
 	public function heal($amount){
-		if ($this->healthPoints + $amount > $this->healthMax){
-			$this->healthPoints = $this->healthMax;
-		}
-		else {
-			$this->healthPoints += $amount;
-		}
+		$this->healthPoints += $amount;
+		$this->healthPoints = min($this->healthPoints, $this->healthMax);
 	}
 
 
@@ -123,15 +138,31 @@ class Player{
 		$this->equippedArmor = NULL;
 	}
 
+	public function displayPlayerInfo(){
+		$this->displayStats();
+		$this->displayInventory();
+	}
+
+	public function displayStats(){
+		echo "<stats>
+			  Health Points:$this->healthPoints/$this->healthMax<br>
+			  Equipment:<br>
+			  </stats>
+			  ";
+	}
+
 	public function displayInventory(){
 
 		echo "<inventory>Inventory:<br>";
 
 		foreach ($this->inventory as $item){
-
+			$command = "";
+			if ($item->type == "health"){
+				$command = "Controller(\"useItem\",$item->id)";
+			}
 			if ($item->amount > 0 || $item->id==0){  
 			//Remove any items that are at 0 value
-			echo "<item onmouseover='displayDescription(this)' onmouseout='removeDescription(this)'> 
+			echo "<item onclick='$command' onmouseover='displayDescription(this)' onmouseout='removeDescription(this)'> 
 				<img src='./images/items/$item->id.png' height='32' width='32'>
 				<description><b><u>$item->name</u></b> <br> $item->description</description>
 				<amount>x$item->amount</amount>
