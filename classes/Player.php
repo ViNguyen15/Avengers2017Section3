@@ -34,14 +34,27 @@ class Player{
 	public function move_y($val){
 		$this->y -= $val;
 		$this->y = max(1,min($this->y,14));
+		$this->interact();
 	}
 	public function move_x($val){
 		$this->x += $val;
 		$this->x = max(0,min($this->x,14));
+		$this->interact();
 	}
 	//End movement code
-	public function test($hi){
-		echo "$hi";
+	public function interact(){
+		foreach ($this->location->entities as $index=>$entity){
+			if ( $entity->x==$this->x && $entity->y==$this->y ){
+				switch ($entity->type) {
+					case "item":
+						$this->getItem($index);
+						break;
+					case "door":
+						$this->enterDoor($entity->id);
+						break;
+				}
+			}
+		}
 	}
 	
 	public function addItemToInventory($addedItem){
