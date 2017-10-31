@@ -39,9 +39,9 @@ if ($_SESSION['loggedin']!=true){
     ?>
 
     <br>
-    <div id="inv">
+    <player id="playerinfo">
 
-    </div>
+    </player>
 
     
     <map name="Map" id="Map">
@@ -67,6 +67,8 @@ if ($_SESSION['loggedin']!=true){
     <user id="draw" style="<?php echo 'left:'.($_SESSION['player']->x * 32 ).'; top:'.($_SESSION['player']->y * 32 )?>">
         <img src='images/player.png' height=64px width=32px />
     </user>
+
+    <button onclick="Controller('takeDamage',10)">Take 10 Damage</button>
 </game>
 </br></br>
 
