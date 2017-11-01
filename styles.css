@@ -89,7 +89,12 @@ inventory > item {
   cursor:pointer;
   position:relative;
   border-radius:5px;
-  height:44px
+  height:44px;
+  user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
 }
 inventory > item > amount {
   position:absolute;
