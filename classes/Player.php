@@ -93,12 +93,10 @@ class Player{
 	}
 
 	public function enterDoor($roomid){
-		foreach ($this->game as $planet){
-			foreach ($planet->rooms as $room){
-				if ($room->id == $roomid){
-					$this->location = $room;
-					break 2;
-				}
+		foreach ($this->game as $room){
+			if ($room->id == $roomid){
+				$this->location = $room;
+				break;
 			}
 		}
 	}
