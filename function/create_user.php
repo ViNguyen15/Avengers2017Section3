@@ -47,8 +47,8 @@ session_start();
 $player = new Player;
 $player->name = $username;
 $player->password = hashPassword($pwd);
-$player->game = $planets;           //Game information (From database/rooms)
-$player->location = $E_R1;          //Default Room (From database/rooms)
+$player->game = $rooms;           //Game information (From database/rooms)
+$player->location = $default_room;          //Default Room (From database/rooms)
 $player->inventory = $default_inv;  //Default inv (From database/items)
 
 $_SESSION['player'] = $player;
