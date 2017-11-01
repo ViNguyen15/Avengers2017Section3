@@ -37,6 +37,9 @@ class Room implements display{
             $this->entities[] = $entity;
         }
     }
+    public function addEntity($entity){
+        $this->entities[] = $entity;
+    }
 
     //~~~~~~~~~~~~~~~ Display Interface ~~~~~~~~~~~~~~~
     // Displays the room to the page. 
