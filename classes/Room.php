@@ -17,7 +17,6 @@ class Room implements display{
     public $id;
     public $name;
     public $description;
-    public $imagesrc;
     public $entities=array();
 
     // ~~~~~~~~~~~~~~~ Constructor ~~~~~~~~~~~~~~~
