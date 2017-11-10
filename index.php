@@ -29,11 +29,19 @@ if ($_SESSION['loggedin']!=true){
 </head>
 
 <body>
+<header>
+    <h1>< GAME TITLE ></h1>
 
-<nav class="col-1">
+    <form action="function/logout.php" method="post"><input type="submit" value="Logout"></form>
+    <form action="function/save.php" method="post"><input type="submit" value="Save Game"></form>
+
+</header>
+
+<center>
+<nav>
 
     <img src="images/directions.png" alt="" usemap="#Map" />
-
+    <br>
     <?php 
     echo "Username: ".$_SESSION['player']->name;
     ?>
@@ -52,14 +60,6 @@ if ($_SESSION['loggedin']!=true){
     </map>
 </nav>
 
-<div class="col-2">
-<header>
-    <h1>< GAME TITLE ></h1>
-
-    <form action="function/logout.php" method="post"><input type="submit" value="Logout"></form>
-    <form action="function/save.php" method="post"><input type="submit" value="Save Game"></form>
-
-</header>
 <game>
     <div id="room">
 
@@ -70,9 +70,6 @@ if ($_SESSION['loggedin']!=true){
 
     <button onclick="Controller('takeDamage',10)">Take 10 Damage</button>
 </game>
-</br></br>
 
-</div>
-
-
+</center>
 </body>
