@@ -66,6 +66,20 @@ class Player{
 			}
 		}
 	}
+	public function buyItem($id){
+		if ($id==1){
+			$price=25;
+		} elseif ($id==2){
+			$price=50;
+		} else {
+			$price=10000;
+		}
+
+		if($this->inventory[0]->amount >= $price){
+			$this->inventory[0]->amount -= $price;
+			$this->inventory[$id]->amount += 1;
+		}
+	}
 	public function getItem($id){
 		$loc = $this->location;
 		$this->addItemToInventory($loc->entities[$id]);
