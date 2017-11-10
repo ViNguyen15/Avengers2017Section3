@@ -88,12 +88,14 @@ class Player{
 		//removes from map
 	}
 	public function useItem($id){
-		
-		if ($id==1) { //medicine
-			$this->heal(15);
-		} elseif ($id==2) { //elixer
-			$this->heal(50);
-		}
+		// healing item cannot be used unless player is hurt
+		if ($id==1 and $this->healthPoints < $this->healthMax) { //medicine
+			$this->heal($this->healthMax / 2);
+		} else if ($id==2 and $this->healthPoints < $this->healthMax) { //elixer
+			$this->heal($this->healthMax);
+		} else {
+                    return;
+                }
 
 		$count = 0;
 		while(true){
