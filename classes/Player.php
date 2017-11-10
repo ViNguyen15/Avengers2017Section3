@@ -69,9 +69,9 @@ class Player {
 
     public function buyItem($id) {
         if ($id == 1) {
-            $price = 25;
-        } elseif ($id == 2) {
             $price = 50;
+        } elseif ($id == 2) {
+            $price = 100;
         } else {
             $price = 10000;
         }

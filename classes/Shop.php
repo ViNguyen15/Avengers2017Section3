@@ -29,8 +29,8 @@ class Shop implements display {
         echo "<shop style='background-image:url(\"images/rooms/$this->id.png\")'>";
         
 
-        echo "<button onclick='Controller(\"buyItem\",1)'>Buy <img src='images/items/1.png' /> for 25 coins</button><br>";
-        echo "<button onclick='Controller(\"buyItem\",2)'>Buy <img src='images/items/2.png' /> for 50 coins</button><br>";
+        echo "<button onclick='Controller(\"buyItem\",1)'>Buy <img src='images/items/1.png' /> for 50 coins</button><br>";
+        echo "<button onclick='Controller(\"buyItem\",2)'>Buy <img src='images/items/2.png' /> for 100 coins</button><br>";
 
 
         echo "<br><button onclick='Controller(\"enterDoor\",9)'> Leave Shop </button>";
