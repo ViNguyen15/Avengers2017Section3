@@ -89,6 +89,21 @@ shop {
   width:480px;
   height:480px;
 }
+shopitem {
+  display:inline-block;
+  background-color:lightgrey;
+  border-radius:10px;
+  width:80px;
+  height:80px;
+  margin:10px;
+}
+shopitem:hover {
+  background-color:lightslategrey
+}
+price {
+  display:block;
+  background-color:darkgoldenrod
+}
 nav {
   clear:left;
   float:left;
