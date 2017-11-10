@@ -83,7 +83,8 @@ $rooms[9]->addEntities( array(
     MapItem::create(1,2,"2,3","rock"),
     MapItem::create(0,10,"4,2","rock"),
     MapItem::create(3,1,"10,11","rock"),
-    MapDoor::create(10,"5,5","building")
+    MapDoor::create(10,"5,5","building"),
+    MapDoor::create(50,"7,13","shop")
 )
 );
 
@@ -109,7 +110,6 @@ $rooms[12]->addEntities( array(
     MapDoor::create(11,"2,5","portal")
 )
 );
-
 
 
 /**
@@ -193,6 +193,8 @@ $rooms[] = new Room(35, "Thalassa", "Thalassa is a small bare moon. It's only pu
 // space pirates
 // apparently there is only one thing on this entire planet system. 
 
+
+$rooms[] = new Shop(50, "Shop", "This is the home world shop.");
 $default_room = $rooms[9];
 
 ?>
