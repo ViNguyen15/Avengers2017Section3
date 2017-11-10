@@ -81,7 +81,7 @@ $rooms[] = new Room(8, "Field", "ALERT!! There is a gigantic terrific creature o
 $rooms[] = new Room(9, "Crash Site", "You wake up in a forest, dazed but uninjured. You stand up and look at your ship, which is missing many of it’s vital piec-es from your encounter with a band of space pirates. There is no way that the ship can fly in it’s current condition, so you must find another way to get off this planet. To the north, there appears to be a building, so maybe it would be best to investi-gate.");
 $rooms[9]->addEntities( array(
     MapItem::create(1,2,"2,3","rock"),
-    MapItem::create(0,10,"4,2","rock"),
+    MapItem::create(0,1000,"4,2","rock"),
     MapItem::create(3,1,"10,11","rock"),
     MapDoor::create(10,"5,5","building"),
     MapDoor::create(50,"7,13","shop")

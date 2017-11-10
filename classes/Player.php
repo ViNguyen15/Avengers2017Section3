@@ -68,14 +68,7 @@ class Player {
     }
 
     public function buyItem($id) {
-        if ($id == 1) {
-            $price = 50;
-        } elseif ($id == 2) {
-            $price = 100;
-        } else {
-            $price = 10000;
-        }
-
+        $price = $this->inventory[$id]->buyValue;
         if ($this->inventory[0]->amount >= $price) {
             $this->inventory[0]->amount -= $price;
             $this->inventory[$id]->amount += 1;
