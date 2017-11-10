@@ -165,34 +165,35 @@ class Player{
 			  Equipment:<br>
 			  </stats>
 			  ";
-	}
+    }
 
-	public function displayInventory(){
+    public function displayInventory() {
 
-		echo "<inventory>Inventory:<br>";
+        echo "<inventory>Inventory:<br>";
 
-		foreach ($this->inventory as $item){
-			$command = "";
-			if ($item->type == "health"){
-				$command = "Controller(\"useItem\",$item->id)";
-			}
-			if ($item->amount > 0 || $item->id==0){  
-			//Remove any items that are at 0 value
-			echo "<item onclick='$command' onmouseover='displayDescription(this)' onmouseout='removeDescription(this)'> 
+        foreach ($this->inventory as $item) {
+            $command = "";
+            if ($item->type == "health") {
+                $command = "Controller(\"useItem\",$item->id)";
+            }
+            if ($item->amount > 0 || $item->id == 0) {
+                //Remove any items that are at 0 value
+                echo "<item onclick='$command' onmouseover='displayDescription(this)' onmouseout='removeDescription(this)'> 
 				<img src='./images/items/$item->id.png' height='32' width='32'>
 				<description><b><u>$item->name</u></b> <br> $item->description</description>
 				<amount>x$item->amount</amount>
 				</item>";
-			}
-		}
+            }
+        }
 
-		echo "<description id=\"desc\"></description> </inventory>";
-	}
+        echo "<description id=\"desc\"></description> </inventory>";
+    }
 
-	public function displayRoom(){
-		$loc = $this->location;
-		$loc->display();
-	}
+    public function displayRoom() {
+        $loc = $this->location;
+        $loc->display();
+    }
+
 }
 
 ?>
