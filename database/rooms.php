@@ -125,7 +125,7 @@ $rooms[9]->addEntities( array(
 );
 
 
-$rooms[] = new Room(10, "Lab entrance", "The remains of the destroyed robot lay on the floor. The fight with the robot destroyed all machinery in the room, meaning that getting information from the room is no longer an option. Behind you is the exit of the lab, and forward, there is a door to another room.");
+$rooms[] = new Room(10, "Lab Entrance", "The remains of the destroyed robot lay on the floor. The fight with the robot destroyed all machinery in the room, meaning that getting information from the room is no longer an option. Behind you is the exit of the lab, and forward, there is a door to another room.");
 //Gold(100, Storage Container) 
 //Puzzle 5(Plasma Knife -1, none)
 $rooms[10]->addEntities( array(
@@ -230,7 +230,7 @@ $rooms[] = new Room(22, "Titan", "This large moon is a barren orange color due t
 
 
 
-$rooms[] = new Room(23, "Euceladus", "Euceladus is a white-like color due to the surface being made up entirely of ice. Massive geysers frequently spew water from the moon's Subsurface Ocean into space. Abandoned mining operations surround the geysers to collect materials around the area.");
+$rooms[] = new Room(23, "Enceladus", "Enceladus is a white-like color due to the surface being made up entirely of ice. Massive geysers frequently spew water from the moon's Subsurface Ocean into space. Abandoned mining operations surround the geysers to collect materials around the area.");
 // Space Pirate (none, 100)
 //Minerals (1,hole), Gold (100,cabinet)
 
