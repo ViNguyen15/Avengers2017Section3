@@ -41,9 +41,9 @@ $rooms[] = new Room (0,"Empty Room","Empty Room Description");
 
 $rooms[] = new Room(1,"Outside Power Plant", "You stand outside of what appears to be a large white building that is gated off. While it is not clear what exactly it is used for, at first glance it appears to be a power plant of some sort.");
 // space pirate
-
 // medicine
 $rooms[1]->addEntity( MapItem::create(1,1,"2,4","cabinet") );
+
 
 $rooms[] = new Room(2,"Generator Room", "The center of the power plant appears to be a power plant. While it is still able to function, there is very clearly visible damage to the inside of the room, and a few parts appear to be missing.");
  // ruffian
@@ -51,13 +51,15 @@ $rooms[] = new Room(2,"Generator Room", "The center of the power plant appears t
  $rooms[2]->addEntity( MapItem::create(1,2,"10,5","storage_container") );
  
 
+
 $rooms[] = new Room(3,"Destroyed Wing", "The west side of the plant is destroyed beyond repair. The back wall is non-existent, the only evidence that it even existed at any point is a pile of rubble surrounding the hole.");
  //elixir
  $rooms[3]->addEntity( MapItem::create(2,1,"5,6","storage_container") );
  
+
 $rooms[] = new Room(4,"Manager's Room", "You enter what appears to be an office. A man sits behind a desk and stares at you, wondering what you are doing in here. While he does not seem dangerous, he is wary of your presence.");
  // treasure chest? 100 gold
- 
+ $rooms[4]->addEntity(MapItem::create(0,100, "14,4", "cabinet")); 
 
 
 
@@ -65,19 +67,31 @@ $rooms[] = new Room(4,"Manager's Room", "You enter what appears to be an office.
 ~~~~~~~~~~~~~~~ Venus ~~~~~~~~~~~~~~~
 */
 $rooms[] = new Room(5, "Lake", "The city is covered with a lake on the left side with a yacht on the corner to get to the white house for surprises. On the left side, we have the rock covered tomb. Be adventurous to find hidden stuff!!");
-// laser rifle
-// medicine
+$rooms[5]->addEntities( array(
+    MapItem::create(1,1,"2,3","bag"), //Medicine
+    MapItem::create(8,1, "5,7", "hole") //laser rifle
+);
+
+
 $rooms[] = new Room(6, "Ghost Town", "This is the best part of the city!! Due to enough amount of sun UV rays, it has sand dunes and a city where there is life, filled with pools and church. WATCH OUT!! There is something you could get harmed by.");
-// 100 gold
-// medicine
-// "monster" just pick on i guess
+// Monster: Ruffian(none,100) no item drops, but 100 gold
+$rooms[6]->addEntities( array(
+    MapItem::create(1,1,"10,13","storage_container"), //Medicine
+    MapItem::create(0,100, "8,3", "cabinet") //Gold
+);
+
 $rooms[] = new Room(7, "Volcano", "This the smallest city of the Venus and also the city of natural disasters (Volcanoes and hurricanes) on your way ,there is wooden door blocking the way .");
-// elixir
-// gold 100
+$rooms[7]->addEntities( array(
+    MapItem::create(2,1,"12,5","hole"), //Elixir   
+    MapItem::create(0,100, "8,3", "cabinet") //Gold
+);
+
 $rooms[] = new Room(8, "Field", "ALERT!! There is a gigantic terrific creature on a hunger strike which is carnivorous. This is the last stage of the Venus. Good Luck!!");
-// medicine
-// "treasure box"?
-// elixir
+// "treasure box"? & elixir <-- Discrepancy btwn this and Google table
+$rooms[8]-> addEntities(array(
+    MapItem::create(1,1, "6,7", "hole")
+); 
+
 
 /**
 ~~~~~~~~~~~~~~~ Earth ~~~~~~~~~~~~~~~
@@ -99,9 +113,11 @@ $rooms[10]->addEntities( array(
     MapItem::create(1,2,"2,13","rock"),
     MapItem::create(0,10,"8,5","rock"),
     MapDoor::create(9,"5,5","building"),
-    MapDoor::create(11,"13,1","building")
+    MapDoor::create(11,"13,1","building"),
 )
 );
+
+
 
 $rooms[] = new Room(11, "Portal room", "You enter a room with a single portal, which is currently turned on and active.");
 $rooms[11]->addEntities( array(
@@ -109,6 +125,7 @@ $rooms[11]->addEntities( array(
     MapDoor::create(12,"2,5","portal")
 )
 );
+
 
 $rooms[] = new Room(12, "Home Base",  "Upon exiting the portal, you enter a base located on the moon. The room is filled with 4 portals labelled Mercury, Venus, Earth, and Mars. There is also a shop keeper there, who looks at you, hoping that you came to buy something.");
 $rooms[12]->addEntities( array(
