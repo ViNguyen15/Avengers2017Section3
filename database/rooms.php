@@ -41,15 +41,20 @@ $rooms[] = new Room (0,"Empty Room","Empty Room Description");
 
 $rooms[] = new Room(1,"Outside Power Plant", "You stand outside of what appears to be a large white building that is gated off. While it is not clear what exactly it is used for, at first glance it appears to be a power plant of some sort.");
 // space pirate
+
 // medicine
+$rooms[1]->addEntity( MapItem::create(1,1,"2,4","cabinet") );
 
 $rooms[] = new Room(2,"Generator Room", "The center of the power plant appears to be a power plant. While it is still able to function, there is very clearly visible damage to the inside of the room, and a few parts appear to be missing.");
  // ruffian
  // medicine
+ $rooms[2]->addEntity( MapItem::create(1,2,"10,5","storage_container") );
+ 
 
 $rooms[] = new Room(3,"Destroyed Wing", "The west side of the plant is destroyed beyond repair. The back wall is non-existent, the only evidence that it even existed at any point is a pile of rubble surrounding the hole.");
  //elixir
-
+ $rooms[3]->addEntity( MapItem::create(2,1,"5,6","storage_container") );
+ 
 $rooms[] = new Room(4,"Manager's Room", "You enter what appears to be an office. A man sits behind a desk and stares at you, wondering what you are doing in here. While he does not seem dangerous, he is wary of your presence.");
  // treasure chest? 100 gold
  
