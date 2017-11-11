@@ -28,8 +28,8 @@ class Shop implements display {
     public function display(){      
         echo "<shop style='background-image:url(\"images/rooms/$this->id.png\")'>";
         
-        echo "<shopitem onclick='Controller(\"buyItem\",1)'><img src='images/items/1.png' /><price>25 coins</price></shopitem>";
-        echo "<shopitem onclick='Controller(\"buyItem\",2)'><img src='images/items/2.png' /><price>50 coins</price></shopitem>";
+        echo "<shopitem onclick='Controller(\"buyItem\",1)'><img src='images/items/1.png' /><price>50 coins</price></shopitem>";
+        echo "<shopitem onclick='Controller(\"buyItem\",2)'><img src='images/items/2.png' /><price>100 coins</price></shopitem>";
         echo "<shopitem onclick='Controller(\"buyItem\",3)'><img src='images/items/3.png' /><price>500 coins</price></shopitem>";
         echo "<shopitem onclick='Controller(\"buyItem\",4)'><img src='images/items/4.png' /><price>1000 coins</price></shopitem>";
         echo "<shopitem onclick='Controller(\"buyItem\",5)'><img src='images/items/5.png' /><price>50 coins</price></shopitem>";
