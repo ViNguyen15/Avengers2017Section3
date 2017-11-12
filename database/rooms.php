@@ -36,7 +36,7 @@ $rooms = array();
 /**
 ~~~~~~~~~~~~~~~ Mercury ~~~~~~~~~~~~~~~
 */ 
-//Why does this room even exist?
+//Placeholder 
 $rooms[] = new Room (0,"Empty Room","Empty Room Description");
 
 
@@ -50,18 +50,18 @@ $rooms[1]->addEntity( MapItem::create(1,1,"2,4","cabinet") ); //Medicine
 $rooms[] = new Room(2,"Generator Room", "The center of the power plant appears to be a power plant. While it is still able to function, there is very clearly visible damage to the inside of the room, and a few parts appear to be missing.");
 //Fire Giant(Engine -1, 100)
 //Medicine(2, Storage Container)
- $rooms[2]->addEntity( MapItem::create(1,2,"10,5","storage_container") );
+ $rooms[2]->addEntity( MapItem::create(1,2,"10,5","storage_container") ); //Medicine
  
 
 $rooms[] = new Room(3,"Destroyed Wing", "The west side of the plant is destroyed beyond repair. The back wall is non-existent, the only evidence that it even existed at any point is a pile of rubble surrounding the hole.");
  //Elixir(1, Storage Container)
- $rooms[3]->addEntity( MapItem::create(2,1,"5,6","storage_container") );
+ $rooms[3]->addEntity( MapItem::create(2,1,"5,6","storage_container") ); //Elixir
  
 
 $rooms[] = new Room(4,"Manager's Room", "You enter what appears to be an office. A man sits behind a desk and stares at you, wondering what you are doing in here. While he does not seem dangerous, he is wary of your presence.");
  //Defense Drone(Plasma Sword -1, none)
 //Gold (100, Cabinet)
- $rooms[4]->addEntity(MapItem::create(0,100, "14,4", "cabinet")); 
+ $rooms[4]->addEntity(MapItem::create(0,100, "14,4", "cabinet")); //Gold
 
 
 
@@ -74,7 +74,7 @@ $rooms[] = new Room(5, "Lake", "The city is covered with a lake on the left side
 //Puzzle 7(none, 300)
 $rooms[5]->addEntities( array(
     MapItem::create(1,1,"2,3","bag"), //Medicine
-    MapItem::create(8,1, "5,7", "hole") //laser rifle
+    MapItem::create(8,1, "5,7", "hole") //Laser rifle
 );
 
 
@@ -102,7 +102,7 @@ $rooms[] = new Room(8, "Field", "ALERT!! There is a gigantic terrific creature o
 //Ruffian(none, 100)
 //Medicine(1, Hole) 
 $rooms[8]-> addEntities(array(
-    MapItem::create(1,1, "6,7", "hole")
+    MapItem::create(1,1, "6,7", "hole") //Medicine
 ); 
 
 
@@ -116,10 +116,10 @@ $rooms[] = new Room(9, "Crash Site", "You wake up in a forest, dazed but uninjur
 //Worn Out robot ( Elixir -1, none) 
 //Gold (100, Storage Container)
 $rooms[9]->addEntities( array(
-    MapItem::create(1,2,"2,3","rock"),
-    MapItem::create(0,1000,"4,2","rock"),
-    MapItem::create(3,1,"10,11","rock"),
-    MapDoor::create(10,"5,5","building"),
+    MapItem::create(1,2,"2,3","rock"), //Medicine
+    MapItem::create(0,1000,"4,2","rock"), //Gold
+    MapItem::create(3,1,"10,11","rock"), //Mineral
+    MapDoor::create(10,"5,5","building"), 
     MapDoor::create(50,"7,13","shop")
 )
 );
