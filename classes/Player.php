@@ -71,6 +71,14 @@ class Player {
         }
     }
 
+    public function sellItem($id){
+        $price = $this->inventory[$id]->sellValue;
+        if ($this->inventory[$id]->amount > 0) {
+            $this->inventory[0]->amount += $price;
+            $this->inventory[$id]->amount -= 1;
+        }
+    }
+    
     public function buyItem($id) {
         $price = $this->inventory[$id]->buyValue;
         if ($this->inventory[0]->amount >= $price) {
