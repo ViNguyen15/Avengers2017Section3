@@ -45,24 +45,37 @@ $rooms[] = new Room(1,"Outside Power Plant", "You stand outside of what appears 
 //Medicine(1, Cabinet). 
 //Puzzle 8 (none, 100)
 $rooms[1]->addEntities( array(
-    MapItem::create(1,1,"2,4","cabinet") //Medicine
+    MapItem::create(1,1,"2,4","cabinet"), //Medicine
+    MapDoor::create(36, "3,7", "building") //Mercury's Surface 
     ));
 
 $rooms[] = new Room(2,"Generator Room", "The center of the power plant appears to be a power plant. While it is still able to function, there is very clearly visible damage to the inside of the room, and a few parts appear to be missing.");
 //Fire Giant(Engine -1, 100)
 //Medicine(2, Storage Container)
- $rooms[2]->addEntity( MapItem::create(1,2,"10,5","storage_container") ); //Medicine
+ $rooms[2]->addEntities (array( 
+     MapItem::create(1,2,"10,5","storage_container"), //Medicine
+     MapDoor::create(36, "7,5", "building") //Mercury's Surface 
+     
+  ) ); 
  
 
 $rooms[] = new Room(3,"Destroyed Wing", "The west side of the plant is destroyed beyond repair. The back wall is non-existent, the only evidence that it even existed at any point is a pile of rubble surrounding the hole.");
  //Elixir(1, Storage Container)
- $rooms[3]->addEntity( MapItem::create(2,1,"5,6","storage_container") ); //Elixir
+ $rooms[3]->addEntities( array(
+      MapItem::create(2,1,"5,6","storage_container"), //Elixir
+      MapDoor::create(36, "3,7", "building") //Mercury's Surface 
+      
+  ) );
  
 
 $rooms[] = new Room(4,"Manager's Room", "You enter what appears to be an office. A man sits behind a desk and stares at you, wondering what you are doing in here. While he does not seem dangerous, he is wary of your presence.");
  //Defense Drone(Plasma Sword -1, none)
 //Gold (100, Cabinet)
- $rooms[4]->addEntity(MapItem::create(0,100, "14,4", "cabinet")); //Gold
+ $rooms[4]->addEntities( array(
+     MapItem::create(0,100, "14,4", "cabinet"), //Gold
+     MapDoor::create(36, "7,5", "building") //Mercury's Surface 
+     
+    )); 
 
 
 
@@ -158,7 +171,9 @@ $rooms[12]->addEntities( array(
     MapDoor::create(50, "7,5", "shop"), //Shop portal 
     MapDoor::create(17, "9,4", "portal"), //Europa
     MapDoor::create(22, "4,9", "portal"), //Titan
-
+    MapDoor::create(36, "2,9", "portal"), //Mercury
+    MapDoor::create(37, "10,14", "portal"), //Venus
+    MapDoor::create(38, "11,11", "portal") //Mars
 )
 );
 
@@ -238,7 +253,7 @@ $rooms[18]->addEntities( array(
 
 $rooms[] = new Room(19,"Io", "This moon has over 400 active volcanoes. Scientist attempted to set up geothermal power plants on the moon but the volcanoes were less dormant than the scientist expected leaving only remains behind.");
 //Fire Giant (none, 200)
-rooms[19]->addEntities( array(
+$rooms[19]->addEntities( array(
    MapDoor::create(17, "5,3", "portal"), //Europa
    MapDoor::create(18, "4,2", "portal"), //Ganymede
    MapDoor::create(21, "4,7", "portal") //Amalthea
@@ -297,7 +312,11 @@ $rooms[23]->addEntities( array(
 
 $rooms[] = new Room(24, "Mimas", "Mimas is a small moon that was considered to insubstantial to establish a human colony, as a result, pirates who raid trade shipments established a base here now long abandoned.");
 //Space Pirate Captain(Communication Network -1, none) 
-
+$rooms[24]->addEntities( array(
+    MapDoor::create(25, "7,8", "portal"), //Pandora
+    MapDoor::create(22, "10,12", "portal"), //Titan
+    MapDoor::create(26, "11,11","portal") //Atlas
+)); 
 
 
 $rooms[] = new Room(25, "Pandora", "Pandora is an extremely small heavily cratered, moon. In the future, it is used as a staging facility to facilitate travel between the human colonies. the remains of a star-port is still there.");
@@ -317,7 +336,10 @@ $rooms[25]->addEntities( array(
 $rooms[] = new Room(26, "Atlas", "Atlas is an extremely small disk-shaped moon that orbits closely around Saturn's rings. Future nations agreed to make this moon neutral to all governments and the moon became a hotbed for tourism to view Saturn’s incredible rings. Abandoned hotels and attractions sprawl across the surface of Atlas.");
 // Gold (200,Cabinet) 
 $rooms[26]->addEntities( array(
-    MapItem::create(0, 200, "5,7", "cabinet") //Gold
+    MapItem::create(0, 200, "5,7", "cabinet"), //Gold
+    MapDoor::create(22, "13,2", "portal"), //Titan
+    MapDoor::create(24, "10,3", "portal"), //Mimas
+    MapDoor::create(23, "7,7", "portal") //Enceladus
 )
 );
 
@@ -418,6 +440,27 @@ $rooms[35]->addEntities( array(
     MapItem::create(0, 300, "5,7", "storage_container"), //Gold
 )
 );
+
+
+
+/** Extra rooms we needed in order to match the map (mainly planet surfaces)
+~~~~~~~~~~~~~~~ Extra Rooms  ~~~~~~~~~~~~~~~
+*/
+
+$rooms[] = new Room(36, "Mercury's Surface", "You arrive on Mercury and look around. There are buildings nearby. It would be a good idea to check them out.");
+$rooms[36]->addEntities( array (
+    MapDoor::create(1, "3,7", "building"), //Outside Powerplant
+    MapDoor::create(2, "3,7", "building"), //Generator Room 
+    MapDoor::create(3, "3,7", "building"), //Destroyed Wing 
+    MapDoor::create(4, "3,7", "building"), //Manager's Room 
+));
+
+
+$rooms[] = new Room(37, "Venus' Surface", "You arrive on Venus and see buildings nearby. It would be a good idea to check them out.");
+
+
+$rooms[] = new Room(38, "Mars' Surface", "You arrive on Mars and look around. There are buildings nearby. It would be a good idea to check them out.");
+
 
 
 
