@@ -42,7 +42,7 @@ class Shop implements display {
         echo "<shopitem onclick='Controller(\"buyItem\",12)'><img src='images/items/12.png' /><price>2200 coins</price></shopitem>";
 
 
-        echo "<br><button onclick='Controller(\"enterDoor\",9)'> Leave Shop </button>";
+        echo "<br><button onclick='Controller(\"enterDoor\",12)'> Leave Shop </button>";
 
 
         echo "</shop>";
