@@ -157,6 +157,7 @@ $rooms[12]->addEntities( array(
     MapDoor::create(11,"2,5","portal"), //Portal Room
     MapDoor::create(50, "7,5", "shop"), //Shop portal 
     MapDoor::create(17, "9,4", "portal"), //Europa
+    MapDoor::create(22, "4,9", "portal"), //Titan
 
 )
 );
@@ -227,14 +228,21 @@ $rooms[17]->addEntities( array(
 $rooms[] = new Room(18, "Ganymede", "Ganymede is the biggest moon in the solar system which attracted many humans to come and colonize it. It rapidly became the most densely populated place in the solar system.");
 //Gold(200, Bag)
 $rooms[18]->addEntities( array(
-    MapItem::create(0, 200, "5,7", "bag") //Gold
+    MapItem::create(0, 200, "5,7", "bag"), //Gold
+    MapDoor::create(17, "3,4", "portal"), //Europa
+    MapDoor::create(19, "2,4", "portal"), //Io
+    MapDoor::create(21, "6,7", "portal") //Amalthea
 )
 );
 
 
 $rooms[] = new Room(19,"Io", "This moon has over 400 active volcanoes. Scientist attempted to set up geothermal power plants on the moon but the volcanoes were less dormant than the scientist expected leaving only remains behind.");
 //Fire Giant (none, 200)
-
+rooms[19]->addEntities( array(
+   MapDoor::create(17, "5,3", "portal"), //Europa
+   MapDoor::create(18, "4,2", "portal"), //Ganymede
+   MapDoor::create(21, "4,7", "portal") //Amalthea
+)); 
 
 //!!!! Deleted room. Ignore 
 $rooms[] = new Room(20,"Calisto", "Calisto is one of the oldest moons in the solar system. Its surface is filled with ice and craters making it a very hostile environment to live in.");
@@ -245,7 +253,9 @@ $rooms[] = new Room(21, "Amalthea", "This moon has an amazing view of Jupiter. B
 //Minerals(1, Barrel)
 //Puzzle 0 (none, laser rifle -1)
 $rooms[21]->addEntities( array(
-    MapItem::create(1, 1, "5,7", "barrel") //Medicine
+    MapItem::create(1, 1, "5,7", "barrel"), //Medicine
+    MapDoor::create(19, "4,2", "portal"), //Io
+    MapDoor::create(18, "3,4", "portal") //Ganymede
    
 )
 );
@@ -262,7 +272,12 @@ $rooms[] = new Room(22, "Titan", "This large moon is a barren orange color due t
 $rooms[22]->addEntities( array(
     MapItem::create(1, 1, "10,12", "barrel"), //Medicine
     MapItem::create(2, 1, "3,7", "bag"), //Elixir
-    MapItem::create(0, 100, "7,9", "hole") //Gold
+    MapItem::create(0, 100, "7,9", "hole"), //Gold
+    MapDoor::create(12, "2,6", "portal"), //HOME BASE
+    MapDoor::create(23, "9,7", "portal"), //Enceladus
+    MapDoor::create(24, "7,3", "portal"), //Mimas
+    MapDoor::create(25, "4, 5", "portal"), //Pandora
+    MapDoor::create(26, "9,10", "portal"), //Atlas
 )
 );
 
@@ -272,7 +287,10 @@ $rooms[] = new Room(23, "Enceladus", "Enceladus is a white-like color due to the
 //Minerals (1,hole), Gold (100,cabinet)
 $rooms[23]->addEntities( array(
     MapItem::create(1, 1, "9,6", "hole"), //Medicine
-    MapItem::create(0, 100, "6,2", "cabinet")
+    MapItem::create(0, 100, "6,2", "cabinet"), //Gold
+    MapDoor::create(22, "3,4", "portal"), //Titan
+    MapDoor::create(26, "4,3", "portal"), //Atlas
+    MapDoor::create(25, "13, 12", "portal") //Pandora
 )
 );
 
@@ -287,7 +305,10 @@ $rooms[] = new Room(25, "Pandora", "Pandora is an extremely small heavily crater
 //Medicine (1, Storage Container), Gold (500, Hole)
 $rooms[25]->addEntities( array(
     MapItem::create(1, 1, "5,7", "storage_container"), //Medicine
-    MapItem::create(0, 500, "8,5", "hole") //Gold
+    MapItem::create(0, 500, "8,5", "hole"), //Gold
+    MapDoor::create(23, "8,9", "portal"), //Enceladus
+    MapDoor::create(22, "9,9", "portal"), //Titan
+    MapDoor::create(24, "10,11", "portal") //Mimas
 )
 );
 
