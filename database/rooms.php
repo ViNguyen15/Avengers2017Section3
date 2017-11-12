@@ -44,8 +44,9 @@ $rooms[] = new Room(1,"Outside Power Plant", "You stand outside of what appears 
 //Space Pirate(None, 100) 
 //Medicine(1, Cabinet). 
 //Puzzle 8 (none, 100)
-$rooms[1]->addEntity( MapItem::create(1,1,"2,4","cabinet") ); //Medicine
-
+$rooms[1]->addEntities( array(
+    MapItem::create(1,1,"2,4","cabinet") //Medicine
+    ));
 
 $rooms[] = new Room(2,"Generator Room", "The center of the power plant appears to be a power plant. While it is still able to function, there is very clearly visible damage to the inside of the room, and a few parts appear to be missing.");
 //Fire Giant(Engine -1, 100)
@@ -75,16 +76,17 @@ $rooms[] = new Room(5, "Lake", "The city is covered with a lake on the left side
 $rooms[5]->addEntities( array(
     MapItem::create(1,1,"2,3","bag"), //Medicine
     MapItem::create(8,1, "5,7", "hole") //Laser rifle
-);
+
+));
 
 
 $rooms[] = new Room(6, "Ghost Town", "This is the best part of the city!! Due to enough amount of sun UV rays, it has sand dunes and a city where there is life, filled with pools and church. WATCH OUT!! There is something you could get harmed by.");
 // Monster: Ruffian(None, 100)
 //Gold (100, Cabinet), Medicine(1, Storage Container)
 $rooms[6]->addEntities( array(
-    MapItem::create(1,1,"10,13","storage_container"), //Medicine
-    MapItem::create(0,100, "8,3", "cabinet") //Gold
-);
+    MapItem::create(1, 1, "10,13", "storage_container"), //Medicine
+    MapItem::create(0, 100, "8,3", "cabinet") //Gold
+)); 
 
 
 $rooms[] = new Room(7, "Volcano", "This the smallest city of the Venus and also the city of natural disasters (Volcanoes and hurricanes) on your way ,there is wooden door blocking the way .");
@@ -94,7 +96,7 @@ $rooms[] = new Room(7, "Volcano", "This the smallest city of the Venus and also 
 $rooms[7]->addEntities( array(
     MapItem::create(2,1,"12,5","hole"), //Elixir   
     MapItem::create(0,100, "8,3", "cabinet") //Gold
-);
+));
 
 
 $rooms[] = new Room(8, "Field", "ALERT!! There is a gigantic terrific creature on a hunger strike which is carnivorous. This is the last stage of the Venus. Good Luck!!");
@@ -103,7 +105,7 @@ $rooms[] = new Room(8, "Field", "ALERT!! There is a gigantic terrific creature o
 //Medicine(1, Hole) 
 $rooms[8]-> addEntities(array(
     MapItem::create(1,1, "6,7", "hole") //Medicine
-); 
+)); 
 
 
 
@@ -119,8 +121,8 @@ $rooms[9]->addEntities( array(
     MapItem::create(1,2,"2,3","rock"), //Medicine
     MapItem::create(0,1000,"4,2","rock"), //Gold
     MapItem::create(3,1,"10,11","rock"), //Mineral
-    MapDoor::create(10,"5,5","building"), 
-    MapDoor::create(50,"7,13","shop")
+    MapDoor::create(10,"5,5","building"),  //Lab entrance
+    MapDoor::create(50,"7,13","shop") //Shop
 )
 );
 
@@ -131,8 +133,8 @@ $rooms[] = new Room(10, "Lab Entrance", "The remains of the destroyed robot lay 
 $rooms[10]->addEntities( array(
     MapItem::create(1,2,"2,13","rock"), //Medicine
     MapItem::create(0,10,"8,5","rock"), //Gold
-    MapDoor::create(9,"5,5","building"), 
-    MapDoor::create(11,"13,1","building"),
+    MapDoor::create(9,"5,5","building"), //Crash Site
+    MapDoor::create(11,"13,1","building"), //Portal Room
 )
 );
 
@@ -143,16 +145,19 @@ $rooms[] = new Room(11, "Portal room", "You enter a room with a single portal, w
 //Medicine(1, Barrel)
 $rooms[11]->addEntities( array(
     MapItem::create(1, 1, "5,7", "barrel"), //Medicine
-    MapDoor::create(10,"13,1","building"), 
-    MapDoor::create(12,"2,5","portal")
+    MapDoor::create(10,"13,1","building"),  //Lab entrance
+    MapDoor::create(12,"2,5","portal") //Home Base
 )
 );
 
 
-$rooms[] = new Room(12, "Home Base",  "Upon exiting the portal, you enter a base located on the moon. The room is filled with 4 portals labelled Mercury, Venus, Earth, and Mars. There is also a shop keeper there, who looks at you, hoping that you came to buy something.");
-//Nothign here except Shop portal
+$rooms[] = new Room(12, "Home Base",  "Upon exiting the portal, you enter a base located on the moon. The room is filled with 4 portals labelled Mercury, Venus, Earth, and Mars. There is also a shop keeper there who looks at you, hoping that you came to buy something.");
+//Nothing here except Shop portal
 $rooms[12]->addEntities( array(
-    MapDoor::create(11,"2,5","portal")
+    MapDoor::create(11,"2,5","portal"), //Portal Room
+    MapDoor::create(50, "7,5", "shop"), //Shop portal 
+    MapDoor::create(17, "9,4", "portal"), //Europa
+
 )
 );
 
@@ -212,7 +217,11 @@ $rooms[16]->addEntities( array(
 
 $rooms[] = new Room(17, "Europa", "This is a big moon of Jupiter and has subsurface oceans. Human colonist set up civilizations in these subsurface oceans that also contain life native to the moon.");
 // Krakken(Wings - 1, 0)
-
+$rooms[17]->addEntities( array(
+    MapDoor::create(12, "5,2", "portal"), //Home Base
+    MapDoor::create(19, "4,3", "portal"), //Io 
+    MapDoor::create(18, "3,4", "portal") //Ganymede
+)); 
 
 
 $rooms[] = new Room(18, "Ganymede", "Ganymede is the biggest moon in the solar system which attracted many humans to come and colonize it. It rapidly became the most densely populated place in the solar system.");
