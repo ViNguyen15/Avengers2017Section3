@@ -8,6 +8,7 @@ $monsterList[] = new Monster(4, "Kraken", "Huge green sea creature that resides 
 $monsterList[] = new Monster(5, "Fire Giants" ,"Fire resistant monsters native to volcanic moons.", 9, 55);
 $monsterList[] = new Monster(6, "Worn-out Robot", "Old robot that you find on the surface of earth. It’s not very strong.", 5, 10);
 $monsterList[] = new Monster(7, "Ruffians" ,"Thieves that disrupt and steal from colonists", 4, 12);
+$monsterList[] = new Monster(8, "Lava Spider" ,"Fire resistant monsters native to volcanic moons.", 3, 55);
 //$monsterList[] = new Monster(id, name ,description, strength, healthpoints);
 
 
