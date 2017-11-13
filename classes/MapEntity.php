@@ -9,7 +9,7 @@
     *
 
 */
-class MapEntity{
+class MapEntity {
    
     // ~~~~~~~~~~~~~~~ Properties ~~~~~~~~~~~~~~~ 
     public $x;
@@ -28,7 +28,7 @@ class MapEntity{
 
 
 
-class MapItem extends MapEntity{
+class MapItem extends MapEntity {
 
     // ~~~~~~~~~~~~~~~ Properties ~~~~~~~~~~~~~~~
 
@@ -59,7 +59,7 @@ class MapItem extends MapEntity{
     }
 }
 
-class MapDoor extends MapEntity{
+class MapDoor extends MapEntity {
 
     // ~~~~~~~~~~~~~~~ Properties ~~~~~~~~~~~~~~~
 
@@ -77,12 +77,47 @@ class MapDoor extends MapEntity{
 
     //~~~~~~~~~~~~~~~ Display Interface ~~~~~~~~~~~~~~~
     public function display($index){
+        $default = 32;
+        $x = $this->x*32;
+        $y = $this->y*32;
+        $planet = "";
+        $tempimage = $this->image;
+        if ($this->image == "portal_planet"){
+            $x -= 12;
+            $y -= 12;
+            $default = 56;
+            //$planet = "portalplanet";
+            $tempimage = "portal";
+        }
+        echo "
+        <door style='left:${x}px;top:${y}px' onclick='Controller(\"enterDoor\",$this->id)'>
+            <img class='$planet' height=${default} width=${default} src='images/decoration/$tempimage.png' />
+        </door>
+        ";
+    }
+}
+
+class MapMonster extends MapEntity {
+    // ~~~~~~~~~~~~~~~ Properties ~~~~~~~~~~~~~~~
+
+    // ~~~~~~~~~~~~~~~ Create Item Method ~~~~~~~~~~~~~~~
+    public static function create( $roomid , $coordinate , $image ) {
+        $instance = new self();
+        $instance->id = $roomid;
+        $coords = explode(",", $coordinate);
+        $instance->x = $coords[0];
+        $instance->y = $coords[1];
+        $instance->image = $image;
+        $instance->type = "monster";
+        return $instance;
+    }
+    public function display($index){
         $x = $this->x*32;
         $y = $this->y*32;
         echo "
-        <door style='left:${x}px;top:${y}px' onclick='Controller(\"enterDoor\",$this->id)'>
-            <img height=32px width=32px src='images/decoration/$this->image.png' />
-        </door>
+        <monster style='left:${x}px;top:${y}px' onclick='Controller(\"startFight\",$this->id)'>
+            <img height=32px width=32px src='images/monsters/$this->id.png' />
+        </monster>
         ";
     }
 }
