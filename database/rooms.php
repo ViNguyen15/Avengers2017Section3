@@ -173,15 +173,15 @@ $rooms[11]->addEntities( array(
 $rooms[] = new Room(12, "Home Base",  "Upon exiting the portal, you enter a base located on the moon. The room is filled with 4 portals labelled Mercury, Venus, Earth, and Mars. There is also a shop keeper there who looks at you, hoping that you came to buy something.");
 //Nothing here except Shop portal
 $rooms[12]->addEntities( array(
-    MapDoor::create(11,"2,5","portal"), //Portal Room
+    MapDoor::create(11,"2,5","portal_planet"), //Portal Room
     MapDoor::create(50, "7,5", "shop"), //Shop portal 
-    MapDoor::create(17, "9,4", "portal"), //Europa
-    MapDoor::create(22, "4,9", "portal"), //Titan
-    MapDoor::create(36, "2,9", "portal"), //Mercury
-    MapDoor::create(37, "10,14", "portal"), //Venus
-    MapDoor::create(38, "11,11", "portal"), //Mars
-    MapDoor::create(31, "6,5", "portal"), //Triton
-    MapDoor::create(27, "8,10", "portal") //Umbriel
+    MapDoor::create(17, "9,4", "portal_planet"), //Europa
+    MapDoor::create(22, "4,9", "portal_planet"), //Titan
+    MapDoor::create(36, "2,9", "portal_planet"), //Mercury
+    MapDoor::create(37, "10,14", "portal_planet"), //Venus
+    MapDoor::create(38, "11,11", "portal_planet"), //Mars
+    MapDoor::create(31, "6,5", "portal_planet"), //Triton
+    MapDoor::create(27, "8,10", "portal_planet") //Umbriel
 )
 );
 
