@@ -76,7 +76,7 @@ class MapDoor extends MapEntity {
     }
 
     //~~~~~~~~~~~~~~~ Display Interface ~~~~~~~~~~~~~~~
-    public function display($index){
+    public function display($roomsvisited){
         $default = 32;
         $x = $this->x*32;
         $y = $this->y*32;
@@ -89,9 +89,16 @@ class MapDoor extends MapEntity {
             //$planet = "portalplanet";
             $tempimage = "portal";
         }
+        $name = "";
+        foreach ($roomsvisited as $room){
+            if ($room->id == $this->id){
+                $name = $room->name;
+            }
+        }
         echo "
         <door style='left:${x}px;top:${y}px' onclick='Controller(\"enterDoor\",$this->id)'>
             <img class='$planet' height=${default} width=${default} src='images/decoration/$tempimage.png' />
+            <description>$name</description>
         </door>
         ";
     }
