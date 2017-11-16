@@ -7,7 +7,7 @@ foreach (glob("../classes/*.php") as $class) {
 }
 
 session_start();
-echo "left:".($_SESSION['player']->x*32)."; top:".($_SESSION['player']->y*32).";";
+echo "left:".($_SESSION['player']->x*32 + 5)."; top:".($_SESSION['player']->y*32 + 5).";";
 
 //header('location: index.php');
 
