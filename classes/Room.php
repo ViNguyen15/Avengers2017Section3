@@ -11,7 +11,7 @@
 
 */
 
-class Room implements display{
+class Room{
 	
     // ~~~~~~~~~~~~~~~ Properties ~~~~~~~~~~~~~~~
     public $id;
@@ -42,10 +42,10 @@ class Room implements display{
 
     //~~~~~~~~~~~~~~~ Display Interface ~~~~~~~~~~~~~~~
     // Displays the room to the page. 
-    public function display(){
+    public function display($roomsvisited){
         
         echo "<room style='background-image:url(\"images/rooms/$this->id.png\")'>";
-        $this->displayMapEntities();
+        $this->displayMapEntities($roomsvisited);
         echo "</room>";
         
         echo "<h3>$this->name</h3>";
@@ -57,9 +57,16 @@ class Room implements display{
     // Below methods contain seperated display functions so each type of
     // object can be changed seperately if needed.
     
-    function displayMapEntities(){
+    function displayMapEntities($roomsvisited){
         foreach ($this->entities as $index => $entity){
-            $entity->display($index);
+            if ($entity->type == "door")
+            {
+                $entity->display($roomsvisited);
+            }
+            else {
+                $entity->display($index);
+            }
+            
         }
     }
 
