@@ -30,7 +30,7 @@ if ($_SESSION['loggedin']!=true){
 
 <body>
 <header>
-    <h1>< GAME TITLE ></h1>
+    <h1>Project Voyager</h1>
 
     <form action="function/logout.php" method="post"><input type="submit" value="Logout"></form>
     <form action="function/save.php" method="post"><input type="submit" value="Save Game"></form>

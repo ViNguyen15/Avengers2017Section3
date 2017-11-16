@@ -77,17 +77,26 @@ inventory > description {
   font-size:1em;
   border-radius:5px;
 }
-room {
+room, shop, combat {
   position:relative;
   display: block;
   width:480px;
   height:480px;
 }
-shop {
-  position:relative;
-  display: block;
-  width:480px;
-  height:480px;
+shopitem {
+  display:inline-block;
+  background-color:lightgrey;
+  border-radius:10px;
+  width:80px;
+  height:80px;
+  margin:10px;
+}
+shopitem:hover {
+  background-color:lightslategrey
+}
+price {
+  display:block;
+  background-color:darkgoldenrod
 }
 nav {
   clear:left;
@@ -112,8 +121,22 @@ user, item, door {
 	display:block;
   cursor:pointer;
 }
+door img{
+  position: absolute;
+  top:0;
+  left:0;
+}
 
 user img {
 	position:absolute;
 	bottom:0px;
+}
+.portalplanet{
+  background: -moz-radial-gradient(center, ellipse cover, rgba(56,255,238,1) 0%, rgba(128,128,128,0.27) 73%, rgba(128,128,128,0) 100%); /* ff3.6+ */
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(56,255,238,1)), color-stop(73%, rgba(128,128,128,0.27)), color-stop(100%, rgba(128,128,128,0))); /* safari4+,chrome */
+  background:-webkit-radial-gradient(center, ellipse cover, rgba(56,255,238,1) 0%, rgba(128,128,128,0.27) 73%, rgba(128,128,128,0) 100%); /* safari5.1+,chrome10+ */
+  background: -o-radial-gradient(center, ellipse cover, rgba(56,255,238,1) 0%, rgba(128,128,128,0.27) 73%, rgba(128,128,128,0) 100%); /* opera 11.10+ */
+  background: -ms-radial-gradient(center, ellipse cover, rgba(56,255,238,1) 0%, rgba(128,128,128,0.27) 73%, rgba(128,128,128,0) 100%); /* ie10+ */
+  background:radial-gradient(ellipse at center, rgba(56,255,238,1) 0%, rgba(128,128,128,0.27) 73%, rgba(128,128,128,0) 100%); /* w3c */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#38FFEE', endColorstr='#808080',GradientType=1 ); /* ie6-9 */
 }
