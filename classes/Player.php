@@ -23,6 +23,7 @@ class Player {
     public $strength;
     public $equippedWeapon; // Weapon 
     public $equippedArmor; // Armor
+    public $roomsvisited = array();
 
     public function __construct() {
         $this->healthMax = 100;
@@ -119,6 +120,10 @@ class Player {
         foreach ($this->game as $room) {
             if ($room->id == $roomid) {
                 $this->location = $room;
+                
+                if (!in_array($roomid, $roomsvisited)){
+                    $this->roomsvisited[] = $room;
+                }
                 break;
             }
         }
@@ -164,16 +169,16 @@ class Player {
     }
 
     public function displayStats() {
-        echo "<stats>
+        echo "
 			  Health Points:$this->healthPoints/$this->healthMax<br>
-			  Equipment:<br>
-			  </stats>
+			  Strength:<br>
+              Defense:<br>
 			  ";
     }
 
     public function displayInventory() {
 
-        echo "<inventory>Inventory:<br>";
+        //echo "<inventory>Inventory:<br>";
 
         foreach ($this->inventory as $item) {
             $command = "";
@@ -183,19 +188,19 @@ class Player {
             if ($item->amount > 0 || $item->id == 0) {
                 //Remove any items that are at 0 value
                 echo "<item onclick='$command' onmouseover='displayDescription(this)' onmouseout='removeDescription(this)'> 
-				<img src='./images/items/$item->id.png' height='32' width='32'>
-				<description><b><u>$item->name</u></b> <br> $item->description</description>
+				<img src='./images/items/$item->id.png'>
+				<alt><b><u>$item->name</u></b> <br> $item->description</alt>
 				<amount>x$item->amount</amount>
 				</item>";
             }
         }
 
-        echo "<description id=\"desc\"></description> </inventory>";
+        echo "<description id=\"desc\"></description>";
     }
 
     public function displayRoom() {
         $loc = $this->location;
-        $loc->display();
+        $loc->display($this->roomsvisited);
     }
 
 }
