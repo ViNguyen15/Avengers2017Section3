@@ -63,7 +63,7 @@ class MapDoor extends MapEntity {
 
     // ~~~~~~~~~~~~~~~ Properties ~~~~~~~~~~~~~~~
 
-    // ~~~~~~~~~~~~~~~ Create Item Method ~~~~~~~~~~~~~~~
+    // ~~~~~~~~~~~~~~~ Create Door Method ~~~~~~~~~~~~~~~
     public static function create( $roomid , $coordinate , $image ) {
         $instance = new self();
         $instance->id = $roomid;
@@ -107,7 +107,7 @@ class MapDoor extends MapEntity {
 class MapMonster extends MapEntity {
     // ~~~~~~~~~~~~~~~ Properties ~~~~~~~~~~~~~~~
 
-    // ~~~~~~~~~~~~~~~ Create Item Method ~~~~~~~~~~~~~~~
+    // ~~~~~~~~~~~~~~~ Create Monster Method ~~~~~~~~~~~~~~~
     public static function create( $roomid , $coordinate , $image ) {
         $instance = new self();
         $instance->id = $roomid;
@@ -129,5 +129,34 @@ class MapMonster extends MapEntity {
     }
 }
 
+class MapPuzzle extends MapEntity {
+    
+        // ~~~~~~~~~~~~~~~ Properties ~~~~~~~~~~~~~~~
+    
+       
+    
+        // ~~~~~~~~~~~~~~~ Create Puzzle Method ~~~~~~~~~~~~~~~
+        public static function create( $puzzleid, $coordinate , $image ) {
+            $instance = new self();
+            $instance->id = $itemid;
+            $coords = explode(",", $coordinate);
+            $instance->x = $coords[0];
+            $instance->y = $coords[1];
+            $instance->image = $image;
+            $instance->type = "puzzle";
+            return $instance;
+        }
+    
+        //~~~~~~~~~~~~~~~ Display Interface ~~~~~~~~~~~~~~~
+        public function display($index){
+            $x = $this->x*32;
+            $y = $this->y*32;
+            echo "
+            <puzzle style='left:${x}px;top:${y}px' onclick='Controller(\"startPuzzle\",$index)'>
+                <img height=32px width=32px src='images/decoration/$this->image.png' />
+            </puzzle>
+            ";
+        }
+    }
 
 ?>

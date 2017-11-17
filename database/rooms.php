@@ -46,7 +46,7 @@ $rooms[] = new Room(1,"Outside Power Plant", "You stand outside of what appears 
 //Puzzle 8 (none, 100)
 $rooms[1]->addEntities( array(
     MapItem::create(1,1,"2,4","cabinet"), //Medicine
-    MapDoor::create(36, "3,7", "building") //Mercury's Surface 
+    MapDoor::create(36, "3,7", "building"), //Mercury's Surface 
     ));
 
 $rooms[] = new Room(2,"Generator Room", "The center of the power plant appears to be a power plant. While it is still able to function, there is very clearly visible damage to the inside of the room, and a few parts appear to be missing.");
@@ -133,7 +133,7 @@ $rooms[8]-> addEntities(array(
 ~~~~~~~~~~~~~~~ Earth ~~~~~~~~~~~~~~~
 */
 
-$rooms[] = new Room(9, "Crash Site", "You wake up in a forest, dazed but uninjured. You stand up and look at your ship, which is missing many of it’s vital piec-es from your encounter with a band of space pirates. There is no way that the ship can fly in it’s current condition, so you must find another way to get off this planet. To the north, there appears to be a building, so maybe it would be best to investi-gate.");
+$rooms[] = new Room(9, "Crash Site", "You wake up in a forest, dazed but uninjured. You stand up and look at your ship, which is missing many of it’s vital pieces from your encounter with a band of space pirates. There is no way that the ship can fly in its current condition, so you must find another way to get off this planet. To the north, there appears to be a building, so maybe it would be best to investigate.");
 //Worn Out robot ( Elixir -1, none) 
 //Gold (100, Storage Container)
 $rooms[9]->addEntities( array(
@@ -141,6 +141,9 @@ $rooms[9]->addEntities( array(
     MapItem::create(0,1000,"4,2","rock"), //Gold
     MapItem::create(3,1,"10,11","rock"), //Mineral
     MapDoor::create(10,"5,5","building"),  //Lab entrance
+ //TEST
+    MapMonster::create(9, "9,10", "0") //Space Pirate 
+    
 )
 );
 
