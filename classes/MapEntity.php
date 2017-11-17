@@ -108,9 +108,9 @@ class MapMonster extends MapEntity {
     // ~~~~~~~~~~~~~~~ Properties ~~~~~~~~~~~~~~~
 
     // ~~~~~~~~~~~~~~~ Create Monster Method ~~~~~~~~~~~~~~~
-    public static function create( $roomid , $coordinate , $image ) {
+    public static function create( $monsterid , $coordinate , $image ) {
         $instance = new self();
-        $instance->id = $roomid;
+        $instance->id = $monsterid;
         $coords = explode(",", $coordinate);
         $instance->x = $coords[0];
         $instance->y = $coords[1];
@@ -138,7 +138,7 @@ class MapPuzzle extends MapEntity {
         // ~~~~~~~~~~~~~~~ Create Puzzle Method ~~~~~~~~~~~~~~~
         public static function create( $puzzleid, $coordinate , $image ) {
             $instance = new self();
-            $instance->id = $itemid;
+            $instance->id = $puzzleid;
             $coords = explode(",", $coordinate);
             $instance->x = $coords[0];
             $instance->y = $coords[1];
