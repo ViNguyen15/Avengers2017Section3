@@ -67,7 +67,7 @@ room {
     height:480px;
     position:relative
 }
-user,room item,room door {
+user,room item,room door,room monster {
 	position:absolute;
 	width:32px;
 	height:32px;
