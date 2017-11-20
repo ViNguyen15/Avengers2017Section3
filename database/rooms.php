@@ -58,7 +58,7 @@ $rooms[] = new Room(2,"Generator Room", "The center of the power plant appears t
  $rooms[2]->addEntities (array( 
      MapItem::create(1,2,"10,5","storage_container"), //Medicine
      MapDoor::create(36, "7,5", "building"), //Mercury's Surface 
-     MapMonster::create(5, "3,4" "5"), //Fire Giant
+     MapMonster::create(5, "3,4", "5") //Fire Giant
   ) ); 
  
 
@@ -506,8 +506,8 @@ $rooms[36]->addEntities(array (
     MapDoor::create(1, "3,7", "building"), //Outside Powerplant
     MapDoor::create(2, "7,5", "building"), //Generator Room 
     MapDoor::create(3, "9,12", "building"), //Destroyed Wing 
-    MapDoor::create(4, "5,7", "building") //Manager's Room 
-    MapDoor::create(12, "2,9", "portal_planet"), //Mercury
+    MapDoor::create(4, "5,7", "building"), //Manager's Room 
+    MapDoor::create(12, "2,9", "portal_planet") //Mercury
    
 ));
 
@@ -517,8 +517,8 @@ $rooms[37]->addEntities(array(
     MapDoor::create(5, "3, 4", "building"), //Lake
     MapDoor::create(6, "4,3", "building"), //Ghost Town
     MapDoor::create(7, "9,8", "building"), //Volcano
-    MapDoor::create(8, "8,7", "building") //Field
-    MapDoor::create(12, "10,14", "portal_planet"), //Venus
+    MapDoor::create(8, "8,7", "building"), //Field
+    MapDoor::create(12, "10,14", "portal_planet") //Venus
 )); 
 
 $rooms[] = new Room(38, "Mars' Surface", "You arrive on Mars and scan the area. There are buildings and portals scattered around. It would be a good idea to check them out.");
@@ -526,7 +526,7 @@ $rooms[38]->addEntities( array (
     MapDoor::create(13, "5,6", "building"), //Trap Room
     MapDoor::create(14, "6,8", "building"), //Wastland
     MapDoor::create(15, "12,5", "portal"), //Phobos
-    MapDoor::create(16, "10,13", "portal") //Deimos
+    MapDoor::create(16, "10,13", "portal"), //Deimos
     MapDoor::create(12, "11,11", "portal_planet"), //Mars
     
 ));
@@ -534,6 +534,7 @@ $rooms[38]->addEntities( array (
 
 
 $rooms[] = new Shop(50, "Shop", "This is the home world shop.");
+
 $default_room = $rooms[9];
 
 ?>
