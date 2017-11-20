@@ -37,7 +37,12 @@ $armorList[] = Armor::createArmor( 10, "Pilot suit", "Standard leather clothing 
 $armorList[] = Armor::createArmor( 11, "Law Enforcement Gear", "Protective gear worn by colony law enforcement, it offers decent protection", "armor", 1400, 700, 3);
 $armorList[] = Armor::createArmor( 12, "Military gear", "Protective gear worn by colony law military officers, it offers good protection", "armor", 2200, 1100, 5);
 
-
+$itemList[] = Item::createItem(13, "Radar", "A piece of the ship that allows us to detect objects in space.", "part", 1, 1);
+$itemList[] = Item::createItem(14, "Cockpit", "A piece of the ship that allows us to pilot the ship.", "part", 1, 1);
+$itemList[] = Item::createItem(15, "Engine", "We need this to power the ship!", "part", 1, 1);
+$itemList[] = Item::createItem(16, "Communication Network", "We need this to communicate.", "part", 1 , 1);
+$itemList[] = Item::createItem(17, "Wings", "We need this to fly the ship.", "part", 1, 1);
+$itemList[] = Item::createItem(18, "Defense Turret", "We need this to protect the ship.", "part", 1, 1);
 /**
     ~~~~~~~~~~~~~~~ Default Inventory ~~~~~~~~~~~~~~~
     Description:
