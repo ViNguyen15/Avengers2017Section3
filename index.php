@@ -61,11 +61,67 @@ game {
     position:relative
 }
 
-room {
+room, shop, puzzle {
     display: block;
     width:480px;
     height:480px;
     position:relative
+}
+puzzle p {
+    color:white;
+    display:block;
+    background-color: #195b20;
+    border-radius: 5px;
+    width:200px;
+    height: 200px;
+    position:absolute;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    margin:auto;
+    padding:10px;
+    font-size: 1.15em;
+}
+puzzle hint {
+    color:white;
+    display:block;
+    background-color: #0c2f10;
+    border-radius: 5px;
+    width:300px;
+    height: 60px;
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:10;
+    margin:auto;
+    padding:10px;
+    font-size: 1.2em
+}
+puzzle gethint {
+    display:block;
+    background-color: white;
+    padding:5px;
+    position:absolute;
+    bottom:0;
+    right:0;
+    cursor:pointer
+}
+puzzle submit {
+    width:100%;
+    height:50px;
+    display:block;
+    background-color: #0c2f10;
+    border: 2px black dotted;
+    text-align: center;
+    cursor:pointer
+}
+puzzle submit:hover {
+    background-color: #2e9338;
+}
+puzzle input {
+    width:100%;
+    margin:0px;
 }
 user,room item,room door,room monster, room puzzle {
 	position:absolute;
@@ -187,6 +243,10 @@ window.onload = function() {
         xmlhttp.open("GET", "function/Controller.php?func="+func+"&id="+id, true);
         xmlhttp.send();
 	}
+    function tryAnswer(){
+        var answer = document.getElementById("answer").value;
+        Controller("tryAnswer",answer)
+    }
     function RefreshPlayer(){
         var xmlhttp = new XMLHttpRequest();
 		xmlhttp.onreadystatechange = function() {
@@ -268,6 +328,13 @@ window.onload = function() {
 
     function removeDescription(x) {
         document.getElementById("desc").innerHTML = " "; 
+    }
+    function displayHint(x) {
+        document.getElementById("hint").setAttribute("style","visibility:visible"); 
+    }
+
+    function hideHint(x) {
+        document.getElementById("hint").setAttribute("style","visibility:hidden"); 
     }
 </script>
 </header>
