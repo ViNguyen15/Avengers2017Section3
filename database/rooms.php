@@ -48,7 +48,7 @@ $rooms[1]->addEntities( array(
     MapItem::create(1,1,"2,4","cabinet"), //Medicine
     MapDoor::create(36, "3,7", "building"), //Mercury's Surface 
     MapMonster::create(0, "10,14", "0"), //Space Pirate
-    MapPuzzle::create(8, "9,5", "puzzle") //Puzzle 8
+    MapPuzzle::create(68, "9,5", "puzzle") //Puzzle 8
 
     ));
 
@@ -92,7 +92,7 @@ $rooms[5]->addEntities( array(
     MapItem::create(1,1,"2,3","bag"), //Medicine
     MapItem::create(8,1, "5,7", "hole"), //Laser rifle
     MapDoor::create(37, "3, 4", "building"), //Venus Surface
-    MapPuzzle::create(7, "10,11", "puzzle") //Puzzle 7
+    MapPuzzle::create(67, "10,11", "puzzle") //Puzzle 7
 ));
 
 
@@ -116,7 +116,7 @@ $rooms[7]->addEntities( array(
     MapItem::create(2,1,"12,5","hole"), //Elixir   
     MapItem::create(0,100, "8,3", "cabinet"), //Gold
     MapDoor::create(37, "9,8", "building"), //Venus Surface
-    MapPuzzle::create(6, "7,5", "puzzle"), //Puzzle 6 
+    MapPuzzle::create(66, "7,5", "puzzle"), //Puzzle 6 
     MapMonster::create(8, "2,7", "8") //Lava Spider 
 ));
 
@@ -158,7 +158,7 @@ $rooms[10]->addEntities( array(
     MapItem::create(0,10,"8,5","rock"), //Gold
     MapDoor::create(9,"5,5","building"), //Crash Site
     MapDoor::create(11,"13,1","building"), //Portal Room
-    MapPuzzle::create(5, "3,10", "puzzle") //Puzzle 5
+    MapPuzzle::create(65, "3,10", "puzzle") //Puzzle 5
 )
 );
 
@@ -207,7 +207,7 @@ $rooms[13]->addEntities( array(
     MapItem::create(1, 1, "7,3", "bag"), //Medicine
     MapDoor::create(38, "5,6", "building"), //Mars Surface
     MapMonster::create(2, "6,10", "2"), //Defense Drone
-    MapPuzzle::create(4, "10,12", "puzzle") //Puzzle 4 
+    MapPuzzle::create(64, "10,12", "puzzle") //Puzzle 4 
 )
 );
 
@@ -231,7 +231,7 @@ $rooms[15]->addEntities( array(
     MapItem::create(8, 1, "9,8", "hole"), //Laser rifle
     MapDoor::create(38, "12,5", "portal"), //Mars Surface
     MapMonster::create(5, "3,5", "5"), //Fire Giant
-    MapPuzzle::create(3, "4,8", "puzzle") //Puzzle 3 
+    MapPuzzle::create(63, "4,8", "puzzle") //Puzzle 3 
 )
 );
 
@@ -295,7 +295,7 @@ $rooms[21]->addEntities( array(
     MapItem::create(1, 1, "5,7", "barrel"), //Medicine
     MapDoor::create(19, "2,6", "portal"), //Io
     MapDoor::create(18, "6,7", "portal"), //Ganymede
-    MapPuzzle::create(0, "9,4", "puzzle") //Puzzle 0 
+    MapPuzzle::create(60, "9,4", "puzzle") //Puzzle 0 
 )
 );
 
@@ -415,7 +415,7 @@ $rooms[29]->addEntities( array(
     MapDoor::create(28, "10,3", "portal"), //Titania
     MapDoor::create(30, "3,8", "portal"), //Oberon
     MapMonster::create(7, "9,3", "7"), //Ruffian
-    MapPuzzle::create(1, "2,8", "puzzle") //Puzzle 1 
+    MapPuzzle::create(61, "2,8", "puzzle") //Puzzle 1 
 )
 );
 
@@ -446,7 +446,7 @@ $rooms[31]->addEntities( array(
     MapDoor::create(12, "6,5", "portal"), //Home Base
     MapDoor::create(32, "10,11", "portal"), //Nereid
     MapMonster::create(5, "2,3,", "5"), //Fire Giant 
-    MapPuzzle::create(9, "3,9", "puzzle") //Puzzle 9 
+    MapPuzzle::create(69, "3,9", "puzzle") //Puzzle 9 
 )
 );
 
@@ -479,7 +479,7 @@ $rooms[34]->addEntities( array(
     MapItem::create(3, 2, "8,9", "bag"), //Minerals
     MapDoor::create(32, "3,9", "portal"), //Nereid
     MapDoor::create(35, "10,13", "portal"), //Thalassa
-    MapPuzzle::create(2, "6,5", "2") //Puzzle 2 
+    MapPuzzle::create(62, "6,5", "2") //Puzzle 2 
 )
 );
 
@@ -534,6 +534,17 @@ $rooms[38]->addEntities( array (
 
 
 $rooms[] = new Shop(50, "Shop", "This is the home world shop.");
+
+$rooms[] = new Puzzle(60, "What are Saturn’s Rings made of?", "Ice", "Dust, Ice, or Boron", 7, 1);
+$rooms[] = new Puzzle(61, "True or False: Saturn is less dense than water.", "True", "Saturn can float on water", 0, 150);
+$rooms[] = new Puzzle(62, "Saturn was Discovered by?", "Galileo", "Isaac Newton, Copernicus, or Galileo", 2, 2);
+$rooms[] = new Puzzle(63, "What kind of natural disaster happens on the moon?", "Moonquake", "Not an earthquake", 0, 200);
+$rooms[] = new Puzzle(64, "Sometimes I’m full, but I never overflow. What am I?", "The moon", "Not the sun", 0, 150);
+$rooms[] = new Puzzle(65, "It dances bright, Banishing all but darkest night. Give it food and it will live; Give it water and it will die. What is it?", "Fire", "Everything changed when the __ nation attacked", 5, 1);
+$rooms[] = new Puzzle(66, "Sometimes you can see my tail. I’m not a planet. I am _.", "Comet", "I visit earth every 76 years", 18, 1);
+$rooms[] = new Puzzle(67, "How many years does it take for a solar eclipse to occur?", "1.5", "Eighteen months", 0, 300);
+$rooms[] = new Puzzle(68, "How many days does it take mercenary to orbit the sun?", "88", "I ate and ate", 0, 200);
+$rooms[] = new Puzzle(69, "True or False: The Grand Canyon is the biggest canyon in the solar system.", "False", "There is a grander canyon", 0, 150);
 
 $default_room = $rooms[9];
 
