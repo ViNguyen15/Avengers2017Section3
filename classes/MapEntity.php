@@ -152,7 +152,7 @@ class MapPuzzle extends MapEntity {
             $x = $this->x*32;
             $y = $this->y*32;
             echo "
-            <puzzle style='left:${x}px;top:${y}px' onclick='Controller(\"startPuzzle\",$index)'>
+            <puzzle style='left:${x}px;top:${y}px' onclick='Controller(\"startPuzzle\",$this->id)'>
                 <img height=32px width=32px src='images/decoration/$this->image.png' />
             </puzzle>
             ";

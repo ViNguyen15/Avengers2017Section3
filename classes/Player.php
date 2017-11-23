@@ -15,6 +15,7 @@ class Player {
     public $password;     //This is hashed so no passwords can be leaked.
     public $inventory = array();
     public $location;
+    public $prev_location;
     public $x;
     public $y;
     public $game;
@@ -24,6 +25,7 @@ class Player {
     public $equippedWeapon; // Weapon 
     public $equippedArmor; // Armor
     public $roomsvisited = array();
+    public $puzzles = array();
 
     public function __construct() {
         $this->healthMax = 100;
@@ -32,7 +34,7 @@ class Player {
 
     //Movement code
     public function move_y($val) {
-        if ($this->location->id != 50) {
+        if ($this->location->id < 50) {
             $this->y -= $val;
             $this->y = max(1, min($this->y, 14));
             $this->interact();
@@ -40,7 +42,7 @@ class Player {
     }
 
     public function move_x($val) {
-        if ($this->location->id != 50) {
+        if ($this->location->id < 50) {
             $this->x += $val;
             $this->x = max(0, min($this->x, 14));
             $this->interact();
@@ -57,6 +59,12 @@ class Player {
                         break;
                     case "door":
                         $this->enterDoor($entity->id);
+                        break;
+                    case "monster":
+                        $this->fightMonster($entity->id);
+                        break;
+                    case "puzzle":
+                        $this->startPuzzle($entity->id);
                         break;
                 }
             }
@@ -116,6 +124,7 @@ class Player {
         }
     }
 
+
     public function enterDoor($roomid) {
         foreach ($this->game as $room) {
             if ($room->id == $roomid) {
@@ -127,6 +136,43 @@ class Player {
                 break;
             }
         }
+    }
+
+    public function startFight($monsterid){
+
+    }
+    public function startPuzzle($puzzleid){
+        $this->prev_location = $this->location;
+        foreach ($this->game as $room) {
+            if ($room->id == $puzzleid) {
+                $this->location = $room;
+                
+                if (!in_array($puzzleid, $roomsvisited)){
+                    $this->roomsvisited[] = $room;
+                }
+                break;
+            }
+        }
+    }
+    public function tryAnswer($answer){
+        $puzzle = $this->location;
+        if (strtolower($puzzle->answer) == strtolower($answer)){
+            $puzzle->completed = 1;
+            $this->rewardItem($puzzle->rewardId,$puzzle->rewardAmount);
+            $this->location = $this->prev_location;
+
+        }
+    }
+    public function rewardItem($itemid,$amount){
+        foreach ($this->inventory as $item) {
+            if ($itemid == $item->id) {
+                $item->amount += $amount;
+                break;
+            }
+        }
+    }
+    public function goBack($x){
+        $this->location = $this->prev_location;
     }
 
     public function takeDamage($amount) {
