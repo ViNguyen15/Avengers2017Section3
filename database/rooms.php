@@ -40,7 +40,7 @@ $rooms = array();
 $rooms[] = new Room (0,"Empty Room","Empty Room Description");
 
 
-$rooms[] = new Room(1,"Outside Power Plant", "You stand outside of what appears to be a large white building that is gated off. While it is not clear what exactly it is used for, at first glance it appears to be a power plant of some sort.");
+$rooms[] = new Room(1,"Outside Power Plant", "You stand outside of what appears to be a large white building behind a closed gate. While its intended use isn't clear, at first glance it appears to be a power plant of some sort.");
 //Space Pirate(None, 100) 
 //Medicine(1, Cabinet). 
 //Puzzle 8 (none, 100)
@@ -52,7 +52,7 @@ $rooms[1]->addEntities( array(
 
     ));
 
-$rooms[] = new Room(2,"Generator Room", "The center of the power plant appears to be a power plant. While it is still able to function, there is very clearly visible damage to the inside of the room, and a few parts appear to be missing.");
+$rooms[] = new Room(2,"Generator Room", "You head inside and stand in front of what appears to be a power plant. While it's still functional, there is clearly visible damage to the inside of the room, and a few parts appear to be missing.");
 //Fire Giant(Engine -1, 100)
 //Medicine(2, Storage Container)
  $rooms[2]->addEntities (array( 
@@ -62,7 +62,7 @@ $rooms[] = new Room(2,"Generator Room", "The center of the power plant appears t
   ) ); 
  
 
-$rooms[] = new Room(3,"Destroyed Wing", "The west side of the plant is destroyed beyond repair. The back wall is non-existent, the only evidence that it even existed at any point is a pile of rubble surrounding the hole.");
+$rooms[] = new Room(3,"Destroyed Wing", "The west side of the plant is destroyed beyond repair. The back wall is non-existent; the only evidence that it even existed at any point is a pile of rubble surrounding the spot where the wall should have been.");
  //Elixir(1, Storage Container)
  $rooms[3]->addEntities( array(
       MapItem::create(2,1,"5,6","storage_container"), //Elixir
@@ -85,7 +85,7 @@ $rooms[] = new Room(4,"Manager's Room", "You enter what appears to be an office.
 /**
 ~~~~~~~~~~~~~~~ Venus ~~~~~~~~~~~~~~~
 */
-$rooms[] = new Room(5, "Lake", "The city is covered with a lake on the left side with a yacht on the corner to get to the white house for surprises. On the left side, we have the rock covered tomb. Be adventurous to find hidden stuff!!");
+$rooms[] = new Room(5, "Lake", "The city is flanked by a lake on the left side with a yacht floating nearby, probably used to get to the white house across the lake for surprises. On the right side, there is a rock covered tomb. Be adventurous to find hidden stuff!!");
 //Laser rifle(1, Hole), Medicine(1, Bag)
 //Puzzle 7(none, 300)
 $rooms[5]->addEntities( array(
@@ -96,7 +96,7 @@ $rooms[5]->addEntities( array(
 ));
 
 
-$rooms[] = new Room(6, "Ghost Town", "This is the best part of the city!! Due to enough amount of sun UV rays, it has sand dunes and a city where there is life, filled with pools and church. WATCH OUT!! There is something you could get harmed by.");
+$rooms[] = new Room(6, "Ghost Town", "This is the best part of the city! Due to the amount of UV rays coming from the Sun, there are sand dunes, and a lively city, filled with pools and a church. WATCH OUT!! There might be something here that could harm you."); 
 // Ruffian(None, 100)
 //Gold (100, Cabinet), Medicine(1, Storage Container)
 $rooms[6]->addEntities( array(
@@ -107,7 +107,7 @@ $rooms[6]->addEntities( array(
 )); 
 
 
-$rooms[] = new Room(7, "Volcano", "This the smallest city of the Venus and also the city of natural disasters (Volcanoes and hurricanes) on your way ,there is wooden door blocking the way .");
+$rooms[] = new Room(7, "Volcano", "This the smallest city on Venus, also called the City of Natural Disasters. Mainly volcanoes and hurricanes. As you move around, you see a wooden door blocking the way .");
 //Elixir(1, Hole) 
 //Gold (100, Bag)
 //Puzzle 6 (Defense turret -1, 0)
@@ -121,7 +121,7 @@ $rooms[7]->addEntities( array(
 ));
 
 
-$rooms[] = new Room(8, "Field", "ALERT!! There is a gigantic terrific creature on a hunger strike which is carnivorous. This is the last stage of the Venus. Good Luck!!");
+$rooms[] = new Room(8, "Field", "ALERT!! There is a gigantic, terrifying, carnivorous creature on a hunger strike. This is the last stage of Venus. Good Luck!");
 //Ruffian(none, 100)
 //Medicine(1, Hole) 
 $rooms[8]-> addEntities(array(
@@ -137,7 +137,7 @@ $rooms[8]-> addEntities(array(
 ~~~~~~~~~~~~~~~ Earth ~~~~~~~~~~~~~~~
 */
 
-$rooms[] = new Room(9, "Crash Site", "You wake up in a forest, dazed but uninjured. You stand up and look at your ship, which is missing many of it’s vital pieces from your encounter with a band of space pirates. There is no way that the ship can fly in its current condition, so you must find another way to get off this planet. To the north, there appears to be a building, so maybe it would be best to investigate.");
+$rooms[] = new Room(9, "Crash Site", "You wake up in a forest, dazed but uninjured. You stand up and look at your ship, which is missing many vital pieces from your encounter with a band of space pirates. There is no way that the ship can fly in its current condition, so you must find another way to get off this planet. To the North, there appears to be a building, so maybe it would be best to investigate.");
 //Worn Out robot ( Elixir -1, none) 
 //Gold (100, Storage Container)
 $rooms[9]->addEntities( array(
@@ -150,7 +150,7 @@ $rooms[9]->addEntities( array(
 );
 
 
-$rooms[] = new Room(10, "Lab Entrance", "The remains of the destroyed robot lay on the floor. The fight with the robot destroyed all machinery in the room, meaning that getting information from the room is no longer an option. Behind you is the exit of the lab, and forward, there is a door to another room.");
+$rooms[] = new Room(10, "Lab Entrance", "The remains of the destroyed robot lay on the floor. The fight with the robot destroyed all machinery in the room, meaning that getting information from the room is no longer an option. Behind you is the exit of the lab, and ahead, there is a door to another room.");
 //Gold(100, Storage Container) 
 //Puzzle 5(Plasma Knife -1, none)
 $rooms[10]->addEntities( array(
@@ -176,7 +176,7 @@ $rooms[11]->addEntities( array(
 );
 
 
-$rooms[] = new Room(12, "Home Base",  "Upon exiting the portal, you enter a base located on the moon. The room is filled with 4 portals labelled Mercury, Venus, Earth, and Mars. There is also a shop keeper there who looks at you, hoping that you came to buy something.");
+$rooms[] = new Room(12, "Home Base",  "Upon exiting the portal, you enter a base located on the Moon. The room is filled with four portals labeled Mercury, Venus, Earth, and Mars. There is also a shop keeper here who watches you, hoping that you came to buy something.");
 //Nothing here except Shop portal
 $rooms[12]->addEntities( array(
     MapDoor::create(11,"2,5","portal_planet"), //Portal Room
@@ -196,7 +196,7 @@ $rooms[12]->addEntities( array(
 ~~~~~~~~~~~~~~~ Mars ~~~~~~~~~~~~~~~
 */
 
-$rooms[] = new Room(13, "Trap Room", "When you enter the room ,you see a trap holes in front of you as well as across the room and the room is filled with bunch of furniture and hidden treasure  box for the rewards.");
+$rooms[] = new Room(13, "Trap Room", "When you enter the room, you see a bunch of trap holes scattered across the floor. The room is filled with furniture. It would be a good idea to search around for rewards.");
 //Defense Drone(none, none)
 //Gold(100, Cabinet)
 //Plasma Sword (1, Barrel), Medicine (1, Bag)
@@ -212,7 +212,7 @@ $rooms[13]->addEntities( array(
 );
 
 
-$rooms[] = new Room(14, "Wasteland", "You walk into most disastrous room on the planet and the monster is waiting for you in the corner. There is a medication in the room and few other rewards once you kill the monster.");
+$rooms[] = new Room(14, "Wasteland", "You walk into most disastrous room on the planet. There is medication in the room and few other rewards.");
 //Gold (100, Cabinet) Medicine (1, Bag)
 $rooms[14]->addEntities( array(
     MapItem::create(0, 100, "5,2", "cabinet"), //Gold
@@ -222,7 +222,7 @@ $rooms[14]->addEntities( array(
 );
 
 
-$rooms[] = new Room(15, "Phobos", "You walk into most disastrous room on the planet and the monster is waiting for you in the corner. There is a medication in the room and few other rewards once you kill the monster.");
+$rooms[] = new Room(15, "Phobos", "You walk into a room torn apart by destruction. You wonder what could have caused it, until you see the monster waiting for you in the corner. There seems to be medication and other rewards for you, just beyond the monster. Better kill it first.");
 //Fire Giant (none, 200)
 //Medicine(1, Barrel), Laser Rifle (1, Hole) 
 //Puzzle 3(none, 200)
@@ -236,7 +236,7 @@ $rooms[15]->addEntities( array(
 );
 
 
-$rooms[] = new Room(16, "Deimos", "Human civilization was crucial to colonize on one of these moons as human population was growing, so this moon was filled with plenty of hidden medication under the sand dunes.");
+$rooms[] = new Room(16, "Deimos", "The human population on Earth was growing and the lack of space pushed humans to colonize here. This moon must be filled with plenty of hidden medication under the sand dunes.");
 //Defense Drone(none, 100)
 //Medicine(1, Barrel)
 $rooms[16]->addEntities( array(
@@ -253,7 +253,7 @@ $rooms[16]->addEntities( array(
 ~~~~~~~~~~~~~~~ Jupiter ~~~~~~~~~~~~~~~
 */
 
-$rooms[] = new Room(17, "Europa", "This is a big moon of Jupiter and has subsurface oceans. Human colonist set up civilizations in these subsurface oceans that also contain life native to the moon.");
+$rooms[] = new Room(17, "Europa", "This is one of Jupiter's biggest moons, and has subsurface oceans. Human colonists set up civilizations in these subsurface oceans that also contain life native to the moon.");
 // Kraken(Wings - 1, 0)
 $rooms[17]->addEntities( array(
     MapDoor::create(12, "5,2", "portal"), //Home Base
@@ -274,7 +274,7 @@ $rooms[18]->addEntities( array(
 );
 
 
-$rooms[] = new Room(19,"Io", "This moon has over 400 active volcanoes. Scientist attempted to set up geothermal power plants on the moon but the volcanoes were less dormant than the scientist expected leaving only remains behind.");
+$rooms[] = new Room(19,"Io", "This moon has over 400 active volcanoes. Scientists attempted to set up geothermal power plants on the moon but the volcanoes were less dormant than the scientist expected, and all that's left now are the remants of half-built power plants.");
 //Fire Giant (none, 200)
 $rooms[19]->addEntities( array(
    MapDoor::create(17, "4,3", "portal"), //Europa
@@ -288,7 +288,7 @@ $rooms[] = new Room(20,"Calisto", "Calisto is one of the oldest moons in the sol
 
 
 
-$rooms[] = new Room(21, "Amalthea", "This moon has an amazing view of Jupiter. Because of its great view a religious cult was set up on the moon to worship Jupiter's big red spot.");
+$rooms[] = new Room(21, "Amalthea", "This moon has an amazing view of Jupiter. Because of the stunning view, a religious cult was set up on the moon to worship Jupiter's big red spot.");
 //Minerals(1, Barrel)
 //Puzzle 0 (none, laser rifle -1)
 $rooms[21]->addEntities( array(
@@ -305,7 +305,7 @@ $rooms[21]->addEntities( array(
 ~~~~~~~~~~~~~~~ Saturn ~~~~~~~~~~~~~~~
 */
 
-$rooms[] = new Room(22, "Titan", "This large moon is a barren orange color due to its atmosphere.  The Surface of Titan is flat as it lacks huge craters and towering mountains. Tall dunes stretch across the surface far and wide. Abandoned settlements stretch across the surface.");
+$rooms[] = new Room(22, "Titan", "This large barren moon is a orange color because of its atmosphere. The surface of Titan is flat, as it lacks huge craters and towering mountains. Tall dunes stretch across the surface, far and wide. Abandoned settlements are scattered in the distance.");
 //Space Pirate(none, 100)
 //Medicine (1, Barrel), Elixir (1, Bag), Gold (100, Hole) 
 $rooms[22]->addEntities( array(
@@ -322,7 +322,7 @@ $rooms[22]->addEntities( array(
 );
 
 
-$rooms[] = new Room(23, "Enceladus", "Enceladus is a white-like color due to the surface being made up entirely of ice. Massive geysers frequently spew water from the moon's Subsurface Ocean into space. Abandoned mining operations surround the geysers to collect materials around the area.");
+$rooms[] = new Room(23, "Enceladus", "Enceladus is a light blue-ish white color due to the surface being made up entirely of ice. Massive geysers frequently spew water from the moon's subsurface oceans into space. Abandoned mining operations surround the geysers to collect materials around the area.");
 // Space Pirate (none, 100)
 //Minerals (1,hole), Gold (100,cabinet)
 $rooms[23]->addEntities( array(
@@ -336,7 +336,7 @@ $rooms[23]->addEntities( array(
 );
 
 
-$rooms[] = new Room(24, "Mimas", "Mimas is a small moon that was considered to insubstantial to establish a human colony, as a result, pirates who raid trade shipments established a base here now long abandoned.");
+$rooms[] = new Room(24, "Mimas", "Mimas is a small moon that was considered too insubstantial to establish a human colony. As a result, pirates who raided trade shipments established a base here, although it has now long been abandoned.");
 //Space Pirate Captain(Communication Network -1, none) 
 $rooms[24]->addEntities( array(
     MapDoor::create(25, "7,8", "portal"), //Pandora
@@ -346,7 +346,7 @@ $rooms[24]->addEntities( array(
 )); 
 
 
-$rooms[] = new Room(25, "Pandora", "Pandora is an extremely small heavily cratered, moon. In the future, it is used as a staging facility to facilitate travel between the human colonies. the remains of a star-port is still there.");
+$rooms[] = new Room(25, "Pandora", "Pandora is an extremely small, heavily cratered, moon. It was used as a staging facility to ease travel between human colonies. The remains of a star-port are still there.");
 //Space Pirate (Plasma Pistol -1, none)
 //Medicine (1, Storage Container), Gold (500, Hole)
 $rooms[25]->addEntities( array(
@@ -361,7 +361,7 @@ $rooms[25]->addEntities( array(
 
 
 
-$rooms[] = new Room(26, "Atlas", "Atlas is an extremely small disk-shaped moon that orbits closely around Saturn's rings. Future nations agreed to make this moon neutral to all governments and the moon became a hotbed for tourism to view Saturn’s incredible rings. Abandoned hotels and attractions sprawl across the surface of Atlas.");
+$rooms[] = new Room(26, "Atlas", "Atlas is an extremely small, disk-shaped moon that orbits closely around Saturn's rings. Surrounding nations agreed to make this moon neutral to all governments, and the moon became a hotbed for tourism to view Saturn’s incredible rings. Abandoned hotels and attractions sprawl across the surface of Atlas.");
 // Gold (200,Cabinet) 
 $rooms[26]->addEntities( array(
     MapItem::create(0, 200, "5,7", "cabinet"), //Gold
@@ -378,7 +378,7 @@ $rooms[26]->addEntities( array(
 */
 
 
-$rooms[] = new Room(27, "Umbriel", "Of all the moons of Uranus, Umbriel is the darkest, very little sunlight reaches the surface. Unwilling to found a colony on this moon, the humans created a large prison complex here");
+$rooms[] = new Room(27, "Umbriel", "Of all the moons of Uranus, Umbriel is the darkest, and very little sunlight reaches the surface. Unwilling to found a colony on this moon, the humans created a large prison complex here.");
 //Defense Drone (none, 100) 
 //Gold (100, Barrel), Elixir (1, Bag)
 $rooms[27]->addEntities( array(
@@ -393,7 +393,7 @@ $rooms[27]->addEntities( array(
 );
 
 
-$rooms[] = new Room(28, "Titania", "Known for its high winds, numerous craters and canyons, humans established underground colonies here to hunt for resources");
+$rooms[] = new Room(28, "Titania", "Known for its high winds, numerous craters, and canyons, humans established underground colonies here to hunt for resources.");
 //Defense Drone(none, 100)
 //Minerals (1, Hole)
 $rooms[28]->addEntities( array(
@@ -405,7 +405,7 @@ $rooms[28]->addEntities( array(
 );
 
 
-$rooms[] = new Room(29, "Ariel", "Ariel has vast wide-open plains that humans once used for farming. After this moon's abandonment. Agricultural villages remain scattered throughout the colony may prove useful.");
+$rooms[] = new Room(29, "Ariel", "Ariel has vast, wide-open plains that humans once used for farming. After this moon's abandonment, agricultural villages remain scattered throughout the colony. They may prove useful.");
 //Ruffian(Elixir -1, none)
 //Medicine (1, Bag) 
 //Puzzle 1(none, 100)
@@ -420,7 +420,7 @@ $rooms[29]->addEntities( array(
 );
 
 
-$rooms[] = new Room(30, "Oberon", "This large, heavily cratered moon has been set up as a research station by humans, now abandoned, the research station gives rise to many secrets...");
+$rooms[] = new Room(30, "Oberon", "This large, heavily cratered moon has been set up as a research station by humans. Now abandoned, the research station holds many secrets...");
 //Mad Scientist(Radar -1, none)
 //Elixir(1, Cabinet)
 //Minerals(1, Hole) 
@@ -439,7 +439,7 @@ $rooms[30]->addEntities( array(
 /**
 ~~~~~~~~~~~~~~~ Neptune ~~~~~~~~~~~~~~~
 */
-$rooms[] = new Room(31,"Triton", "Triton is an extremely large moon. Its surface is completely covered by a mostly frozen nitrogen water-ice crust. Since the moon is cold and barren humans avoided colonizing it.");
+$rooms[] = new Room(31,"Triton", "Triton is an extremely large moon. Its surface is completely covered by a mostly frozen nitrogen water-ice crust. Since the moon is cold and barren, humans avoided colonizing it.");
 //Fire Giant(Cockpit -1, 100)
 //Puzzle 9(none,100) 
 $rooms[31]->addEntities( array(
@@ -461,7 +461,7 @@ $rooms[32]->addEntities( array(
 );
 
 
-$rooms[] = new Room(33, "Neso", "Neso is a small non-spherical moon that is 48 million kilometers from Neptune. This moon was used as a religious cult who believed Neptunes big blue spot contained secrets to immortality.");
+$rooms[] = new Room(33, "Neso", "Neso is a small non-spherical moon that is 48-million kilometers from Neptune. This moon was used as a religious cult who believed Neptunes big blue spot contained secrets to immortality. Must've been the same cult that moved on to Jupiter...");
 //Ruffian(none, 100)
 //Medicine (1, Bag)
 $rooms[33]->addEntities( array(
@@ -472,7 +472,7 @@ $rooms[33]->addEntities( array(
 );
 
 
-$rooms[] = new Room(34, "Naiad", "This moon is the closest satellite to Neptune and was once a thriving trading colony that humans lived on, due to tidal stretching humans had to leave before the moon would be ripped apart.");
+$rooms[] = new Room(34, "Naiad", "This moon is the closest satellite to Neptune, and was once a thriving trading colony that humans lived on. At least until the tidal stretching that forced humans to leave before the moon ripped itself apart.");
 //Minerals (2, Bag)
 //Puzzle 2(Elixir-1, none)
 $rooms[34]->addEntities( array(
@@ -512,7 +512,7 @@ $rooms[36]->addEntities(array (
 ));
 
 
-$rooms[] = new Room(37, "Venus' Surface", "You arrive on Venus and see buildings nearby. It would be a good idea to check them out.");
+$rooms[] = new Room(37, "Venus' Surface", "You arrive on Venus and see buildings nearby. You better check them out.");
 $rooms[37]->addEntities(array(
     MapDoor::create(5, "3, 4", "building"), //Lake
     MapDoor::create(6, "4,3", "building"), //Ghost Town
