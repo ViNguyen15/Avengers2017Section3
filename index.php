@@ -158,12 +158,13 @@ player {
     display:block;
     padding:10px;
     margin:0 10px 0 0;
-    background: #444444
+    background: #444444;
+    height:310px;
 }
 inventory {
 
 }
-inventory item {
+inventory item, equipment item {
     float:left;
     margin-right:5px;
     height:48px;
@@ -171,17 +172,17 @@ inventory item {
     position:relative;
     background:#b4d0d3
 }
-inventory description {
+inventory description, equipment description {
     display: block;
     position: absolute;
     background: white;
     bottom:0px
 }
-inventory item img {
+inventory item img, equipment item img {
     height:40px;
     width:40px;
 }
-inventory item amount {
+inventory item amount, equipment item amount {
     position:absolute;
     bottom:0px;
     right:0px;
@@ -192,7 +193,7 @@ inventory item amount {
     background: rgba(0, 0, 0, 0.7);
     padding:2px
 }
-inventory item alt {
+inventory item alt, equipment item alt {
     visibility: hidden;
 }
 </style>
@@ -287,9 +288,20 @@ window.onload = function() {
         xmlhttp.open("GET", "function/Controller.php?func=displayRoom", true);
         xmlhttp.send();
     }
+    function RefreshEquipped(){
+        var xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                 document.getElementById("equipment").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET", "function/Controller.php?func=displayEquipped", true);
+        xmlhttp.send();
+    }
     function Refresh(){
         RefreshRoom();
         RefreshStats();
+        RefreshEquipped();
         RefreshInventory();
         RefreshPlayer();
     }
@@ -376,7 +388,9 @@ window.onload = function() {
         </info>
 
         <player>
+            <equipment id="equipment">
 
+            </equipment>
             <inventory id="inv">
 
             </inventory>
