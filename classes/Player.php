@@ -191,7 +191,12 @@ class Player {
 
     public function equipWeapon($id) {
         $this->unequipWeapon();
-        //$this->equippedWeapon = // get weapon from database or inventory
+        foreach($this->inventory as $item){
+            if ($item->id == $id){
+                $this->equippedWeapon = $item;
+            }
+        }
+            // get weapon from database or inventory
     }
 
     public function unequipWeapon() {
@@ -201,6 +206,11 @@ class Player {
 
     public function equipArmor($id) {
         $this->unequipArmor();
+        foreach($this->inventory as $item){
+            if ($item->id == $id){
+                $this->equippedArmor = $item;
+            }
+        }
         //$this->equippedArmor = // get armor from database or inventory;
     }
 
@@ -224,12 +234,16 @@ class Player {
 
     public function displayInventory() {
 
-        //echo "<inventory>Inventory:<br>";
+        echo "Inventory:<br>";
 
         foreach ($this->inventory as $item) {
             $command = "";
             if ($item->type == "health") {
                 $command = "Controller(\"useItem\",$item->id)";
+            } elseif ($item->type == "armor")  {
+                $command = "Controller(\"equipArmor\",$item->id)";
+            } elseif ($item->type == "weapon")  {
+                $command = "Controller(\"equipWeapon\",$item->id)";
             }
             if ($item->amount > 0 || $item->id == 0) {
                 //Remove any items that are at 0 value
@@ -242,6 +256,29 @@ class Player {
         }
 
         echo "<description id=\"desc\"></description>";
+    }
+
+    public function displayEquipped(){
+        $armor = $this->equippedArmor;
+        $weapon = $this->equippedWeapon;
+        if (($armor!=NULL)||($weapon!=NULL)){
+            echo "Equipped:<br>";
+        }
+        if ($armor!=NULL){
+            echo "<item onclick='Controller(\"unequipArmor\",$armor->id)' onmouseover='displayDescription(this)' onmouseout='removeDescription(this)'> 
+				<img src='./images/items/$armor->id.png'>
+				<alt><b><u>$armor->name</u></b> <br> $armor->description</alt>
+				</item>";
+        }
+        if ($weapon!=NULL){
+            echo "<item onclick='Controller(\"unequipWeapon\",$weapon->id)' onmouseover='displayDescription(this)' onmouseout='removeDescription(this)'> 
+				<img src='./images/items/$weapon->id.png'>
+				<alt><b><u>$weapon->name</u></b> <br> $weapon->description</alt>
+				</item>";
+        }
+        if (($armor!=NULL)||($weapon!=NULL)){
+            echo "<br><br><br>";
+        }
     }
 
     public function displayRoom() {
