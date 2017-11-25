@@ -21,21 +21,21 @@ $itemList[] = Item::createItem(2,"Elixir","Very advanced medicine capable of hea
 $itemList[] = Item::createItem(3,"Mineral","Resource found mainly on mining colonies. Used to make materials.","raw",500,250);
 $itemList[] = Item::createItem(4,"Rare Mineral","Rare resource found mainly on mining colonies. Used to make higher end materials.","raw",1000,500);
 
-$weaponList = array();
+// WEAPONS
 
-//$weaponList[] = Weapon::createWeapon($id, $name, $description, $type, $buyValue, $sellValue, $power, $upgradeValue);
-$weaponList[] = Weapon::createWeapon(5, "Plasma Knife", "Very common self-defense weap-on popular among colonists.", "weapon", 50, 25, 1, 1);
-$weaponList[] = Weapon::createWeapon(6, "Plasma Sword", "Old weapon mainly found in museums around the colony, no longer common place but more powerful than the knife.", "weapon", 400, 200, 3, 2);
-$weaponList[] = Weapon::createWeapon(7, "Plasma Pistol", "Inexpensive gun used by colony law enforcement to protect from space pirates. Easy to find in shops.", "weapon", 700, 350, 5, 3);
-$weaponList[] = Weapon::createWeapon(8, "Laser Rifle", "Military grade weaponry used by colony militia’s. Expensive.", "weapon", 1200, 600, 7, 3);
-$weaponList[] = Weapon::createWeapon(9, "Rocket Launcher", "Very powerful weapon only used by highly trained soldiers. The limited availability of this weapon makes it expensive in shops.", "weapon", 2200, 1100, 9, 4);
+//$itemList[] = Weapon::createWeapon($id, $name, $description, $type, $accuracy, $sellValue, $power, $upgradeValue);
+$itemList[] = Weapon::createWeapon(5, "Plasma Knife", "Very common self-defense weap-on popular among colonists.", "weapon", 50, 25, 1, 1);
+$itemList[] = Weapon::createWeapon(6, "Plasma Sword", "Old weapon mainly found in museums around the colony, no longer common place but more powerful than the knife.", "weapon", 400, 200, 3, 2);
+$itemList[] = Weapon::createWeapon(7, "Plasma Pistol", "Inexpensive gun used by colony law enforcement to protect from space pirates. Easy to find in shops.", "weapon", 700, 350, 5, 3);
+$itemList[] = Weapon::createWeapon(8, "Laser Rifle", "Military grade weaponry used by colony militia’s. Expensive.", "weapon", 1200, 600, 7, 3);
+$itemList[] = Weapon::createWeapon(9, "Rocket Launcher", "Very powerful weapon only used by highly trained soldiers. The limited availability of this weapon makes it expensive in shops.", "weapon", 2200, 1100, 9, 4);
 
-$armorList = array();
+//ARMOR
 
-//$armorList[] = Armor::createArmor( $id, $name, $description, $type, $buyValue, $sellValue, $defence);
-$armorList[] = Armor::createArmor( 10, "Pilot suit", "Standard leather clothing all pilots use. It’s not very protective", "armor", 100, 50, 1);
-$armorList[] = Armor::createArmor( 11, "Law Enforcement Gear", "Protective gear worn by colony law enforcement, it offers decent protection", "armor", 1400, 700, 3);
-$armorList[] = Armor::createArmor( 12, "Military gear", "Protective gear worn by colony law military officers, it offers good protection", "armor", 2200, 1100, 5);
+//$itemList[] = Armor::createArmor( $id, $name, $description, $type, $buyValue, $sellValue, $defence);
+$itemList[] = Armor::createArmor( 10, "Pilot suit", "Standard leather clothing all pilots use. It’s not very protective", "armor", 100, 50, 1);
+$itemList[] = Armor::createArmor( 11, "Law Enforcement Gear", "Protective gear worn by colony law enforcement, it offers decent protection", "armor", 1400, 700, 3);
+$itemList[] = Armor::createArmor( 12, "Military gear", "Protective gear worn by colony law military officers, it offers good protection", "armor", 2200, 1100, 5);
 
 $itemList[] = Item::createItem(13, "Radar", "A piece of the ship that allows us to detect objects in space.", "part", 1, 1);
 $itemList[] = Item::createItem(14, "Cockpit", "A piece of the ship that allows us to pilot the ship.", "part", 1, 1);
@@ -52,9 +52,10 @@ $itemList[] = Item::createItem(18, "Defense Turret", "We need this to protect th
     *Used in the create_user function.
 
 */
-$allitems = array_merge( $itemList , $weaponList , $armorList );
+//$allitems = array_merge( $itemList , $weaponList , $itemList );
 
-$default_inv = $allitems;
+//$default_inv = $allitems;
+$default_inv = $itemList;
 $default_inv[0]->changeAmt(50);
 
 
