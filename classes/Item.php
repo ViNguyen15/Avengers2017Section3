@@ -107,12 +107,12 @@ class MapItem extends Item implements display{
 
 class Weapon extends Item {
 
-    private $power; // int damage of weapon
-    private $level; // int upgrade level. starts at 0, +1 for each upgrade
-    private $upgradeValue; // int amount that weapon increases by for every upgrade
-    private $upgradeCost; // int cost of minerals that it takes to upgrade weapon. increases by 1 for every upgrade 
+    public $power; // int damage of weapon
+    public $level; // int upgrade level. starts at 0, +1 for each upgrade
+    public $accuracy; // int amount that weapon increases by for every upgrade
+    public $upgradeCost;
 
-    public static function createWeapon( $id, $name, $description, $type, $buyValue, $sellValue, $power, $upgradeValue) {
+    public static function createWeapon( $id, $name, $description, $type, $buyValue, $sellValue, $power, $accuracy) {
         $instance = new self();
         $instance->id=$id;
         $instance->name=$name;
@@ -122,40 +122,24 @@ class Weapon extends Item {
         $instance->buyValue=$buyValue;
         $instance->sellValue=$sellValue;
         $instance->power = $power;
-        $instance->upgradeValue = $upgradeValue;
+        $instance->accuracy = $accuracy;
         $instance->level=0;
         $instance->upgradeCost = 1;
         return $instance;
     }
 
     public function upgradeWeapon(){
-        $this->power += $upgradeValue;
+        $this->power += $accuracy;
         $this->level += 1;
         $this->upgradeCost += 1;
         // need logic somewhere for reduce minerals in player inventory
-    }
-
-    public function getPower(){
-        return $this->power;
-    }
-
-    public function getLevel(){
-        return $this->level;
-    }
-
-    public function getUpgradeValue(){
-        return $this->upgradeValue;
-    }
-
-    public function getUpgradeCost(){
-        return $this->upgradeCost;
     }
 
 }
 
 class Armor extends Item{
 
-    private $defence; // int defensive points of armor
+    public $defence; // int defensive points of armor
 
     public static function createArmor( $id, $name, $description, $type, $buyValue, $sellValue, $defence) {
         $instance = new self();
@@ -167,10 +151,6 @@ class Armor extends Item{
         $instance->buyValue=$buyValue;
         $instance->sellValue=$sellValue;
         return $instance;
-}
-
-    public function getArmor(){
-        return $this->defence;
     }
 }
 ?>
