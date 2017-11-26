@@ -48,7 +48,7 @@ $rooms[1]->addEntities( array(
     MapItem::create(1,1,"2,4","cabinet"), //Medicine
     MapDoor::create(36, "3,7", "building"), //Mercury's Surface 
     MapMonster::create(0, "10,14", "0"), //Space Pirate
-    MapPuzzle::create(68, "9,5", "puzzle") //Puzzle 8
+    MapPuzzle::create(68, "11,7", "puzzle") //Puzzle 8
 
     ));
 
@@ -180,7 +180,7 @@ $rooms[] = new Room(12, "Home Base",  "Upon exiting the portal, you enter a base
 //Nothing here except Shop portal
 $rooms[12]->addEntities( array(
     MapDoor::create(11,"2,5","portal_planet"), //Portal Room
-    MapDoor::create(50, "7,5", "shop"), //Shop portal 
+    MapDoor::create(50, "2,8", "shop"), //Shop portal 
     MapDoor::create(17, "5,2", "portal_planet"), //Europa
     MapDoor::create(22, "4,9", "portal_planet"), //Titan
     MapDoor::create(36, "2,9", "portal_planet"), //Mercury
