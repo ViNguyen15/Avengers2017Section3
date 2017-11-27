@@ -62,19 +62,6 @@ class Battle implements display{
         
         </options>";
 
-        // check for health
-            //check if enemy dead
-                //if dead remove enemy from map
-
-        // get attacked code
-            //apply defense
-
-        //check for player health
-            //check for death
-            //go back to home
-
-        //run away code
-
 		echo "</battle>";        
     }
 

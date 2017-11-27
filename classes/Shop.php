@@ -29,7 +29,7 @@ class Shop {
         echo "<shop style='background-image:url(\"images/rooms/$this->id.png\")'>";
         echo "<sell>Sell<br>";
             foreach ($inventory as $item){
-                if ($item->type != "parts" && $item->amount > 0 && $item->id != 0){
+                if ($item->type != "part" && $item->amount > 0 && $item->id != 0){
                     echo "<shopitem onclick='Controller(\"sellItem\",$item->id)'><img src='images/items/$item->id.png' /><price>$item->sellValue coins</price></shopitem>";
                 }
             }

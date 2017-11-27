@@ -479,7 +479,7 @@ $rooms[34]->addEntities( array(
     MapItem::create(3, 2, "8,9", "bag"), //Minerals
     MapDoor::create(32, "3,9", "portal"), //Nereid
     MapDoor::create(35, "10,13", "portal"), //Thalassa
-    MapPuzzle::create(62, "6,5", "2") //Puzzle 2 
+    MapPuzzle::create(62, "6,5", "puzzle") //Puzzle 2 
 )
 );
 
