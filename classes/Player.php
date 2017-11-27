@@ -21,7 +21,9 @@ class Player {
     public $game;
     public $healthMax;
     public $healthPoints;
-    public $strength;
+    public $strength = 2;
+    public $accuracy = 50;
+    public $defense = 1;
     public $equippedWeapon; // Weapon 
     public $equippedArmor; // Armor
     public $roomsvisited = array();
@@ -61,7 +63,7 @@ class Player {
                         $this->enterDoor($entity->id);
                         break;
                     case "monster":
-                        $this->fightMonster($entity->id);
+                        $this->startFight($entity->id);
                         break;
                     case "puzzle":
                         $this->startPuzzle($entity->id);
@@ -139,7 +141,22 @@ class Player {
     }
 
     public function startFight($monsterid){
+        $this->prev_location = $this->location;
+        $this->location = end($this->game);
+        $this->location->setMonster("$monsterid");
+    }
 
+    public function attack(){
+        $this->takeDamage($this->location->attack($this->strength, $this->accuracy, $this->defense));
+        if ($this->location->check() == 1){
+            foreach ($this->prev_location->entities as $index=>$entity){
+                if ($entity->type == "monster"){
+                    $this->rewardItem($entity->itemid,$entity->amt);
+                    unset($this->prev_location->entities[$index]);
+                    $this->location = $this->prev_location;
+                }
+            }
+        }
     }
     public function startPuzzle($puzzleid){
         $this->prev_location = $this->location;
@@ -178,6 +195,10 @@ class Player {
     public function takeDamage($amount) {
         if ($this->healthPoints - $amount <= 0) {
             $this->healthPoints = 0;
+            $this->location = $this->game[9];
+            $this->x = 1;
+            $this->y = 1;
+            $this->healthPoints = 50;
             // We need to do something when the player dies
         } else {
             $this->healthPoints -= $amount;
@@ -194,6 +215,8 @@ class Player {
         foreach($this->inventory as $item){
             if ($item->id == $id){
                 $this->equippedWeapon = $item;
+                $this->strength += $item->power;
+                $this->accuracy = $item->accuracy;
             }
         }
             // get weapon from database or inventory
@@ -201,6 +224,8 @@ class Player {
 
     public function unequipWeapon() {
         // should still be in inventory
+        $this->strength = 2;
+        $this->accuracy = 50;
         $this->equippedWeapon = NULL;
     }
 
@@ -209,14 +234,39 @@ class Player {
         foreach($this->inventory as $item){
             if ($item->id == $id){
                 $this->equippedArmor = $item;
+                $this->defense += $item->defence;
             }
         }
         //$this->equippedArmor = // get armor from database or inventory;
     }
 
     public function unequipArmor() {
+        $this->defense = 1;
         // stays in inventory
         $this->equippedArmor = NULL;
+    }
+
+    public function displayParts() {
+        echo "Ship Parts<br>";
+        $count = 0;
+        foreach ($this->inventory as $item){
+            if ($item->type == "part"){
+                $color = "red";
+                if ($item->amount > 0) {
+                    $color = "green";
+                    $count ++;
+                }
+                echo "<item style='background-color:$color'> 
+				<img src='./images/items/$item->id.png'>
+				<alt><b><u>$item->name</u></b> <br> You're still missing this part.</alt>
+				</item>";
+            }
+            
+        }
+        echo "<br style='clear:both'>";
+        if ($count == 6) {
+            $this->location = $this->game[0];
+        }
     }
 
     public function displayPlayerInfo() {
@@ -227,8 +277,9 @@ class Player {
     public function displayStats() {
         echo "
 			  Health Points:$this->healthPoints/$this->healthMax<br>
-			  Strength:<br>
-              Defense:<br>
+			  Strength:$this->strength<br>
+              Accuracy:$this->accuracy%<br>
+              Defense:$this->defense<br>
 			  ";
     }
 
@@ -244,6 +295,8 @@ class Player {
                 $command = "Controller(\"equipArmor\",$item->id)";
             } elseif ($item->type == "weapon")  {
                 $command = "Controller(\"equipWeapon\",$item->id)";
+            } elseif ($item->type == "part")  {
+                $command = "Controller(\"addPart\",$item->id)";
             }
             if ($item->amount > 0 || $item->id == 0) {
                 //Remove any items that are at 0 value

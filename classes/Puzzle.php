@@ -25,9 +25,8 @@ class Puzzle{
 
 		if ($this->completed == 0){
 			echo "<p>".$this->question.
-			"
-			<input id='answer' type='textbox' /> <submit onclick='tryAnswer()' onclick='tryAnswer()'>submit</submit>
-			</p>";
+			"<input id='answer' type='textbox' /> <submit onclick='tryAnswer()' onclick='tryAnswer()'>submit</submit>";
+			echo "<submit onclick='Controller(\"goBack\",1)'>Go back!</submit> </p>";
 			echo "<gethint onmouseover='displayHint()' onmouseout='hideHint()'>Hint</gethint>";
 			echo "<hint id='hint' style='visibility:hidden'>$this->hint</hint>";
 		} else {

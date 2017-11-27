@@ -46,6 +46,7 @@ left {
     width:490px
 }
 right {
+    color:white;
     float:right;
     height:100%;
     width:340px;
@@ -61,11 +62,64 @@ game {
     position:relative
 }
 
-room, shop, puzzle {
+room, shop, puzzle, battle {
     display: block;
     width:480px;
     height:480px;
     position:relative
+}
+battle enemy {
+    position:absolute;
+    top:25px;
+    right:30px
+}
+battle player {
+    position:absolute;
+    bottom:100px;
+    left:50px
+}
+battle options {
+    position:absolute;
+    bottom:0px;
+    left:0px;
+    width:100%;
+    height:150px
+}
+battle submit {
+    display:block;
+    cursor:pointer;
+    padding:15px;
+    border-radius:5px;
+    border:2px #dfe1da;
+    background-color: #dfe1da;
+    float:left;
+    margin:5px
+}
+battle submit:hover {
+    background-color:#c8c8b0
+}
+bar {
+    display:block;
+    width:200px;
+    height:20px;
+    background-color:red;
+    position:relative;
+}
+bar hp {
+    display:block;
+    position:absolute;
+    background-color:green;
+    top:0px;
+    right:0px;
+    height:100%;
+}
+bar text {
+    display:block;
+    position:absolute;
+    width:100%;
+    height:100%;
+    left:0;
+    text-align:center;
 }
 puzzle p {
     color:white;
@@ -134,6 +188,9 @@ user img {
     position:absolute;
 	bottom:0px;
 }
+user:hover {
+    visibility:hidden
+}
 room description {
     color:white;
     background: rgb(0, 0, 0); /* fallback color */
@@ -142,9 +199,7 @@ room description {
 
 log {
     display:block;
-    margin:0 10px 10px 10px;
     height: 210px;
-    overflow-y:scroll;
     background-color:grey
 }
 
@@ -164,7 +219,13 @@ player {
 inventory {
 
 }
-inventory item, equipment item {
+ship item {
+    float:left;
+    height:42px;
+    width:42px;
+    position:relative;
+}
+inventory item, equipment item{
     float:left;
     margin-right:5px;
     height:48px;
@@ -172,13 +233,13 @@ inventory item, equipment item {
     position:relative;
     background:#b4d0d3
 }
-inventory description, equipment description {
+inventory description, equipment description, ship description {
     display: block;
     position: absolute;
     background: white;
     bottom:0px
 }
-inventory item img, equipment item img {
+inventory item img, equipment item img, ship item img {
     height:40px;
     width:40px;
 }
@@ -193,8 +254,14 @@ inventory item amount, equipment item amount {
     background: rgba(0, 0, 0, 0.7);
     padding:2px
 }
-inventory item alt, equipment item alt {
+inventory item alt, equipment item alt, ship item alt {
     visibility: hidden;
+}
+#desc {
+    color:black;
+    border-radius:5px;
+    padding:5px;
+    background-color:#b4d0d3
 }
 </style>
 
@@ -268,6 +335,16 @@ window.onload = function() {
         xmlhttp.open("GET", "function/Controller.php?func=displayStats", true);
         xmlhttp.send();
     }
+    function RefreshParts(){
+        var xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                 document.getElementById("ship").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET", "function/Controller.php?func=displayParts", true);
+        xmlhttp.send();
+    }
     function RefreshInventory(){
         var xmlhttp = new XMLHttpRequest();
 		xmlhttp.onreadystatechange = function() {
@@ -300,6 +377,7 @@ window.onload = function() {
     }
     function Refresh(){
         RefreshRoom();
+        RefreshParts();
         RefreshStats();
         RefreshEquipped();
         RefreshInventory();
@@ -380,14 +458,17 @@ window.onload = function() {
             
             <img src="images/directions.png" width=146px alt="" usemap="#Map" />
             <map name="Map" id="Map">
-                <area alt="" title="" href="#" shape="poly" coords="50,1,50,39,73,62,98,42,97,1" />
-                <area alt="" title="" href="#" shape="poly" coords="84,72,107,96,146,96,145,48,105,48" />
-                <area alt="" title="" href="#" shape="poly" coords="73,83,98,104,98,145,49,145,49,104" />
-                <area alt="" title="" href="#" shape="poly" coords="63,72,40,48,0,48,1,97,42,98" />
+                <area alt="" title="" onclick="go(1)" shape="poly" coords="50,1,50,39,73,62,98,42,97,1" />
+                <area alt="" title="" onclick="go(2)" shape="poly" coords="84,72,107,96,146,96,145,48,105,48" />
+                <area alt="" title="" onclick="go(3)" shape="poly" coords="73,83,98,104,98,145,49,145,49,104" />
+                <area alt="" title="" onclick="go(4)" shape="poly" coords="63,72,40,48,0,48,1,97,42,98" />
             </map>
         </info>
 
         <player>
+            <ship id="ship">
+
+            </ship>
             <equipment id="equipment">
 
             </equipment>

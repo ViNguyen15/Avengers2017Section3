@@ -23,12 +23,12 @@ $itemList[] = Item::createItem(4,"Rare Mineral","Rare resource found mainly on m
 
 // WEAPONS
 
-//$itemList[] = Weapon::createWeapon($id, $name, $description, $type, $accuracy, $sellValue, $power, $upgradeValue);
-$itemList[] = Weapon::createWeapon(5, "Plasma Knife", "Very common self-defense weap-on popular among colonists.", "weapon", 50, 25, 1, 1);
-$itemList[] = Weapon::createWeapon(6, "Plasma Sword", "Old weapon mainly found in museums around the colony, no longer common place but more powerful than the knife.", "weapon", 400, 200, 3, 2);
-$itemList[] = Weapon::createWeapon(7, "Plasma Pistol", "Inexpensive gun used by colony law enforcement to protect from space pirates. Easy to find in shops.", "weapon", 700, 350, 5, 3);
-$itemList[] = Weapon::createWeapon(8, "Laser Rifle", "Military grade weaponry used by colony militia’s. Expensive.", "weapon", 1200, 600, 7, 3);
-$itemList[] = Weapon::createWeapon(9, "Rocket Launcher", "Very powerful weapon only used by highly trained soldiers. The limited availability of this weapon makes it expensive in shops.", "weapon", 2200, 1100, 9, 4);
+//$itemList[] = Weapon::createWeapon($id, $name, $description, $type, $buyValue $sellValue, $power, $accuracy);
+$itemList[] = Weapon::createWeapon(5, "Plasma Knife", "Very common self-defense weap-on popular among colonists.", "weapon", 50, 25, 1, 70);
+$itemList[] = Weapon::createWeapon(6, "Plasma Sword", "Old weapon mainly found in museums around the colony, no longer common place but more powerful than the knife.", "weapon", 400, 200, 3, 50);
+$itemList[] = Weapon::createWeapon(7, "Plasma Pistol", "Inexpensive gun used by colony law enforcement to protect from space pirates. Easy to find in shops.", "weapon", 700, 350, 7, 40);
+$itemList[] = Weapon::createWeapon(8, "Laser Rifle", "Military grade weaponry used by colony militia’s. Expensive.", "weapon", 1200, 600, 4, 90);
+$itemList[] = Weapon::createWeapon(9, "Rocket Launcher", "Very powerful weapon only used by highly trained soldiers. The limited availability of this weapon makes it expensive in shops.", "weapon", 2200, 1100, 20, 20);
 
 //ARMOR
 
@@ -36,6 +36,8 @@ $itemList[] = Weapon::createWeapon(9, "Rocket Launcher", "Very powerful weapon o
 $itemList[] = Armor::createArmor( 10, "Pilot suit", "Standard leather clothing all pilots use. It’s not very protective", "armor", 100, 50, 1);
 $itemList[] = Armor::createArmor( 11, "Law Enforcement Gear", "Protective gear worn by colony law enforcement, it offers decent protection", "armor", 1400, 700, 3);
 $itemList[] = Armor::createArmor( 12, "Military gear", "Protective gear worn by colony law military officers, it offers good protection", "armor", 2200, 1100, 5);
+
+// SHIP PARTS
 
 $itemList[] = Item::createItem(13, "Radar", "A piece of the ship that allows us to detect objects in space.", "part", 1, 1);
 $itemList[] = Item::createItem(14, "Cockpit", "A piece of the ship that allows us to pilot the ship.", "part", 1, 1);

@@ -150,6 +150,7 @@ class Armor extends Item{
         $instance->amount=0;
         $instance->buyValue=$buyValue;
         $instance->sellValue=$sellValue;
+        $instance->defence=$defence;
         return $instance;
     }
 }
