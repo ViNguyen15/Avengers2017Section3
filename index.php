@@ -263,6 +263,52 @@ inventory item alt, equipment item alt, ship item alt {
     padding:5px;
     background-color:#b4d0d3
 }
+
+shopitem {
+    float:left;
+    display:block;
+    overflow:hidden;
+    background-color:#b4d0d3;
+    margin:5px;
+    width: 70px;
+    height:90px;
+}
+shopitem:hover{
+    background-color:#6f989c
+}
+shopitem img {
+    clear:both;
+    width:60px;
+    height:60px;
+    text-align: center
+}
+sell {
+float:left;
+width:50%;
+margin:0px;
+padding:0px;
+}
+buy {
+float:right;
+width:50%;
+margin:0px;
+padding:0px;
+}
+form {
+    display:block;
+    width: 100px;
+    height:50px;
+
+    margin-right:20px;
+    float:left
+}
+form input {
+    display:block;
+    width:100%;
+    height:100%;
+    background-color:#b4d0d3;
+    border-radius:10px;
+}
 </style>
 
 <script type="text/javascript">
@@ -480,9 +526,10 @@ window.onload = function() {
 
 
 </content>
+<div style="margin-left:50%">
             <form action="function/logout.php" method="post"><input type="submit" value="Logout"></form>
             <form action="function/save.php" method="post"><input type="submit" value="Save Game"></form>
-
+</div>
 </body>
 
 </html>

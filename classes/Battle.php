@@ -8,8 +8,8 @@
     Helpful Information:
     *Shops are placed into
 */
-class Battle {
-
+class Battle implements display{
+    public $id;
     public $monsters;
 
     // ~~~~~~~~~~~~~~~ Properties ~~~~~~~~~~~~~~~
@@ -19,6 +19,7 @@ class Battle {
     // ~~~~~~~~~~~~~~~ Constructor ~~~~~~~~~~~~~~~
     // To create a new room you must identify these three variables.
     public function __construct($monsters) {
+        $this->id = 100;
         $this->monsters = $monsters;
     }
     public function setMonster($id){

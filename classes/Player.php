@@ -336,7 +336,12 @@ class Player {
 
     public function displayRoom() {
         $loc = $this->location;
-        $loc->display($this->roomsvisited);
+        if ($loc->name=="Shop"){
+            $loc->display($this->inventory);
+        } else {
+            $loc->display($this->roomsvisited);
+        }
+        
     }
 
 }
