@@ -142,7 +142,7 @@ $rooms[] = new Room(9, "Crash Site", "You wake up in a forest, dazed but uninjur
 //Gold (100, Storage Container)
 $rooms[9]->addEntities( array(
     MapItem::create(1,2,"2,3","rock"), //Medicine
-    MapItem::create(0,1000,"4,2","rock"), //Gold
+    MapItem::create(0,100,"4,2","rock"), //Gold
     MapItem::create(3,1,"10,11","rock"), //Mineral
     MapDoor::create(10,"8,6","lab"),  //Lab entrance
     MapMonster::create(6, "9,8", "6", "2", "1") //Worn Out Robot
