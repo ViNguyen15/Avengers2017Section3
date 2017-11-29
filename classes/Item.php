@@ -48,6 +48,14 @@ class Item{
         //Logic for increasing (or decreasing) the amount of an item.
     }
 
+    public function display($command){
+        echo "<item onclick='$command' onmouseover='displayDescription(this)' onmouseout='removeDescription(this)'> 
+		<img src='./images/items/$this->id.png'>
+		<alt><b><u>$this->name</u></b> <br> $this->description</alt>
+		<amount>x$this->amount</amount>
+		</item>";
+    }
+
 }
 
 
@@ -134,6 +142,13 @@ class Weapon extends Item {
         $this->upgradeCost += 1;
         // need logic somewhere for reduce minerals in player inventory
     }
+    public function display($command){
+        echo "<item onclick='$command' onmouseover='displayDescription(this)' onmouseout='removeDescription(this)'> 
+		<img src='./images/items/$this->id.png'>
+		<alt><b><u>$this->name</u></b> <br> $this->description<br> <stat>Power:$this->power<br>Accuracy:$this->accuracy</stat></alt>
+		<amount>x$this->amount</amount>
+		</item>";
+    }
 
 }
 
@@ -152,6 +167,13 @@ class Armor extends Item{
         $instance->sellValue=$sellValue;
         $instance->defence=$defence;
         return $instance;
+    }
+    public function display($command){
+        echo "<item onclick='$command' onmouseover='displayDescription(this)' onmouseout='removeDescription(this)'> 
+		<img src='./images/items/$this->id.png'>
+		<alt><b><u>$this->name</u></b> <br> $this->description<br> <stat>Defence:$this->defence</stat></alt>
+		<amount>x$this->amount</amount>
+		</item>";
     }
 }
 ?>

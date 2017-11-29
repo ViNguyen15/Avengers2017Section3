@@ -228,6 +228,7 @@ ship item {
 inventory item, equipment item{
     float:left;
     margin-right:5px;
+    margin-bottom:5px;
     height:48px;
     width:48px;
     position:relative;
@@ -237,7 +238,9 @@ inventory description, equipment description, ship description {
     display: block;
     position: absolute;
     background: white;
-    bottom:0px
+    width:250px;
+    bottom:20px;
+    right:355px
 }
 inventory item img, equipment item img, ship item img {
     height:40px;
@@ -256,14 +259,11 @@ inventory item amount, equipment item amount {
 }
 inventory item alt, equipment item alt, ship item alt {
     visibility: hidden;
+    width:0px;
+    height:0px;
+    overflow:hidden;
+    display:block
 }
-#desc {
-    color:black;
-    border-radius:5px;
-    padding:5px;
-    background-color:#b4d0d3
-}
-
 shopitem {
     float:left;
     display:block;
@@ -283,16 +283,16 @@ shopitem img {
     text-align: center
 }
 sell {
-float:left;
-width:50%;
-margin:0px;
-padding:0px;
+    float:left;
+    width:50%;
+    margin:0px;
+    padding:0px;
 }
 buy {
-float:right;
-width:50%;
-margin:0px;
-padding:0px;
+    float:right;
+    width:50%;
+    margin:0px;
+    padding:0px;
 }
 form {
     display:block;
@@ -308,6 +308,18 @@ form input {
     height:100%;
     background-color:#b4d0d3;
     border-radius:10px;
+}
+stat {
+    color:white;
+    display:block;
+    background-color:#778899;
+    padding:3px
+}
+#desc {
+    color:black;
+    border-radius:5px;
+    padding:5px;
+    background-color:#b4d0d3;
 }
 </style>
 

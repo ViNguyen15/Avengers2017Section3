@@ -300,11 +300,7 @@ class Player {
             }
             if ($item->amount > 0 || $item->id == 0) {
                 //Remove any items that are at 0 value
-                echo "<item onclick='$command' onmouseover='displayDescription(this)' onmouseout='removeDescription(this)'> 
-				<img src='./images/items/$item->id.png'>
-				<alt><b><u>$item->name</u></b> <br> $item->description</alt>
-				<amount>x$item->amount</amount>
-				</item>";
+                $item->display($command);
             }
         }
 
