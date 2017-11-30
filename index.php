@@ -566,6 +566,7 @@ window.onload = function() {
 <div style="margin-left:50%">
             <form action="function/logout.php" method="post"><input type="submit" value="Logout"></form>
             <form action="function/save.php" method="post"><input type="submit" value="Save Game"></form>
+            <form action="help.html" target="_blank"><input type="submit" value="Help"></form>
 </div>
 <audio class="music" id="music" loop  src="audio/Room.mp3" autoplay>
 </audio>
