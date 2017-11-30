@@ -332,8 +332,7 @@ stat {
 window.onload = function() {
         Refresh();
     }
-	function go(val){
-        
+	function go(val){    
         switch(val) {
             case 1:
                 direction = "move_y";
@@ -377,6 +376,25 @@ window.onload = function() {
     function tryAnswer(){
         var answer = document.getElementById("answer").value;
         Controller("tryAnswer",answer)
+    }
+    function PickMusic(music){
+        var source = document.getElementById('music');
+
+        var xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                var resp = "audio/"+this.responseText+".mp3";
+                var respp = "http://localhost/Avengers2017Section3/"+resp+"";
+                if (respp != source.src){
+                    source.src = respp;
+                }
+                
+            }
+        };
+        xmlhttp.open("GET", "function/Controller.php?func=pickMusic&id="+music, true);
+        xmlhttp.send();
+
+
     }
     function RefreshPlayer(){
         var xmlhttp = new XMLHttpRequest();
@@ -439,6 +457,8 @@ window.onload = function() {
         xmlhttp.send();
     }
     function Refresh(){
+        var source = document.getElementById('music');
+        PickMusic(source.src);
         RefreshRoom();
         RefreshParts();
         RefreshStats();
@@ -547,6 +567,8 @@ window.onload = function() {
             <form action="function/logout.php" method="post"><input type="submit" value="Logout"></form>
             <form action="function/save.php" method="post"><input type="submit" value="Save Game"></form>
 </div>
+<audio class="music" id="music" loop  src="audio/Room.mp3" autoplay>
+</audio>
 </body>
 
 </html>

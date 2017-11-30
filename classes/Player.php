@@ -33,7 +33,22 @@ class Player {
         $this->healthMax = 100;
         $this->healthPoints = 100;
     }
+    public function pickMusic($music){
+        $curr = strtolower("audio/".get_class($this->location).".mp3");
+        //audio/Battle.mp3
+        if ($curr!=$music){
+            if (get_class($this->location)=="Battle"){
+                echo "Battle";
+            } elseif (get_class($this->location)=="Room") {
+                echo "Room";
+            } elseif (get_class($this->location)=="Shop") {
+                echo "Shop";
+            }  elseif (get_class($this->location)=="Puzzle") {
+                echo "Puzzle";
+            }
+        }
 
+    }
     //Movement code
     public function move_y($val) {
         if ($this->location->id < 50) {
