@@ -50,7 +50,9 @@ class Battle implements display{
         $hp = ($this->monsterhealth / $m->healthPoints) * 100;
         echo "<enemy><img width='140px' height='140px' src='images/monsters/$m->id' /><br>
         <bar><hp style='width:$hp%'></hp><text>$this->monsterhealth / $m->healthPoints</text></bar>
-        </enemy>";
+        <center>$m->name</center></enemy>";
+
+        echo "<player><img width=110px height=124px src='images/head.png' /></player>";
         // attack code
             // accuracy
             // power

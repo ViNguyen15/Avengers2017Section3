@@ -26,6 +26,11 @@ if ($_SESSION['loggedin']!=true){
 
 body {
     background: url('images/tiles/space.jpg');
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
 }
 top {
     color: white;
@@ -75,8 +80,8 @@ battle enemy {
 }
 battle player {
     position:absolute;
-    bottom:100px;
-    left:50px
+    bottom:153px;
+    left:80px
 }
 battle options {
     position:absolute;
@@ -209,7 +214,7 @@ info {
     height:355px;
     padding:10px;
 }
-player {
+right player {
     display:block;
     padding:10px;
     margin:0 10px 0 0;
