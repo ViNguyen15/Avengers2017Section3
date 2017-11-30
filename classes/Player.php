@@ -290,8 +290,13 @@ class Player {
     }
 
     public function displayStats() {
+
+        $hp = ($this->healthPoints / $this->healthMax) * 100;
+       
+
         echo "
-			  Health Points:$this->healthPoints/$this->healthMax<br>
+			  Health Points:
+              <bar><hp style='width:$hp%'></hp><text>$this->healthPoints / $this->healthMax</text></bar>
 			  Strength:$this->strength<br>
               Accuracy:$this->accuracy%<br>
               Defense:$this->defense<br>
