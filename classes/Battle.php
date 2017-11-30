@@ -64,7 +64,10 @@ class Battle implements display{
         
         </options>";
 
-		echo "</battle>";        
+		echo "</battle>";
+
+        echo "<h3>Battle!</h3>";
+        echo "$m->description<br><br>";        
     }
 
 }
